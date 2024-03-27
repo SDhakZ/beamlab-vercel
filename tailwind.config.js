@@ -7,9 +7,42 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        sm: "540px",
+        md: "768px",
+        lg: "1024px",
+        xl: "1280px",
+        "2xl": "1536px",
+      },
       fontFamily: {
         poppins: ["var(--font-poppins)", "sans-serif"],
         cervino: ["var(--font-cervino)", "serif"],
+      },
+      colors: {
+        "background-white": "#F5F5F7",
+        "background-black": "#121212",
+        "black-shade": {
+          100: "#575757",
+          200: "#3F3F3F",
+          300: "#FDE53E",
+          400: "#FBE201",
+        },
+        "white-shade": {
+          100: "#ffffff",
+          200: "#EEEEEE",
+          300: "#C0C5C9",
+        },
+        "primary-yellow": {
+          100: "#FFEB76",
+          200: "#FFE85D",
+          300: "#F7D154",
+          400: "#F7D154",
+        },
+        "primary-orange": {
+          100: "#FFB969",
+          200: "#FFAD4F",
+          300: "#FE9600",
+        },
       },
     },
   },
