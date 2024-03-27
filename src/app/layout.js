@@ -1,6 +1,8 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
+import Menubar from "./components/menubar/menubar";
+import Footer from "./components/Footer/footer";
 
 export const metadata = {
   title: "Create Next App",
@@ -43,7 +45,9 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={`${poppins.className} ${cervino.variable}`}>
-        {children}
+        <Menubar />
+        <div id="main">{children}</div>
+        <Footer />
       </body>
     </html>
   );

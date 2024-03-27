@@ -1,0 +1,57 @@
+/* Burger menu animation */
+.label {
+  display: flex;
+  flex-direction: column;
+  width: 41px;
+  cursor: pointer;
+  transform: rotateY(180deg);
+}
+
+.label span {
+  background: black;
+  border-radius: 2px;
+  height: 4px;
+  margin: 3px 0;
+  transition: 0.4s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+}
+
+.labelhover:hover span:nth-of-type(1),
+.labelhover:hover span:nth-of-type(3) {
+  width: 100%;
+}
+
+.label span:nth-of-type(1) {
+  width: 50%;
+}
+
+.label span:nth-of-type(2) {
+  width: 100%;
+}
+
+.label span:nth-of-type(3) {
+  width: 75%;
+}
+
+.label input[type="checkbox"] {
+  display: none;
+}
+
+.label input[type="checkbox"]:checked ~ span {
+  background: #fff;
+}
+
+.label input[type="checkbox"]:checked ~ span:nth-of-type(1) {
+  transform-origin: bottom;
+  transform: rotatez(45deg) translate(3px, -1.5px);
+}
+
+.label input[type="checkbox"]:checked ~ span:nth-of-type(2) {
+  transform-origin: top;
+  transform: rotatez(-45deg);
+}
+
+.label input[type="checkbox"]:checked ~ span:nth-of-type(3) {
+  transform-origin: bottom;
+  width: 50%;
+  transform: translate(18px, -3.5px) rotatez(45deg);
+}
