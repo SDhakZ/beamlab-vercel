@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import FullscreenMenu from "./fullscreenMenu";
 import "./menubar.css";
+import Link from "next/link";
 
 export default function Menubar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,9 +77,12 @@ export default function Menubar() {
         {/*    <a href="/" className="w-[150px]">
           <img alt="Beamlab" src="./BrandLogo.png" />
         </a> */}
-        <a className="text-4xl font-bold font-cervino">
+        <Link
+          href="/"
+          className="text-4xl font-bold cursor-pointer font-cervino"
+        >
           beamlab<span className="text-primary-orange-300">.</span>
-        </a>
+        </Link>
         <div
           className={`w-[75px] -mt-[3px] burger cursor-pointer float-end container ${
             isOpen ? "active" : ""
