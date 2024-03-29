@@ -141,3 +141,7 @@ body {
     --pct-margin-top: 80px;
   }
 }
+
+.glow-effect:hover {
+  box-shadow: 0 0 10px rgba(255, 175, 71, 0.918);
+}

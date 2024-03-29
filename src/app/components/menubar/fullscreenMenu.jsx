@@ -44,7 +44,7 @@ export default function FullscreenMenu(props) {
       <div className="flex flex-col px-[20px] sm:px-[35px] md:px-[50px] lg:px-[65px] justify-between max-w-[1300px] w-full h-full">
         <div className="flex items-center justify-between w-full h-full gap-2 md:gap-36 max-w-[900px] ">
           <ul className="flex-1 space-y-5 text-3xl font-semibold md:space-y-8 md:text-5xl max-w-fit font-poppins text-black-shade-300">
-            {menuData.map((menuItem, index) => (
+            {menuData[0].items.map((menuItem, index) => (
               <li key={index}>
                 <Link
                   onClick={() => {

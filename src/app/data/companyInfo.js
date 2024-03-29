@@ -5,12 +5,49 @@ import {
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 
+import { faLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+
 export const menuData = [
-  { title: "Home", link: "/" },
-  { title: "Services", link: "/services" },
-  { title: "Work", link: "/work" },
-  { title: "About", link: "/about" },
-  { title: "Contact", link: "/contact" },
+  {
+    title: "Company",
+    items: [
+      { title: "Home", link: "/" },
+      { title: "Services", link: "/services" },
+      { title: "Work", link: "/work" },
+      { title: "About", link: "/about" },
+      { title: "Contact", link: "/contact" },
+    ],
+  },
+  {
+    title: "Services",
+    items: [
+      { title: "App Development", link: "/services/app-development" },
+      { title: "Web development", link: "/services/web-development" },
+      { title: "AI Integrations", link: "/services/ai-integrations" },
+    ],
+  },
+  {
+    title: "Others",
+    items: [
+      { title: "Sitemap", link: "/sitemap.xml" },
+      { title: "Terms & Conditions", link: "/terms-and-conditions" },
+    ],
+  },
+  {
+    title: "Contacts",
+    items: [
+      {
+        title: "info@beamlab.co",
+        link: "mailto:info@beamlab.co",
+        icon: faEnvelope,
+      },
+      {
+        title: "Kupondole, Lalitpur, Nepal",
+        link: "https://maps.app.goo.gl/sj9EsoNrJkjWph3x9",
+        icon: faLocationDot,
+      },
+    ],
+  },
 ];
 
 export const socialInfo = [

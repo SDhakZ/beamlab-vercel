@@ -2,7 +2,11 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import Menubar from "./components/menubar/menubar";
-import Footer from "./components/Footer/footer";
+import Footer from "./components/footer/footer";
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
+config.autoAddCss = false;
 
 export const metadata = {
   title: "Create Next App",
@@ -12,7 +16,7 @@ export const metadata = {
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-poppins",
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const cervino = localFont({
