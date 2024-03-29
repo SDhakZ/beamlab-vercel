@@ -1,13 +1,14 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import MenuBarCSS from "./menubar.module.css";
 import FullscreenMenu from "./fullscreenMenu";
+import "./menubar.css";
 
 export default function Menubar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [hasShadow, setHasShadow] = useState(false);
-
+  const [showMenu, setShowMenu] = useState(false);
+  const toggleActive = () => setIsActive(!isActive);
   useEffect(() => {
     // Immediately check and apply the correct menu bar state based on scroll position
     const initialHandleScroll = () => {
@@ -34,10 +35,15 @@ export default function Menubar() {
   }, []);
 
   const handleMenuToggle = () => {
-    setIsOpen(!isOpen);
+    if (!isOpen) {
+      setShowMenu(true); // Show menu with fade-in effect
+      setTimeout(() => setIsOpen(true), 0); // Delay state update slightly to ensure CSS applies
+    } else {
+      setIsOpen(false); // Start fade-out effect
+      setTimeout(() => setShowMenu(false), 500); // Wait for fade-out to complete before removing
+    }
     setIsActive(!isActive);
   };
-
   useEffect(() => {
     const mainElement = document.getElementById("main");
     const footer = document.getElementById("footer");
@@ -55,40 +61,80 @@ export default function Menubar() {
     <nav
       style={{
         backgroundColor: isOpen
-          ? "#374852"
+          ? "#F5F5F7"
           : hasShadow
-          ? "#fff"
+          ? "#F5F5F7"
           : "transparent",
         boxShadow: hasShadow
           ? "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)"
           : "none",
         zIndex: 1000,
       }}
-      className={`flex sticky justify-center transition-all duration-100 items-center top-0 w-full h-20 lg:h-24`}
+      className={`flex sticky justify-between transition-all duration-100 items-center top-0 w-full h-20 lg:h-24`}
     >
       <div className="flex items-center justify-between w-full h-full container-margin">
-        <a title="Logo" href="/">
-          Image
+        {/*    <a href="/" className="w-[150px]">
+          <img alt="Beamlab" src="./BrandLogo.png" />
+        </a> */}
+        <a className="text-4xl font-bold font-cervino">
+          beamlab<span className="text-primary-orange-300">.</span>
         </a>
-        <label
-          className={`${MenuBarCSS["label"]} ${
-            !isOpen ? MenuBarCSS.labelhover : ""
+        <div
+          className={`w-[75px] -mt-[3px] burger cursor-pointer float-end container ${
+            isOpen ? "active" : ""
           }`}
-          htmlFor="burger"
+          onClick={handleMenuToggle}
         >
-          <input
-            onClick={handleMenuToggle}
-            autoComplete="off"
-            type="checkbox"
-            id="burger"
-          />
-          <span></span>
-          <span></span>
-          <span></span>
-        </label>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="100"
+            height="95"
+            viewBox="0 0 200 200"
+          >
+            <g strokeWidth="6.5" strokeLinecap="round">
+              <path
+                d="M72 82.286h28.75"
+                fill="#009100"
+                fillRule="evenodd"
+                stroke="#3F3F3F"
+              />
+              <path
+                d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
+                fill="none"
+                stroke="#3F3F3F"
+              />
+              <path
+                d="M72 125.143h28.75"
+                fill="#009100"
+                fillRule="evenodd"
+                stroke="#3F3F3F"
+              />
+              <path
+                d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
+                fill="none"
+                stroke="#3F3F3F"
+              />
+              <path
+                d="M100.75 82.286h28.75"
+                fill="#009100"
+                fillRule="evenodd"
+                stroke="#3F3F3F"
+              />
+              <path
+                d="M100.75 125.143h28.75"
+                fill="#009100"
+                fillRule="evenodd"
+                stroke="#3F3F3F"
+              />
+            </g>
+          </svg>
+        </div>
       </div>
-
-      {isOpen && <FullscreenMenu />}
+      {showMenu && (
+        <div className={isOpen ? "fadeIn" : "fadeOut"}>
+          <FullscreenMenu setIsOpen={setIsOpen} />
+        </div>
+      )}
     </nav>
   );
 }
