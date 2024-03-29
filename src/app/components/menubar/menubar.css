@@ -30,26 +30,26 @@
 .burger path:nth-child(6) {
   transform-origin: 62% 52%;
 }
-.burger .active path:nth-child(1) {
+.active path:nth-child(1) {
   transform: translateX(9px) translateY(1px) rotate(45deg);
 }
-.burger .active path:nth-child(2) {
+.active path:nth-child(2) {
   stroke-dasharray: 225 299;
   stroke-dashoffset: -72px;
   transform: scale(0.65); /* Make outer circle smaller */
 }
-.burger .active path:nth-child(3) {
+.active path:nth-child(3) {
   transform: translateX(9px) translateY(1px) rotate(-45deg);
 }
-.burger .active path:nth-child(4) {
+.active path:nth-child(4) {
   stroke-dasharray: 225 299;
   stroke-dashoffset: -72px;
   transform: scale(0.65); /* Make outer circle smaller */
 }
-.burger .active path:nth-child(5) {
+.active path:nth-child(5) {
   transform: translateX(9px) translateY(1px) rotate(-45deg);
 }
-.burger .active path:nth-child(6) {
+.active path:nth-child(6) {
   transform: translateX(9px) translateY(1px) rotate(45deg);
 }
 

@@ -12,7 +12,7 @@ export default function FullscreenMenu(props) {
 
   // Find the title corresponding to the current path
   const findTitleByPath = (path) => {
-    const menuItem = menuData.find((item) => item.link === path);
+    const menuItem = menuData[0].items.find((item) => item.link === path);
     return menuItem ? menuItem.title : "Home";
   };
 
@@ -67,7 +67,7 @@ export default function FullscreenMenu(props) {
           </ul>
           <div className="relative mr-0 sm:mr-16 md:mr-10">
             <div
-              className="absolute invisible sm:visible ease-in-out transition-opacity duration-100 text-[clamp(1.3em,9vw,10em)] whitespace-nowrap text-black-shade-300 font-bold transform -translate-x-1/2 -translate-y-1/2 font-poppins top-1/2 left-1/2"
+              className="absolute invisible sm:visible ease-in-out transition-opacity duration-200 text-[clamp(1.3em,9vw,10em)] whitespace-nowrap text-black-shade-300 font-bold transform -translate-x-1/2 -translate-y-1/2 font-poppins top-1/2 left-1/2"
               style={{ opacity: opacity, filter: `blur(${blur})` }}
             >
               {displayTitle.toUpperCase()}

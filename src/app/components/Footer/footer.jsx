@@ -51,16 +51,12 @@ export default function footer() {
               {socialInfo.map((social, index) => (
                 <a
                   key={index}
-                  className="flex items-center justify-center rounded-full w-11 h-11 md:w-11 md:h-11 bg-black-shade-200"
+                  className={`flex items-center justify-center rounded-full w-11 h-11 md:w-11 md:h-11 text-white-shade-100 bg-black-shade-200 hover:text-primary-orange-200`}
                   href={social.link}
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <FontAwesomeIcon
-                    icon={social.icon}
-                    className="text-2xl"
-                    color="#fff"
-                  />
+                  <FontAwesomeIcon icon={social.icon} className="text-2xl " />
                 </a>
               ))}
             </div>

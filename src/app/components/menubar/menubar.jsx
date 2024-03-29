@@ -17,7 +17,6 @@ export default function Menubar() {
       setHasShadow(scrollY > 0);
     };
 
-    // Set up the scroll event listener
     const handleScroll = () => {
       const scrollY = window.scrollY;
       setHasShadow(scrollY > 0);
