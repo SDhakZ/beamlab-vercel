@@ -135,7 +135,7 @@ export default function Menubar() {
       </div>
       {showMenu && (
         <div className={isOpen ? "fadeIn" : "fadeOut"}>
-          <FullscreenMenu setIsOpen={setIsOpen} />
+          <FullscreenMenu setIsOpen={setIsOpen} setShowMenu={setShowMenu} />
         </div>
       )}
     </nav>

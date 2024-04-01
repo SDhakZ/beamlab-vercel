@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function FullscreenMenu(props) {
-  const { setIsOpen } = props;
+  const { setIsOpen, setShowMenu } = props;
   const pathname = usePathname();
 
   // Find the title corresponding to the current path
@@ -50,6 +50,7 @@ export default function FullscreenMenu(props) {
                   onClick={() => {
                     setIsOpen(false);
                     setActiveTitle(menuItem.title);
+                    setShowMenu(false);
                   }}
                   onMouseEnter={() => setActiveTitle(menuItem.title)} // Update title on hover
                   onMouseLeave={() => setActiveTitle(findTitleByPath(pathname))} // Revert to the active path's title

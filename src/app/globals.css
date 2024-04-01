@@ -8,11 +8,11 @@
   }
 
   .heading-large {
-    @apply text-3xl leading-snug sm:text-4xl lg:text-5xl;
+    @apply text-3xl leading-snug sm:text-4xl lg:text-6xl;
   }
 
   .heading-medium {
-    @apply text-2xl leading-normal sm:text-3xl lg:text-4xl;
+    @apply text-2xl sm:text-3xl lg:text-5xl;
   }
 
   .heading-small {

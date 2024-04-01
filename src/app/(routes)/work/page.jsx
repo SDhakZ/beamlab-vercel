@@ -1,5 +1,10 @@
 import React from "react";
+import Work from "./work";
 
 export default function page() {
-  return <div>Our works</div>;
+  return (
+    <>
+      <Work />
+    </>
+  );
 }
