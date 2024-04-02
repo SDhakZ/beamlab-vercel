@@ -49,7 +49,7 @@ export default function Work() {
 
       setMaximumHeight(maxHeight);
       setMinimumHeight(minHeight);
-      setEvidenceHeight(maxHeight); // Reset evidence height to the new max height
+      setEvidenceHeight(maxHeight);
     };
 
     updateHeightBasedOnViewport();
@@ -60,19 +60,38 @@ export default function Work() {
   }, []);
 
   useEffect(() => {
+    const workContainer = document.querySelector(".work-container");
+    const evidenceElement = document.querySelector(".evidence");
+
     const handleScroll = () => {
+      if (!workContainer || !evidenceElement) return;
+
+      const workContainerBottom =
+        workContainer.getBoundingClientRect().bottom +
+        window.scrollY -
+        evidenceElement.offsetHeight;
+      const stopPosition = workContainerBottom - evidenceHeight; // Calculate where the "Evidence" should stop moving
+
       const newHeight = Math.max(maximumHeight - window.scrollY, minimumHeight);
       setEvidenceHeight(newHeight);
+
+      if (window.scrollY >= stopPosition) {
+        evidenceElement.style.position = "absolute";
+        evidenceElement.style.top = `${stopPosition}px`; // Setting the evidence to stop at the calculated position
+      } else {
+        evidenceElement.style.position = "fixed";
+        evidenceElement.style.top = ""; // Reset to default position
+      }
     };
 
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [maximumHeight, minimumHeight]); // React to changes in these values
+  }, [maximumHeight, minimumHeight, evidenceHeight]);
 
   return (
     <div className="relative">
-      <div className="fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
+      <div className="evidence fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
         <Evidence height={evidenceHeight} />
       </div>
       <div className="work-container">
@@ -80,7 +99,7 @@ export default function Work() {
           <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-300 sm:invisible sm:hidden">
             The evidence
           </h1>
-          <h2 className="font-medium leading-snug text-center sm:text-start heading-medium text-black-shade-300">
+          <h2 className="font-medium leading-snug tracking-tight text-center sm:text-start heading-medium text-black-shade-300">
             The project you're tackling deserves outstanding{" "}
             <span className="font-medium uppercase lg:font-bold text-primary-orange-300">
               ATTENTION
@@ -102,10 +121,10 @@ export default function Work() {
             <Link
               href={`/work/${work.slug}`}
               key={index}
-              className={`${
+              className={`card ${
                 index % 2 === 0
                   ? "mt-0"
-                  : "mt-0 sm:mt-10 md:mt-14 lg:mt-16 xl:mt-24"
+                  : "mt-0 sm:mt-12 md:mt-14 lg:mt-16 xl:mt-24"
               } relative flex flex-col flex-1  `}
             >
               <div
@@ -120,27 +139,29 @@ export default function Work() {
                 </p>
                 {hoverIndex === index && (
                   <div
-                    className="absolute z-10 flex items-center justify-center rounded-full w-28 h-28 sm:w-36 sm:h-36 bg-black-shade-300"
+                    className="absolute z-10 flex items-center justify-center rounded-full w-28 h-28 sm:w-24 sm:h-24 md:w-36 md:h-36 bg-black-shade-300"
                     style={{
                       left: `${mousePosition.x}px`,
                       top: `${mousePosition.y}px`,
-                      transform: "translate(-50%, -50%)", // Center the button on the cursor
+                      transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-32 sm:h-32 outline outline-2 outline-offset-0">
-                      <span className="w-24 text-center">View Case Study</span>
+                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-20 sm:h-20 md:w-28 md:h-28 outline outline-2 outline-offset-0">
+                      <span className="w-24 text-xs text-center md:text-base">
+                        View Case Study
+                      </span>
                     </div>
                   </div>
                 )}
               </div>
-              <h2 className="mt-3 text-2xl font-medium sm:mt-5 sm:text-[1.7rem] md:text-4xl text-black-shade-300">
+              <h2 className="mt-3  transition-all duration-200 text-2xl font-medium sm:mt-5 sm:text-[1.7rem] md:text-4xl text-black-shade-300">
                 {work.title}
               </h2>
               <div className="flex flex-wrap w-full gap-2 mt-2 sm:mt-3 sm:gap-3">
                 {work.tags.map((tag, index) => (
                   <p
                     key={index}
-                    className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
+                    className="px-3  uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
                   >
                     {tag}
                   </p>

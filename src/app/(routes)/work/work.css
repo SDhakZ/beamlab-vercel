@@ -9,6 +9,10 @@
   margin-right: auto;
 }
 
+.card:hover h2 {
+  color: #fe9600;
+}
+
 @media screen and (min-width: 540px) {
   :root {
     --wct-margin: 100px;
