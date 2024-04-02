@@ -10,12 +10,12 @@ import Link from "next/link";
 
 export default function Carousel() {
   return (
-    <div className="flex flex-col items-center gap-4 overflow-x-hidden bg-cover bg-partner-carousel-background padding-y-lg">
-      <p className="text-3xl font-semibold text-center sm:text-3xl md:text-4xl lg:text-5xl container-margin text-black-shade-300">
+    <div className="flex flex-col items-center gap-4 overflow-x-hidden bg-contain bg-partner-carousel-background padding-y-lg">
+      <p className="text-3xl font-semibold text-center sm:text-3xl md:text-4xl lg:text-[2.9rem] container-margin text-black-shade-300">
         Our trusted partners
       </p>
 
-      <div className="flex gap-2 md:gap-4 ustify-center items-center w-full mt-4 sm:mt-4 max-w-[300px] sm:max-w-[500px] md:max-w-[1100px]">
+      <div className="flex gap-2 md:gap-4 ustify-center items-center w-full mt-4 sm:mt-4 lg:mt-8 max-w-[300px] sm:max-w-[500px] md:max-w-[1100px]">
         <hr className="block w-full h-[0.2rem] bg-black-shade-100" />
         <svg
           className="w-[42px] spin-animate h-[42px]"
@@ -93,8 +93,8 @@ export default function Carousel() {
           })}
         </Swiper>
       </div>
-      <hr className="block max-w-[150px] -mt-8 md:max-w-[500px] w-full h-[0.2rem]  bg-black-shade-100" />
-      <div className="flex flex-col items-center justify-center gap-6 mt-12 md:mt-16">
+      <hr className="block max-w-[150px] -mt-8 sm:-mt-0 md:max-w-[500px] w-full h-[0.25rem]  bg-black-shade-100" />
+      <div className="flex flex-col items-center justify-center gap-6 mt-12 lg:gap-10 md:mt-16">
         <div className="flex gap-2 text-3xl font-bold text-center md:text-4xl font-cervino text-black-shade-200">
           We are waiting for
           <ul className="flicker">
@@ -105,7 +105,7 @@ export default function Carousel() {
           </ul>
         </div>
         <Link
-          className="px-8 py-2 font-medium transition-all rounded-full md:px-6 md:py-2 glow-effect w-fit outline outline-primary-orange-100 outline-2 bg-white-shade-100 "
+          className="px-8 py-2 font-medium transition-all rounded-full md:px-10 md:py-3 glow-effect w-fit outline outline-primary-orange-100 outline-2 bg-white-shade-100 "
           href="/contact"
         >
           <span className="text-lg md:text-xl gradient">Join Us Now</span>
