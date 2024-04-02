@@ -1,13 +1,18 @@
 "use client";
 
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import Counter from "@/app/components/counter/Counter";
 import workData from "@/app/data/work";
 import Link from "next/link";
+import Evidence from "./(Components)/evidence";
+import "./work.css";
 
 export default function Work() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoverIndex, setHoverIndex] = useState(null);
+  const [maximumHeight, setMaximumHeight] = useState(340);
+  const [minimumHeight, setMinimumHeight] = useState(250);
+  const [evidenceHeight, setEvidenceHeight] = useState(maximumHeight);
 
   const handleMouseMove = useCallback((e) => {
     const boundingRect = e.currentTarget.getBoundingClientRect();
@@ -24,11 +29,58 @@ export default function Work() {
   const handleMouseLeave = useCallback(() => {
     setHoverIndex(null);
   }, []);
+
+  useEffect(() => {
+    const updateHeightBasedOnViewport = () => {
+      let maxHeight = 340;
+      let minHeight = 250;
+      if (window.matchMedia("(max-width: 1024px)").matches) {
+        maxHeight = 280;
+        minHeight = 190;
+      }
+      if (window.matchMedia("(max-width: 768px)").matches) {
+        maxHeight = 200;
+        minHeight = 150;
+      }
+      if (window.matchMedia("(max-width: 540px)").matches) {
+        maxHeight = 0;
+        minHeight = 0;
+      }
+
+      setMaximumHeight(maxHeight);
+      setMinimumHeight(minHeight);
+      setEvidenceHeight(maxHeight); // Reset evidence height to the new max height
+    };
+
+    updateHeightBasedOnViewport();
+    window.addEventListener("resize", updateHeightBasedOnViewport);
+
+    return () =>
+      window.removeEventListener("resize", updateHeightBasedOnViewport);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const newHeight = Math.max(maximumHeight - window.scrollY, minimumHeight);
+      setEvidenceHeight(newHeight);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [maximumHeight, minimumHeight]); // React to changes in these values
+
   return (
-    <div className="min-h-screen">
-      <div className="container-margin-compact">
+    <div className="relative">
+      <div className="fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
+        <Evidence height={evidenceHeight} />
+      </div>
+      <div className="work-container">
         <section className="flex flex-col justify-center top-section-p">
-          <h1 className="font-medium leading-snug heading-medium text-black-shade-300">
+          <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-300 sm:invisible sm:hidden">
+            The evidence
+          </h1>
+          <h2 className="font-medium leading-snug text-center sm:text-start heading-medium text-black-shade-300">
             The project you're tackling deserves outstanding{" "}
             <span className="font-medium uppercase lg:font-bold text-primary-orange-300">
               ATTENTION
@@ -38,21 +90,23 @@ export default function Work() {
               EFFORT
             </span>
             .
-          </h1>
+          </h2>
           <div className="flex flex-col justify-between w-full mt-10 md:mt-20 gap-8 sm:gap-16 max-w-[550px] sm:flex-row">
             <Counter number={100} title="Satisfaction" unit="%" />
             <Counter number={40} title="Clients" unit="+" />
             <Counter number={5} title="Years" unit="+" />
           </div>
         </section>
-        <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12 sm:gap-y-0 section-y">
+        <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-0 section-y">
           {workData.map((work, index) => (
             <Link
               href={`/work/${work.slug}`}
               key={index}
               className={`${
-                index % 2 === 0 ? "mt-0" : "sm:mt-20 md:mt-24"
-              } relative flex flex-col flex-1  max-w-[550px]`}
+                index % 2 === 0
+                  ? "mt-0"
+                  : "mt-0 sm:mt-10 md:mt-14 lg:mt-16 xl:mt-24"
+              } relative flex flex-col flex-1  `}
             >
               <div
                 onMouseMove={handleMouseMove}
