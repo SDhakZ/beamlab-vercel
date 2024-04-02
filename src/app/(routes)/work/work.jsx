@@ -91,7 +91,7 @@ export default function Work() {
 
   return (
     <div className="relative">
-      <div className="evidence fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
+      <div className="evidence invisible  sm:visible fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
         <Evidence height={evidenceHeight} />
       </div>
       <div className="work-container">
@@ -157,11 +157,11 @@ export default function Work() {
               <h2 className="mt-3  transition-all duration-200 text-2xl font-medium sm:mt-5 sm:text-[1.7rem] md:text-4xl text-black-shade-300">
                 {work.title}
               </h2>
-              <div className="flex flex-wrap w-full gap-2 mt-2 sm:mt-3 sm:gap-3">
+              <div className="flex flex-wrap w-full gap-2 mt-2 sm:mt-3 md:mt-4 sm:gap-3">
                 {work.tags.map((tag, index) => (
                   <p
                     key={index}
-                    className="px-3  uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
+                    className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
                   >
                     {tag}
                   </p>

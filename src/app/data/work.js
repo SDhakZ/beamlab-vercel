@@ -94,8 +94,8 @@ const workData = [
   {
     id: 2,
     slug: "oso",
-    title: "OSO2",
-    poster: "/Portfolio/test/oso.png",
+    title: "Applied Primate",
+    poster: "/Portfolio/test/AppliedPrimate.png",
     tags: ["web service", "custom dev", "api integration"],
     projectDetails: [
       {

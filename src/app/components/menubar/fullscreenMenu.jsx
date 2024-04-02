@@ -10,7 +10,6 @@ export default function FullscreenMenu(props) {
   const { setIsOpen, setShowMenu } = props;
   const pathname = usePathname();
 
-  // Find the title corresponding to the current path
   const findTitleByPath = (path) => {
     const menuItem = menuData[0].items.find((item) => item.link === path);
     return menuItem ? menuItem.title : "Home";
@@ -20,7 +19,7 @@ export default function FullscreenMenu(props) {
   const [displayTitle, setDisplayTitle] = useState(activeTitle);
   const [opacity, setOpacity] = useState(1);
   const [blur, setBlur] = useState(0);
-  // Update activeTitle if pathname changes, e.g., on navigation
+
   useEffect(() => {
     setActiveTitle(findTitleByPath(pathname));
   }, [pathname]);

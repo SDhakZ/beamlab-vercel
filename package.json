@@ -17,7 +17,8 @@
     "react": "^18",
     "react-countup": "^6.5.3",
     "react-dom": "^18",
-    "react-fontawesome": "^1.7.1"
+    "react-fontawesome": "^1.7.1",
+    "swiper": "^11.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",
