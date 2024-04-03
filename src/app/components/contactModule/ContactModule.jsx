@@ -5,6 +5,10 @@ import { menuData, socialInfo } from "@/app/data/companyInfo.js";
 export default function ContactModule() {
   return (
     <section className="relative flex justify-center w-full padding-y-lg lg:pb-24 bg-black-shade-300">
+      <img
+        className="absolute bottom-0 right-0 z-0 w-36 sm:w-36 md:w-52 lg:w-56"
+        src="/assets/abstract-footer.png"
+      />
       <div className="w-full container-margin">
         <div>
           <span className="text-base font-semibold font-manrope md:text-lg font-base text-white-shade-100">
@@ -46,7 +50,7 @@ export default function ContactModule() {
             </button>
           </div>
 
-          <div className="flex items-center col-span-2 gap-10 sm:gap-8 sm:col-span-1">
+          <div className="relative z-10 flex items-center col-span-2 gap-10 sm:gap-8 sm:col-span-1">
             {socialInfo.map((socialInfo, index) => (
               <a
                 target="_blank"

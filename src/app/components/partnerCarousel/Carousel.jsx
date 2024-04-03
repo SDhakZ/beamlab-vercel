@@ -10,7 +10,7 @@ import Link from "next/link";
 
 export default function Carousel() {
   return (
-    <div className="flex flex-col items-center gap-4 overflow-x-hidden bg-contain bg-partner-carousel-background padding-y-lg">
+    <div className="flex flex-col items-center gap-4 overflow-x-hidden bg-cover bg-partner-carousel-background padding-y-lg">
       <p className="text-3xl font-semibold text-center sm:text-3xl md:text-4xl lg:text-[2.9rem] container-margin text-black-shade-300">
         Our trusted partners
       </p>
