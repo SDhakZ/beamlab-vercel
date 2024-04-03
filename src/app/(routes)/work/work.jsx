@@ -10,7 +10,7 @@ import "./work.css";
 export default function Work() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoverIndex, setHoverIndex] = useState(null);
-  const [maximumHeight, setMaximumHeight] = useState(340);
+  const [maximumHeight, setMaximumHeight] = useState(360);
   const [minimumHeight, setMinimumHeight] = useState(250);
   const [evidenceHeight, setEvidenceHeight] = useState(maximumHeight);
 
@@ -32,8 +32,8 @@ export default function Work() {
 
   useEffect(() => {
     const updateHeightBasedOnViewport = () => {
-      let maxHeight = 340;
-      let minHeight = 250;
+      let maxHeight = 360;
+      let minHeight = 220;
       if (window.matchMedia("(max-width: 1024px)").matches) {
         maxHeight = 280;
         minHeight = 190;
@@ -72,7 +72,10 @@ export default function Work() {
         evidenceElement.offsetHeight;
       const stopPosition = workContainerBottom - evidenceHeight; // Calculate where the "Evidence" should stop moving
 
-      const newHeight = Math.max(maximumHeight - window.scrollY, minimumHeight);
+      const newHeight = Math.max(
+        maximumHeight - 0.5 * window.scrollY,
+        minimumHeight
+      );
       setEvidenceHeight(newHeight);
 
       if (window.scrollY >= stopPosition) {
@@ -91,7 +94,7 @@ export default function Work() {
 
   return (
     <div className="relative">
-      <div className="evidence invisible  sm:visible fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[200px]">
+      <div className="evidence invisible  sm:visible fixed right-0 sm:-right-2 md:right-0 xl:right-12 lg:right-4 sm:top-[135px] md:top-[150px] lg:top-[190px]">
         <Evidence height={evidenceHeight} />
       </div>
       <div className="work-container">
@@ -101,11 +104,11 @@ export default function Work() {
           </h1>
           <h2 className="font-medium leading-snug tracking-tight text-center sm:text-start heading-medium text-black-shade-300">
             The project you're tackling deserves outstanding{" "}
-            <span className="font-medium uppercase lg:font-bold text-primary-orange-300">
+            <span className="font-medium tracking-wide uppercase lg:font-bold text-primary-orange-300">
               ATTENTION
             </span>{" "}
             and{" "}
-            <span className="font-medium uppercase lg:font-bold text-primary-orange-300">
+            <span className="font-medium tracking-wide uppercase lg:font-bold text-primary-orange-300">
               EFFORT
             </span>
             .
@@ -146,7 +149,7 @@ export default function Work() {
                       transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-20 sm:h-20 md:w-28 md:h-28 outline outline-2 outline-offset-0">
+                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-20 sm:h-20 md:w-[7.5rem] md:h-[7.5rem] outline outline-2 outline-offset-0">
                       <span className="w-24 text-xs text-center md:text-base">
                         View Case Study
                       </span>
