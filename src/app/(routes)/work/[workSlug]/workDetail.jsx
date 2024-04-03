@@ -3,9 +3,12 @@ import React, { useState, useEffect, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useWorkDetails } from "@/app/hooks/useWorkDetail";
 import { highlightText } from "@/app/utility/highlightText";
-import "./test.css";
+import "./workDetail.css";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function workDetail() {
+  const { setMenuBackgroundBlack } = useGlobalState();
+  const processSectionRef = useRef(null);
   const router = useRouter();
   const params = useParams();
   const workSlug = params.workSlug;
@@ -61,7 +64,17 @@ export default function workDetail() {
 
     return () => window.removeEventListener("scroll", handleScroll);
   }, []); // Make sure to add dependencies if needed
+  useEffect(() => {
+    const handleScroll = () => {
+      if (processSectionRef.current) {
+        const topPos = processSectionRef.current.getBoundingClientRect().top;
+        setMenuBackgroundBlack(topPos <= 0);
+      }
+    };
 
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setMenuBackgroundBlack]);
   return (
     <div>
       <div className="flex flex-col pb-10 mt-6 container-margin">
@@ -180,7 +193,11 @@ export default function workDetail() {
 
         {/*---Brief---*/}
       </div>
-      <section className="relative margin-t bg-background-black">
+      {/*---Process---*/}
+      <section
+        ref={processSectionRef}
+        className="relative margin-t bg-background-black"
+      >
         <div className="container-margin-compact padding-y-lg section-layout">
           <div className="mt-24">
             <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">

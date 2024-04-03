@@ -3,12 +3,14 @@ import React, { useState, useEffect } from "react";
 import FullscreenMenu from "./fullscreenMenu";
 import "./menubar.css";
 import Link from "next/link";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function Menubar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isActive, setIsActive] = useState(false);
   const [hasShadow, setHasShadow] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
+  const { menuBackgroundBlack } = useGlobalState();
   const toggleActive = () => setIsActive(!isActive);
   useEffect(() => {
     // Immediately check and apply the correct menu bar state based on scroll position
@@ -63,7 +65,9 @@ export default function Menubar() {
         backgroundColor: isOpen
           ? "#F5F5F7"
           : hasShadow
-          ? "#F5F5F7"
+          ? menuBackgroundBlack
+            ? "#121212"
+            : "#F5F5F7"
           : "transparent",
         boxShadow: hasShadow
           ? "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)"
@@ -78,7 +82,11 @@ export default function Menubar() {
         </a> */}
         <Link
           href="/"
-          className="text-4xl font-bold cursor-pointer font-cervino"
+          className={`${
+            menuBackgroundBlack
+              ? "text-white-shade-100"
+              : "text-black-shade-300"
+          } text-4xl font-bold cursor-pointer font-cervino`}
         >
           beamlab<span className="text-primary-orange-300">.</span>
         </Link>
@@ -99,35 +107,83 @@ export default function Menubar() {
                 d="M72 82.286h28.75"
                 fill="#009100"
                 fillRule="evenodd"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
               <path
                 d="M100.75 103.714l72.482-.143c.043 39.398-32.284 71.434-72.16 71.434-39.878 0-72.204-32.036-72.204-71.554"
                 fill="none"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
               <path
                 d="M72 125.143h28.75"
                 fill="#009100"
                 fillRule="evenodd"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
               <path
                 d="M100.75 103.714l-71.908-.143c.026-39.638 32.352-71.674 72.23-71.674 39.876 0 72.203 32.036 72.203 71.554"
                 fill="none"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
               <path
                 d="M100.75 82.286h28.75"
                 fill="#009100"
                 fillRule="evenodd"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
               <path
                 d="M100.75 125.143h28.75"
                 fill="#009100"
                 fillRule="evenodd"
-                stroke="#3F3F3F"
+                stroke={
+                  isOpen
+                    ? "#3F3F3F"
+                    : hasShadow
+                    ? menuBackgroundBlack
+                      ? "#fff"
+                      : "#3F3F3F"
+                    : "#3F3F3F"
+                }
               />
             </g>
           </svg>

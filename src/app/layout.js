@@ -5,6 +5,7 @@ import Menubar from "./components/menubar/menubar";
 import Footer from "./components/footer/footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { GlobalStateProvider } from "./utility/globalStateProvide";
 
 config.autoAddCss = false;
 
@@ -47,12 +48,14 @@ const cervino = localFont({
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.className} ${cervino.variable}`}>
-        <Menubar />
-        <div id="main">{children}</div>
-        <Footer />
-      </body>
-    </html>
+    <GlobalStateProvider>
+      <html lang="en">
+        <body className={`${poppins.className} ${cervino.variable}`}>
+          <Menubar />
+          <div id="main">{children}</div>
+          <Footer />
+        </body>
+      </html>
+    </GlobalStateProvider>
   );
 }

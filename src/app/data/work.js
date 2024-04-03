@@ -31,31 +31,31 @@ const workData = [
 
       processContainer: [
         {
-          title: "Process",
+          title: "Lets start with requirements",
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.",
           image: "/portfolio/twelveletter/process-1.png",
         },
         {
-          title: "Process",
+          title: "Building the wireframe",
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
           image: "/portfolio/twelveletter/process-2.png",
         },
         {
-          title: "Process",
+          title: "Fast development",
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
           image: "/portfolio/twelveletter/process-3.png",
         },
         {
-          title: "Process",
+          title: "Pre Launch",
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
           image: "/portfolio/twelveletter/process-4.png",
         },
         {
-          title: "Process",
+          title: "Finishing the journey",
           description:
             "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
           image: "/portfolio/twelveletter/process-5.png",
