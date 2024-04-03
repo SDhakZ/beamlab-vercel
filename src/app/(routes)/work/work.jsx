@@ -103,7 +103,7 @@ export default function Work() {
             The evidence
           </h1>
           <h2 className="font-medium leading-snug tracking-tight text-center sm:text-start heading-medium text-black-shade-300">
-            The project you're tackling deserves outstanding{" "}
+            The project you&quot;re tackling deserves outstanding{" "}
             <span className="font-medium tracking-wide uppercase lg:font-bold text-primary-orange-300">
               ATTENTION
             </span>{" "}

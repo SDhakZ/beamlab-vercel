@@ -1,0 +1,38 @@
+.section-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 20px; /* Adjust based on your design */
+}
+
+.sticky-image-container {
+  position: sticky;
+  top: 15%; /* Adjust based on your needs */
+  height: calc(100vh - 200px); /* Adjust based on your needs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.image-container {
+  transition: opacity 0.5s ease-out;
+  opacity: 0; /* Start invisible */
+}
+
+/* When not fading, we want the image fully visible */
+.not-fading {
+  opacity: 1;
+}

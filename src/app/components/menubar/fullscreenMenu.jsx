@@ -74,7 +74,7 @@ export default function FullscreenMenu(props) {
             </div>
             <img
               className="sm:w-[300px] w-[450px]"
-              src="./menuBG.png"
+              src="/menuBG.png"
               alt="Beamlab"
             />
           </div>
