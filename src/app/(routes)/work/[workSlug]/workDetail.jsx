@@ -13,6 +13,7 @@ export default function workDetail() {
   const params = useParams();
   const workSlug = params.workSlug;
   const workItem = useWorkDetails(workSlug);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   if (!workItem) {
     return <>Not found</>;
@@ -47,7 +48,7 @@ export default function workDetail() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll(".section-class"); // Ensure your sections have a common class for this query
+      const sections = document.querySelectorAll(".section-class");
       let currentSection = sections[0];
 
       sections.forEach((section, index) => {
@@ -63,20 +64,34 @@ export default function workDetail() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []); // Make sure to add dependencies if needed
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       if (processSectionRef.current) {
         const topPos = processSectionRef.current.getBoundingClientRect().top;
-        setMenuBackgroundBlack(topPos <= 0);
+        const offset = window.innerHeight / 2; // Middle of the viewport
+
+        // Determine if the "process" section is in the middle of the screen
+        const isInMiddle =
+          topPos <= offset &&
+          topPos >= offset - processSectionRef.current.offsetHeight;
+
+        setIsDarkTheme(isInMiddle); // Update local state to change theme
+        setMenuBackgroundBlack(isInMiddle); // Update global state to change menu background
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setMenuBackgroundBlack]);
+
   return (
-    <div>
+    <div
+      className={`${
+        isDarkTheme ? "bg-background-black" : "bg-background-white"
+      } transition-colors duration-1000`}
+    >
       <div className="flex flex-col pb-10 mt-6 container-margin">
         <button
           className="self-end text-lg font-medium underline md:text-xl text-black-shade-300"
@@ -186,14 +201,22 @@ export default function workDetail() {
                 The Challenge
                 <hr className="block w-full h-[0.2rem] mt-1 bg-primary-orange-200"></hr>
               </h2>
-              <h3 className="mt-2 text-3xl font-semibold">
+              <h3
+                className={`${
+                  isDarkTheme ? "text-white-shade-200" : "text-black-shade-300"
+                } mt-2 text-3xl font-semibold`}
+              >
                 {workItem.mainContent.challengeContainer.title}
               </h3>
-              <p className="text-lg font-medium leading-relaxed text-black-shade-100">
+              <p
+                className={`${
+                  isDarkTheme ? "text-white-shade-200" : "text-black-shade-100"
+                } text-lg font-medium leading-relaxed `}
+              >
                 {workItem.mainContent.challengeContainer.challenge}
               </p>
             </div>
-            <figure className="w-full max-w-[550px]">
+            <figure className="w-full max-w-[500px]">
               <img
                 className="w-full h-auto"
                 src={workItem.mainContent.challengeContainer.image}
@@ -207,10 +230,12 @@ export default function workDetail() {
       {/*---Process---*/}
       <section
         ref={processSectionRef}
-        className="relative margin-t bg-background-black"
+        className={`relative margin-t transition-colors duration-1000 ${
+          isDarkTheme ? "bg-background-black" : "bg-background-white"
+        }`}
       >
         <div className="container-margin-compact padding-y-lg section-layout">
-          <div className="mt-24">
+          <div className="sm::mt-24">
             <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
               The Process
               <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
@@ -222,10 +247,23 @@ export default function workDetail() {
                   key={index}
                 >
                   <div>
-                    <h3 className="text-xl font-semibold sm:text-xl md:text-2xl text-white-shade-200">
+                    <h3
+                      className={`${
+                        isDarkTheme
+                          ? "text-white-shade-200"
+                          : "text-black-shade-300"
+                      } text-xl font-semibold sm:text-xl md:text-2xl`}
+                    >
                       {process.title}
                     </h3>
-                    <p className="mt-4 text-base lg:text-lg max-w-[500px] font-medium text-white-shade-300">
+                    <p
+                      className={` ${
+                        isDarkTheme
+                          ? "text-white-shade-200"
+                          : "text-black-shade-300"
+                      }
+                      mt-4 text-base lg:text-lg max-w-[500px] font-medium `}
+                    >
                       {process.description}
                     </p>
                   </div>

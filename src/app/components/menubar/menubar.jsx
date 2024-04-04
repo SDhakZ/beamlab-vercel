@@ -74,7 +74,7 @@ export default function Menubar() {
           : "none",
         zIndex: 1000,
       }}
-      className={`flex sticky justify-between transition-all duration-100 items-center top-0 w-full h-20 lg:h-24`}
+      className={`flex sticky justify-between transition-color duration-1000 items-center top-0 w-full h-20 lg:h-24`}
     >
       <div className="flex items-center justify-between w-full h-full container-margin">
         {/*    <a href="/" className="w-[150px]">
@@ -83,8 +83,12 @@ export default function Menubar() {
         <Link
           href="/"
           className={`${
-            menuBackgroundBlack
-              ? "text-white-shade-100"
+            isOpen
+              ? "text-black-shade-300"
+              : hasShadow
+              ? menuBackgroundBlack
+                ? "text-white-shade-100"
+                : "text-black-shade-300"
               : "text-black-shade-300"
           } text-4xl font-bold cursor-pointer font-cervino`}
         >
