@@ -1,6 +1,6 @@
 import React from "react";
 
-export const highlightText = (text, highlightColor) => {
+export const highlightText = (text, textColor, highlightColor) => {
   // Adjusted regex to split on *hlt for start and hlt* for end
   const parts = text.split(/(\*hlt|hlt\*)/g);
   let highlight = false;
@@ -22,8 +22,8 @@ export const highlightText = (text, highlightColor) => {
         return (
           <span
             key={index}
-            className={`text-black-shade-300 ${
-              highlightColor ? highlightColor : "bg-[rgba(251,226,1,0.92)]"
+            className={`${textColor ? textColor : "text-black-shade-300"} ${
+              highlightColor ? highlightColor : ""
             }`}
           >
             {part}

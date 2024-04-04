@@ -7,8 +7,8 @@
 
 .sticky-image-container {
   position: sticky;
-  top: 15%; /* Adjust based on your needs */
-  height: calc(100vh - 200px); /* Adjust based on your needs */
+  top: 200px; /* Adjust based on your needs */
+  height: calc(100vh - 300px); /* Adjust based on your needs */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,4 +35,10 @@
 /* When not fading, we want the image fully visible */
 .not-fading {
   opacity: 1;
+}
+
+@media (max-width: 540px) {
+  .section-layout {
+    grid-template-columns: 1fr;
+  }
 }

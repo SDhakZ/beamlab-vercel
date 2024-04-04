@@ -111,25 +111,25 @@ export default function workDetail() {
               </li>
             ))}
           </ul>
-          <div className="relative grid w-full grid-cols-4 gap-10 lg:mt-6">
+          <div className="relative grid w-full grid-cols-1 gap-6 mt-4 sm:gap-10 sm:grid-cols-3 md:grid-cols-4 lg:mt-6">
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Project Name: Year</h2>
-              <hr className="block w-full h-[0.2rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium">
+              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
+              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
                 {workItem.title}:&nbsp;{workItem.projectDetails.projectYear}
               </p>
             </div>
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Technology used</h2>
-              <hr className="block w-full h-[0.2rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium">
+              <hr className="block mt-1  border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
+              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
                 {workItem.projectDetails.technologyUsed}
               </p>
             </div>
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Services</h2>
-              <hr className="block w-full h-[0.2rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium">
+              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
+              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
                 {workItem.projectDetails.projectService}
               </p>
             </div>
@@ -140,21 +140,25 @@ export default function workDetail() {
             onMouseEnter={() => setIsHovering(true)}
             onMouseLeave={() => setIsHovering(false)}
             ref={sectionRef}
-            className="w-full relative mt-14 max-w-[1100px]"
+            className="w-full relative mt-10 sm:mt-10 md:mt-14 max-w-[1100px]"
           >
-            <div className="absolute py-12 bg-black-shade-400 px-14">
+            <div className="relative px-6 py-6 sm:py-8 sm:px-10 md:py-12 sm:absolute bg-black-shade-400 md:px-14">
               <h2 className="text-base font-semibold w-fit text-white-shade-100">
                 Designing website for a digital agency{" "}
                 <hr className="block w-full h-[0.1rem] mt-1 bg-white-shade-100"></hr>
               </h2>
 
-              <p className="text-3xl font-normal leading-normal mt-7 text-white-shade-100 ">
-                {highlightText(briefText)}
+              <p className="text-xl font-normal leading-relaxed sm:leading-normal sm:text-3xl mt-7 text-white-shade-100 ">
+                {highlightText(
+                  briefText,
+                  "text-black-shade-300",
+                  "bg-[rgba(251,226,1,0.92)]"
+                )}
               </p>
             </div>
 
             <div
-              className="py-12 px-14 bg-white-shade-100 text-white-shade-200 hover:text-black-shade-300"
+              className="invisible hidden py-12 sm:block sm:visible px-14 bg-white-shade-100 text-white-shade-200 hover:text-black-shade-300"
               style={{
                 clipPath: isHovering
                   ? `circle(70px at ${cursorPos.x}px ${cursorPos.y}px)`
@@ -167,12 +171,17 @@ export default function workDetail() {
               </h2>
 
               <p className="text-3xl font-normal leading-normal mt-7 text-black-shade-100 ">
-                {highlightText(briefText, "bg-[#FFAD4F]")}
+                {highlightText(
+                  briefText,
+                  "text-white-shade-200",
+                  "bg-[#FFAD4F]"
+                )}
               </p>
             </div>
           </section>
-          <div className="flex mt-24 gap-16 items-center w-full max-w-[1100px]">
-            <div className="flex flex-col gap-3">
+
+          <div className="flex flex-wrap md:flex-nowrap mt-10 sm:mt-16 md:mt-20 lg:mt-24 gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
+            <div className="flex flex-col gap-3 min-w-[350px] md:w-1/2">
               <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
                 The Challenge
                 <hr className="block w-full h-[0.2rem] mt-1 bg-primary-orange-200"></hr>
@@ -184,10 +193,12 @@ export default function workDetail() {
                 {workItem.mainContent.challengeContainer.challenge}
               </p>
             </div>
-            <img
-              className="w-full max-w-[550px]"
-              src={workItem.mainContent.challengeContainer.image}
-            />
+            <figure className="w-full max-w-[550px]">
+              <img
+                className="w-full h-auto"
+                src={workItem.mainContent.challengeContainer.image}
+              />
+            </figure>
           </div>
         </div>
 
@@ -204,31 +215,57 @@ export default function workDetail() {
               The Process
               <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
             </h2>
-            <div className="flex flex-col gap-56 mt-10 mb-44">
+            <div className="flex flex-col gap-10 mt-10 sm:gap-44 md:gap-48 lg:gap-56 mb-44">
               {workItem.mainContent.processContainer.map((process, index) => (
-                <section className="section-class" key={index}>
-                  <h3 className="text-2xl font-semibold text-white-shade-200">
-                    {process.title}
-                  </h3>
-                  <p className="mt-4 text-lg max-w-[500px] font-medium text-white-shade-300">
-                    {process.description}
-                  </p>
+                <section
+                  className="flex flex-col gap-10 section-class"
+                  key={index}
+                >
+                  <div>
+                    <h3 className="text-xl font-semibold sm:text-xl md:text-2xl text-white-shade-200">
+                      {process.title}
+                    </h3>
+                    <p className="mt-4 text-base lg:text-lg max-w-[500px] font-medium text-white-shade-300">
+                      {process.description}
+                    </p>
+                  </div>
+                  <div className="relative w-full h-full sm:hidden sm:invisible">
+                    <img
+                      alt="Active section"
+                      className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[220px]"
+                      src={process.image}
+                    />
+
+                    <svg
+                      className=" z-0 w-full sm:max-w-[240px] md:max-w-[400px] lg:max-w-[500px] fade-out"
+                      viewBox="0 0 520 471"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M519.309 254.95C519.309 378.386 346.936 471 223.5 471C100.064 471 0 370.936 0 247.5C0 124.064 136.564 0 260 0C383.436 0 519.309 45.5 519.309 254.95Z"
+                        fill="#FBE201"
+                      />
+                    </svg>
+                  </div>
                 </section>
               ))}
             </div>
           </div>
           <div
-            className={`sticky-image-container ${isFading ? "" : "not-fading"}`}
+            className={`sm:block invisible hidden sm:visible sticky-image-container ${
+              isFading ? "" : "not-fading"
+            }`}
           >
             <img
               alt="Active section"
               key={activeImage}
-              className="relative z-10 w-[330px] fade-in"
+              className="relative z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[400px] fade-in"
               src={activeImage}
             />
 
             <svg
-              className="absolute z-0 w-[550px] fade-out"
+              className="absolute z-0 w-full sm:max-w-[240px] md:max-w-[400px] lg:max-w-[500px] fade-out"
               viewBox="0 0 520 471"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
