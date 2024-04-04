@@ -37,7 +37,7 @@
   }
 
   .margin-t {
-    @apply mt-10 md:mt-12 lg:mt-16;
+    @apply mt-6 md:mt-12 lg:mt-16;
   }
 
   .padding-y-lg {

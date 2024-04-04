@@ -20,6 +20,8 @@ module.exports = {
       },
       backgroundImage: {
         "partner-carousel-background": "url('/partners/partnerBG.png')",
+        "textured-white-background": "url('/portfolio/texturedWhiteBG.png')",
+        "textured-black-background": "url('/portfolio/texturedBlackBG.png')",
       },
       colors: {
         "background-white": "#F5F5F7",

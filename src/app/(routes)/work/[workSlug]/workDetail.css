@@ -41,4 +41,7 @@
   .section-layout {
     grid-template-columns: 1fr;
   }
+  .sticky-image-container {
+    display: none;
+  }
 }

@@ -62,25 +62,22 @@ const workData = [
         },
       ],
       endProductContainer: {
-        description: "Designing website for a digital agency",
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. ",
         points: [
-          "Designing website for a digital agency",
-          "Designing website for a digital agency",
-          "Designing website for a digital agency",
+          "Designing website for a digital agency 1",
+          "Designing website for a digital agency 2",
+          "Designing website for a digital agency 3",
         ],
-        image: "/image",
+        image: "/portfolio/twelveletter/twelveletter-endImg.png",
       },
 
       resultContainer: {
-        description: "Result",
-        icons: [
-          { icon: "/icon", alt: "" },
-          { icon: "/icon", alt: "" },
-          { icon: "/icon", alt: "" },
-        ],
+        description:
+          "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
         media: [
-          { type: "image", src: "/image" },
-          { type: "image", src: "/image" },
+          { type: "image", src: "/portfolio/twelveletter/result-1.png" },
+          { type: "image", src: "/portfolio/twelveletter/result-2.png" },
         ],
       },
 

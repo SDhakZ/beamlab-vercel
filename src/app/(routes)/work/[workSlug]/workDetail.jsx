@@ -5,6 +5,9 @@ import { useWorkDetails } from "@/app/hooks/useWorkDetail";
 import { highlightText } from "@/app/utility/highlightText";
 import "./workDetail.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Brief from "../(Components)/brief";
 
 export default function workDetail() {
   const { setMenuBackgroundBlack } = useGlobalState();
@@ -24,6 +27,7 @@ export default function workDetail() {
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef(null);
   const [isFading, setIsFading] = useState(false);
+
   const updateCursorPos = (e) => {
     if (sectionRef.current) {
       const bounds = sectionRef.current.getBoundingClientRect();
@@ -76,7 +80,6 @@ export default function workDetail() {
         const isInMiddle =
           topPos <= offset &&
           topPos >= offset - processSectionRef.current.offsetHeight;
-
         setIsDarkTheme(isInMiddle); // Update local state to change theme
         setMenuBackgroundBlack(isInMiddle); // Update global state to change menu background
       }
@@ -90,7 +93,7 @@ export default function workDetail() {
     <div
       className={`${
         isDarkTheme ? "bg-background-black" : "bg-background-white"
-      } transition-colors duration-1000`}
+      } transition-colors duration-[1300ms]`}
     >
       <div className="flex flex-col pb-10 mt-6 container-margin">
         <button
@@ -150,50 +153,7 @@ export default function workDetail() {
             </div>
           </div>
           {/*---Brief---*/}
-          <section
-            onMouseMove={updateCursorPos}
-            onMouseEnter={() => setIsHovering(true)}
-            onMouseLeave={() => setIsHovering(false)}
-            ref={sectionRef}
-            className="w-full relative mt-10 sm:mt-10 md:mt-14 max-w-[1100px]"
-          >
-            <div className="relative px-6 py-6 sm:py-8 sm:px-10 md:py-12 sm:absolute bg-black-shade-400 md:px-14">
-              <h2 className="text-base font-semibold w-fit text-white-shade-100">
-                Designing website for a digital agency{" "}
-                <hr className="block w-full h-[0.1rem] mt-1 bg-white-shade-100"></hr>
-              </h2>
-
-              <p className="text-xl font-normal leading-relaxed sm:leading-normal sm:text-3xl mt-7 text-white-shade-100 ">
-                {highlightText(
-                  briefText,
-                  "text-black-shade-300",
-                  "bg-[rgba(251,226,1,0.92)]"
-                )}
-              </p>
-            </div>
-
-            <div
-              className="invisible hidden py-12 sm:block sm:visible px-14 bg-white-shade-100 text-white-shade-200 hover:text-black-shade-300"
-              style={{
-                clipPath: isHovering
-                  ? `circle(70px at ${cursorPos.x}px ${cursorPos.y}px)`
-                  : "none",
-              }}
-            >
-              <h2 className="text-base font-semibold w-fit ">
-                Designing website for a digital agency{" "}
-                <hr className="block w-full h-[0.1rem] mt-1 bg-black-shade-100"></hr>
-              </h2>
-
-              <p className="text-3xl font-normal leading-normal mt-7 text-black-shade-100 ">
-                {highlightText(
-                  briefText,
-                  "text-white-shade-200",
-                  "bg-[#FFAD4F]"
-                )}
-              </p>
-            </div>
-          </section>
+          <Brief briefText={briefText} dark={true} />
 
           <div className="flex flex-wrap md:flex-nowrap mt-10 sm:mt-16 md:mt-20 lg:mt-24 gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
             <div className="flex flex-col gap-3 min-w-[350px] md:w-1/2">
@@ -230,7 +190,7 @@ export default function workDetail() {
       {/*---Process---*/}
       <section
         ref={processSectionRef}
-        className={`relative margin-t transition-colors duration-1000 ${
+        className={`relative transition-colors duration-[1300ms] ${
           isDarkTheme ? "bg-background-black" : "bg-background-white"
         }`}
       >
@@ -240,7 +200,7 @@ export default function workDetail() {
               The Process
               <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
             </h2>
-            <div className="flex flex-col gap-10 mt-10 sm:gap-44 md:gap-48 lg:gap-56 mb-44">
+            <div className="flex flex-col gap-24 mt-10 mb-10 sm:gap-44 md:gap-48 lg:gap-56 sm:mb-36 md:mb-44">
               {workItem.mainContent.processContainer.map((process, index) => (
                 <section
                   className="flex flex-col gap-10 section-class"
@@ -259,10 +219,10 @@ export default function workDetail() {
                     <p
                       className={` ${
                         isDarkTheme
-                          ? "text-white-shade-200"
+                          ? "text-white-shade-300"
                           : "text-black-shade-300"
                       }
-                      mt-4 text-base lg:text-lg max-w-[500px] font-medium `}
+                      mt-4 text-base lg:text-lg max-w-[500px] font-normal `}
                     >
                       {process.description}
                     </p>
@@ -291,14 +251,14 @@ export default function workDetail() {
             </div>
           </div>
           <div
-            className={`sm:block invisible hidden sm:visible sticky-image-container ${
+            className={`sm:block hidden sticky-image-container ${
               isFading ? "" : "not-fading"
             }`}
           >
             <img
               alt="Active section"
               key={activeImage}
-              className="relative z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[400px] fade-in"
+              className="relative hidden sm:block z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[400px] fade-in"
               src={activeImage}
             />
 
@@ -315,6 +275,74 @@ export default function workDetail() {
             </svg>
           </div>
         </div>
+      </section>
+      <section
+        className={`flex transition-all duration-[1300ms] items-center justify-center w-full bg-contain padding-y-lg ${
+          isDarkTheme
+            ? "bg-textured-black-background"
+            : "bg-textured-white-background"
+        } margin-t`}
+      >
+        <div className="max-w-[1000px] container-margin-compact w-full items-center mt-2 flex flex-col gap-1">
+          <h2
+            className={`self-start text-base font-semibold uppercase w-fit text-primary-orange-300`}
+          >
+            The End Product
+            <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
+          </h2>
+          <p
+            className={`${
+              isDarkTheme ? "text-white-shade-100" : "text-black-shade-200"
+            }  mt-4 text-xl sm:text-2xl font-normal`}
+          >
+            {workItem.mainContent.endProductContainer.description}
+          </p>
+          <ul
+            className={`${
+              isDarkTheme ? "text-white-shade-100" : "text-black-shade-200"
+            } flex flex-col self-start gap-4 mt-4 sm:mt-6 md:mt-10 `}
+          >
+            {workItem.mainContent.endProductContainer.points.map(
+              (point, index) => (
+                <li className="text-lg font-medium sm:text-xl" key={index}>
+                  <FontAwesomeIcon color="#00B553" icon={faCheckSquare} />
+                  <span className="ml-2">{point}</span>
+                </li>
+              )
+            )}
+          </ul>
+          <img
+            className="mt-8 sm:mt-12 md:mt-16 w-full max-w-[600px]"
+            src={workItem.mainContent.endProductContainer.image}
+          />
+        </div>
+      </section>
+      <section className="padding-y-lg">
+        <div className="flex flex-col justify-center container-margin-compact">
+          <h2
+            className={`self-start text-base font-semibold uppercase w-fit text-primary-orange-300`}
+          >
+            The End Product
+            <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
+          </h2>
+          <p className="mt-4 text-xl font-normal text-black-shade-200 sm:text-2xl">
+            {workItem.mainContent.resultContainer.description}
+          </p>
+          <div className="flex flex-col gap-10 margin-t">
+            {workItem.mainContent.resultContainer.media.map((media, index) => (
+              <img
+                key={index}
+                src={media.src}
+                alt="result"
+                className="w-full"
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="relative flex items-center justify-center bg-background-black">
+        <Brief briefText={briefText} dark={false} />
       </section>
     </div>
   );
