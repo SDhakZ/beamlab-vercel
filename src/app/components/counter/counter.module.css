@@ -1,0 +1,170 @@
+:root {
+    --AC-number-fs: clamp(1.5rem, 3vw + 1rem, 3rem);
+    --AC-title-fs: 1.4rem;
+    --AC-counter-gap: 10px;
+    --AC-plus-fs: 2rem
+}
+
+.AC-main-container {
+    font-family: "Poppins";
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 180px;
+    width: 100%;
+    position: relative;
+    border-top: 3px solid #113768;
+    border-bottom: 3px solid #113768;
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+}
+
+.AC-secondary-container {
+    display: flex;
+    width: 100%;
+    max-width: 1000px;
+    justify-content: space-evenly;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.AC-number {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: var(--AC-counter-gap);
+}
+
+.AC-number .AC-counter {
+    font-weight: bold;
+    font-style: italic;
+    font-family: var(--f3);
+    font-size: var(--AC-number-fs);
+    padding: 0px 10px 0px 0px;
+}
+
+.AC-number .AC-title {
+    font-size: var(--AC-title-fs);
+    font-weight: 500;
+    font-family: var(--f3);
+    color: hsl(229, 54%, 47%);
+}
+
+.AC-counter-container {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.AC-counter-container span {
+    font-family: var(--f3);
+    font-size: var(--AC-plus-fs);
+    font-weight: 700;
+    display: block;
+    --bg-size: 400%;
+    --color-one: hsl(231, 93%, 29%);
+    --color-two: hsl(204, 97%, 44%);
+    --color-three: hsl(231, 93%, 29%);
+    background: linear-gradient(90deg,
+            var(--color-one),
+            var(--color-two), var(--color-three)) 0 0 / var(--bg-size) 300%;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: move-bg 10s infinite ease;
+}
+
+
+.AC-devider {
+    width: 100%;
+    min-width: 1.8px;
+    max-width: 1.9px;
+    height: 80%;
+    background-color: hsl(224, 46%, 46%);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    .boujee-text {
+        animation: move-bg 12s linear infinite;
+    }
+
+    @keyframes move-bg {
+        to {
+            background-position: var(--bg-size) 0;
+        }
+    }
+}
+
+@media (max-width: 1400px) {
+    :root {
+
+        --AC-title-fs: 1.35rem;
+        --AC-counter-gap: 10px;
+        --AC-plus-fs: 2rem
+    }
+}
+
+@media (max-width: 1024px) {
+    :root {
+
+        --AC-title-fs: 1.2rem;
+        --AC-counter-gap: 10px;
+        --AC-plus-fs: 2rem
+    }
+
+    .AC-counter-container {
+        gap: 8px;
+    }
+}
+
+@media (max-width: 769px) {
+    :root {
+        --AC-title-fs: 1.2rem;
+        --AC-counter-gap: 8px;
+        --AC-plus-fs: 1.6rem
+    }
+
+    .AC-counter-container {
+        gap: 3px;
+    }
+
+    .AC-number .AC-counter {
+        padding: 0px 6px 0px 0px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    :root {
+        --AC-number-fs: clamp(2rem, 3vw + 1rem, 3rem);
+        --AC-title-fs: 1rem;
+        --AC-counter-gap: 4px;
+        --AC-plus-fs: 1.6rem
+    }
+
+    .AC-counter-container {
+        gap: 3px;
+    }
+
+    .AC-number .AC-counter {
+        padding: 0px 6px 0px 0px;
+    }
+
+    .AC-secondary-container {
+        flex-direction: column;
+        height: 100%;
+        gap: 40px;
+    }
+
+    .AC-main-container {
+        height: fit-content;
+        padding: 40px 0;
+    }
+
+    .AC-devider {
+        display: none;
+    }
+}

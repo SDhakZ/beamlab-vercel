@@ -6,7 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function footer() {
   return (
-    <footer className="bg-background-black" id="footer">
+    <footer className=" bg-background-black" id="footer">
       <div className="pt-16 pb-20 space-y-8 tracking-wider lg:pt-20 container-margin">
         <div className="flex flex-col gap-10">
           <div className="flex flex-wrap justify-center gap-10 sm:gap-20 sm:flex-nowrap">
@@ -86,7 +86,11 @@ export default function footer() {
               </button>
             </div>
             <figure className="flex self-center justify-center w-full sm: sm:justify-end sm:self-end">
-              <img className="h-auto w-28" src="./BrandLogoIllustration.png" />
+              <img
+                alt="brand logo"
+                className="h-auto w-28"
+                src="/BrandLogoIllustration.png"
+              />
             </figure>
           </div>
         </div>

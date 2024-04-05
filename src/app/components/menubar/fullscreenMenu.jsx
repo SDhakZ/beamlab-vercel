@@ -7,10 +7,9 @@ import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function FullscreenMenu(props) {
-  const { setIsOpen } = props;
+  const { setIsOpen, setShowMenu } = props;
   const pathname = usePathname();
 
-  // Find the title corresponding to the current path
   const findTitleByPath = (path) => {
     const menuItem = menuData[0].items.find((item) => item.link === path);
     return menuItem ? menuItem.title : "Home";
@@ -20,7 +19,7 @@ export default function FullscreenMenu(props) {
   const [displayTitle, setDisplayTitle] = useState(activeTitle);
   const [opacity, setOpacity] = useState(1);
   const [blur, setBlur] = useState(0);
-  // Update activeTitle if pathname changes, e.g., on navigation
+
   useEffect(() => {
     setActiveTitle(findTitleByPath(pathname));
   }, [pathname]);
@@ -50,6 +49,7 @@ export default function FullscreenMenu(props) {
                   onClick={() => {
                     setIsOpen(false);
                     setActiveTitle(menuItem.title);
+                    setShowMenu(false);
                   }}
                   onMouseEnter={() => setActiveTitle(menuItem.title)} // Update title on hover
                   onMouseLeave={() => setActiveTitle(findTitleByPath(pathname))} // Revert to the active path's title
@@ -74,7 +74,7 @@ export default function FullscreenMenu(props) {
             </div>
             <img
               className="sm:w-[300px] w-[450px]"
-              src="./menuBG.png"
+              src="/menuBG.png"
               alt="Beamlab"
             />
           </div>

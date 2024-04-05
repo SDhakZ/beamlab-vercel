@@ -18,6 +18,11 @@ module.exports = {
         poppins: ["var(--font-poppins)", "sans-serif"],
         cervino: ["var(--font-cervino)", "serif"],
       },
+      backgroundImage: {
+        "partner-carousel-background": "url('/partners/partnerBG.png')",
+        "textured-white-background": "url('/portfolio/texturedWhiteBG.png')",
+        "textured-black-background": "url('/portfolio/texturedBlackBG.png')",
+      },
       colors: {
         "background-white": "#F5F5F7",
         "background-black": "#121212",

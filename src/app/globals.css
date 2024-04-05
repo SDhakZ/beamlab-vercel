@@ -8,11 +8,11 @@
   }
 
   .heading-large {
-    @apply text-3xl leading-snug sm:text-4xl lg:text-5xl;
+    @apply text-3xl leading-snug sm:text-4xl lg:text-6xl;
   }
 
   .heading-medium {
-    @apply text-2xl leading-normal sm:text-3xl lg:text-4xl;
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl;
   }
 
   .heading-small {
@@ -37,11 +37,11 @@
   }
 
   .margin-t {
-    @apply mt-10 md:mt-12 lg:mt-16;
+    @apply mt-6 md:mt-12 lg:mt-16;
   }
 
   .padding-y-lg {
-    @apply pt-10 pb-10 sm:pt-12 sm:pb-8 md:pt-16 md:pb-10 lg:pt-[4.3rem] lg:pb-[4.3rem];
+    @apply pt-14 pb-14 sm:pt-12 sm:pb-8 md:pt-16 md:pb-10 lg:pt-[5.3rem] lg:pb-[5.3rem];
   }
 }
 
@@ -92,11 +92,11 @@ body {
   /* Display & Box Model */
   --bg-size: 300%;
   /* Other */
-  --color-one: #54aee2;
-  --color-two: #c389ed;
+  --color-one: #ff6600;
+  --color-two: #fe9600;
   --color-three: #ff867a;
   background: linear-gradient(
-      90deg,
+      0deg,
       var(--color-one),
       var(--color-two),
       var(--color-three),
@@ -144,4 +144,56 @@ body {
 
 .glow-effect:hover {
   box-shadow: 0 0 10px rgba(255, 175, 71, 0.918);
+}
+
+/* -----------------Flicker Effect------------------- */
+.flicker {
+  /* Display & Box Model */
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.flicker li {
+  /* Other */
+  list-style: none;
+  color: #888888;
+  animation: lighting 2s linear infinite; /*Mod3: Control animation speed*/
+}
+
+@keyframes lighting {
+  0% {
+    /* Other */
+    color: #ff8b56;
+    text-shadow: none;
+  }
+
+  90% {
+    /* Other */
+    color: #484848;
+    text-shadow: none;
+  }
+
+  100% {
+    /* Other */
+    color: #fe9600;
+  }
+}
+
+/*----------------Mod4: Control the animation delay for delay between individual letters-----------------*/
+
+.flicker li:nth-child(1) {
+  animation-delay: 0;
+}
+
+.flicker li:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.flicker li:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.flicker li:nth-child(4) {
+  animation-delay: 0.6s;
 }

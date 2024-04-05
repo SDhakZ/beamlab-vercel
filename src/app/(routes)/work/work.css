@@ -1,0 +1,38 @@
+:root {
+  --wct-margin: 40px;
+}
+
+.work-container {
+  width: 1200;
+  max-width: calc(100% - var(--wct-margin));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card:hover h2 {
+  color: #fe9600;
+}
+
+@media screen and (min-width: 540px) {
+  :root {
+    --wct-margin: 100px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --wct-margin: 130px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  :root {
+    --wct-margin: 250px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  :root {
+    --wct-margin: 390px;
+  }
+}
