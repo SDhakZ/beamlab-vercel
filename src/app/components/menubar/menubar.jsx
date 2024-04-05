@@ -62,19 +62,20 @@ export default function Menubar() {
   return (
     <nav
       style={{
-        backgroundColor: isOpen
-          ? "#F5F5F7"
-          : hasShadow
-          ? menuBackgroundBlack
-            ? "#121212"
-            : "#F5F5F7"
-          : "transparent",
         boxShadow: hasShadow
           ? "0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.1)"
           : "none",
         zIndex: 1000,
       }}
-      className={`flex sticky justify-between transition-color duration-[1300ms] items-center top-0 w-full h-20 lg:h-24`}
+      className={`flex ${
+        isOpen
+          ? "bg-[#F5F5F7] duration-700"
+          : hasShadow
+          ? menuBackgroundBlack
+            ? "bg-[#121212] duration-[1300ms]"
+            : "bg-[#F5F5F7] duration-[800ms]"
+          : "bg-transparent duration-700"
+      } sticky justify-between transition-color  items-center top-0 w-full h-20 lg:h-24`}
     >
       <div className="flex items-center justify-between w-full h-full container-margin">
         {/*    <a href="/" className="w-[150px]">

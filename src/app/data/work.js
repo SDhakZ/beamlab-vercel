@@ -92,7 +92,7 @@ const workData = [
     slug: "twelveletter",
     title: "TwelveLetter",
     catchPhrase: "Designing website for a digital agency",
-    poster: "/portfolio/twelveletter/twelveletter-cover.png",
+    poster: "/portfolio/test/oso.png",
     tags: ["web service", "custom dev", "api integration"],
     projectDetails: {
       projectHeroImage: "/portfolio/twelveletter/twelveletter-hero-image.png",

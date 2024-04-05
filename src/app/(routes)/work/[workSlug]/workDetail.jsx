@@ -2,14 +2,13 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useRouter, useParams } from "next/navigation";
 import { useWorkDetails } from "@/app/hooks/useWorkDetail";
-import { highlightText } from "@/app/utility/highlightText";
 import "./workDetail.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Brief from "../(Components)/brief";
+import Brief from "../(Components)/Brief";
 
-export default function workDetail() {
+export default function WorkDetail() {
   const { setMenuBackgroundBlack } = useGlobalState();
   const processSectionRef = useRef(null);
   const router = useRouter();
@@ -18,37 +17,14 @@ export default function workDetail() {
   const workItem = useWorkDetails(workSlug);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  if (!workItem) {
-    return <>Not found</>;
-  }
+  // Moved up and is no longer conditional.
+  const [activeImage, setActiveImage] = useState(
+    workItem ? workItem.mainContent.processContainer[0].image : null
+  );
+
+  // This check is moved to render logic instead of wrapping hooks.
 
   const briefText = workItem.mainContent.briefContainer.brief;
-  const [isHovering, setIsHovering] = useState(false);
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
-  const sectionRef = useRef(null);
-  const [isFading, setIsFading] = useState(false);
-
-  const updateCursorPos = (e) => {
-    if (sectionRef.current) {
-      const bounds = sectionRef.current.getBoundingClientRect();
-      setCursorPos({
-        x: e.clientX - bounds.left,
-        y: e.clientY - bounds.top,
-      });
-    }
-  };
-
-  useEffect(() => {
-    document.addEventListener("mousemove", updateCursorPos);
-
-    return () => {
-      document.removeEventListener("mousemove", updateCursorPos);
-    };
-  }, []);
-
-  const [activeImage, setActiveImage] = useState(
-    workItem.mainContent.processContainer[0].image
-  );
 
   useEffect(() => {
     const handleScroll = () => {
@@ -58,9 +34,10 @@ export default function workDetail() {
       sections.forEach((section, index) => {
         const sectionTop = section.getBoundingClientRect().top;
         if (sectionTop < window.innerHeight / 2) {
-          // Adjust this threshold as needed
           currentSection = section;
           setActiveImage(workItem.mainContent.processContainer[index].image);
+        } else {
+          return null;
         }
       });
     };
@@ -68,7 +45,7 @@ export default function workDetail() {
     window.addEventListener("scroll", handleScroll);
 
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [workItem]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -76,19 +53,22 @@ export default function workDetail() {
         const topPos = processSectionRef.current.getBoundingClientRect().top;
         const offset = window.innerHeight / 2; // Middle of the viewport
 
-        // Determine if the "process" section is in the middle of the screen
         const isInMiddle =
           topPos <= offset &&
           topPos >= offset - processSectionRef.current.offsetHeight;
-        setIsDarkTheme(isInMiddle); // Update local state to change theme
-        setMenuBackgroundBlack(isInMiddle); // Update global state to change menu background
+        setIsDarkTheme(isInMiddle);
+        setMenuBackgroundBlack(isInMiddle);
+      } else {
+        return null;
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setMenuBackgroundBlack]);
-
+  if (!workItem) {
+    return <>Not found</>;
+  }
   return (
     <div
       className={`${
@@ -108,15 +88,21 @@ export default function workDetail() {
           </h1>
           <div className="flex flex-wrap items-center justify-between w-full gap-4 mt-4 md:mt-8 lg:mt-10">
             <img
+              alt={workItem.title}
               className="w-44 md:w-48"
               src={workItem.projectDetails.projectLogo}
             />
-            <a className="text-base leading-none  font-medium underline text-[#006DAA]">
+            <a
+              href={workItem.projectDetails.projectLink}
+              className="text-base leading-none  font-medium underline text-[#006DAA]"
+            >
               {workItem.projectDetails.projectLink}
             </a>
           </div>
           <img
+            loading="lazy"
             className="mt-2"
+            alt="hero"
             src={workItem.projectDetails.projectHeroImage}
           />
           <ul className="flex flex-wrap self-start gap-3 mt-3">
@@ -153,9 +139,10 @@ export default function workDetail() {
             </div>
           </div>
           {/*---Brief---*/}
-          <Brief briefText={briefText} dark={true} />
-
-          <div className="flex flex-wrap md:flex-nowrap mt-10 sm:mt-16 md:mt-20 lg:mt-24 gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
+          <section className="padding-y-lg">
+            <Brief briefText={briefText} dark={true} />
+          </section>
+          <div className="flex flex-wrap md:flex-nowrap margin-t gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
             <div className="flex flex-col gap-3 min-w-[350px] md:w-1/2">
               <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
                 The Challenge
@@ -178,14 +165,14 @@ export default function workDetail() {
             </div>
             <figure className="w-full max-w-[500px]">
               <img
+                loading="lazy"
+                alt="Challenge"
                 className="w-full h-auto"
                 src={workItem.mainContent.challengeContainer.image}
               />
             </figure>
           </div>
         </div>
-
-        {/*---Brief---*/}
       </div>
       {/*---Process---*/}
       <section
@@ -194,7 +181,7 @@ export default function workDetail() {
           isDarkTheme ? "bg-background-black" : "bg-background-white"
         }`}
       >
-        <div className="container-margin-compact padding-y-lg section-layout">
+        <div className="container-margin-compact margin-t padding-y-lg section-layout">
           <div className="sm::mt-24">
             <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
               The Process
@@ -229,6 +216,8 @@ export default function workDetail() {
                   </div>
                   <div className="relative w-full h-full sm:hidden sm:invisible">
                     <img
+                      loading="lazy"
+                      decoding="async"
                       alt="Active section"
                       className="w-full absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 max-w-[220px]"
                       src={process.image}
@@ -250,20 +239,18 @@ export default function workDetail() {
               ))}
             </div>
           </div>
-          <div
-            className={`sm:block hidden sticky-image-container ${
-              isFading ? "" : "not-fading"
-            }`}
-          >
+          <div className={`sm:block hidden sticky-image-container `}>
             <img
+              loading="lazy"
+              decoding="async"
               alt="Active section"
               key={activeImage}
-              className="relative hidden sm:block z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[400px] fade-in"
+              className="relative hidden sm:block z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[450px] fade-in"
               src={activeImage}
             />
 
             <svg
-              className="absolute z-0 w-full sm:max-w-[240px] md:max-w-[400px] lg:max-w-[500px] fade-out"
+              className="absolute z-0 w-full sm:max-w-[240px] md:max-w-[400px] lg:max-w-[580px] fade-out"
               viewBox="0 0 520 471"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -293,14 +280,14 @@ export default function workDetail() {
           <p
             className={`${
               isDarkTheme ? "text-white-shade-100" : "text-black-shade-200"
-            }  mt-4 text-xl sm:text-2xl font-normal`}
+            }  mt-4 transition-colors duration-[1300ms] text-xl sm:text-2xl font-normal`}
           >
             {workItem.mainContent.endProductContainer.description}
           </p>
           <ul
             className={`${
               isDarkTheme ? "text-white-shade-100" : "text-black-shade-200"
-            } flex flex-col self-start gap-4 mt-4 sm:mt-6 md:mt-10 `}
+            } flex flex-col transition-colors duration-[1300ms]  self-start gap-4 mt-4 sm:mt-6 md:mt-10 `}
           >
             {workItem.mainContent.endProductContainer.points.map(
               (point, index) => (
@@ -312,17 +299,20 @@ export default function workDetail() {
             )}
           </ul>
           <img
+            loading="lazy"
+            decoding="async"
+            alt="project"
             className="mt-8 sm:mt-12 md:mt-16 w-full max-w-[600px]"
             src={workItem.mainContent.endProductContainer.image}
           />
         </div>
       </section>
-      <section className="padding-y-lg">
-        <div className="flex flex-col justify-center container-margin-compact">
+      <section className="flex justify-center padding-y-lg margin-t container-margin-compact">
+        <div className="flex flex-col justify-center max-w-[1000px]">
           <h2
             className={`self-start text-base font-semibold uppercase w-fit text-primary-orange-300`}
           >
-            The End Product
+            The Results
             <hr className="w-full border-none h-[0.15rem] mt-1 bg-primary-orange-300" />
           </h2>
           <p className="mt-4 text-xl font-normal text-black-shade-200 sm:text-2xl">
@@ -341,7 +331,7 @@ export default function workDetail() {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center bg-background-black">
+      <section className="relative flex items-center justify-center padding-y-lg bg-background-black">
         <Brief briefText={briefText} dark={false} />
       </section>
     </div>

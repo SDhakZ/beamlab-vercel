@@ -6,6 +6,7 @@ export default function ContactModule() {
   return (
     <section className="relative flex justify-center w-full padding-y-lg lg:pb-24 bg-black-shade-300">
       <img
+        alt="abstract"
         className="absolute bottom-0 right-0 z-0 w-36 sm:w-36 md:w-52 lg:w-56"
         src="/assets/abstract-footer.png"
       />

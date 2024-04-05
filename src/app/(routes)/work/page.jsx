@@ -12,7 +12,6 @@ export default function page() {
       <section className="mt-16">
         <Carousel />
       </section>
-
       <ContactModule />
     </>
   );

@@ -2,7 +2,7 @@ import React from "react";
 import { useEffect, useState, useRef } from "react";
 import { highlightText } from "@/app/utility/highlightText";
 
-export default function brief(props) {
+export default function Brief(props) {
   const { briefText, dark } = props;
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
@@ -31,7 +31,7 @@ export default function brief(props) {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
       ref={sectionRef}
-      className="w-full relative mt-10 sm:mt-10 md:mt-14 max-w-[1100px]"
+      className="w-full relative  max-w-[1100px]"
     >
       <div
         className={`relative px-6 py-6 sm:py-8 sm:px-10 md:py-12 sm:absolute ${
