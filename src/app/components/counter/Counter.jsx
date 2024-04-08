@@ -10,7 +10,7 @@ export default function Counter({ number, title, unit, alignStart, darkMode }) {
       }`}
     >
       <div
-        className={`text-4xl font-semibold sm:text-4xl md:text-5xl lg:text-[3.5rem] ${
+        className={`text-4xl font-semibold sm:text-4xl md:text-4xl lg:text-5xl ${
           darkMode ? "text-white-shade-200" : "text-black-shade-300"
         }`}
       >

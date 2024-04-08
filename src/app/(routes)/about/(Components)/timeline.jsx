@@ -12,7 +12,6 @@ import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function Timeline() {
   const { setMenuBackgroundBlack } = useGlobalState();
-  const [isDarkTheme, setIsDarkTheme] = useState(false);
   const timelineSection = useRef(null);
 
   useEffect(() => {
@@ -20,11 +19,10 @@ export default function Timeline() {
       if (timelineSection.current) {
         const topPos = timelineSection.current.getBoundingClientRect().top;
         const offset = window.innerHeight / 2; // Middle of the viewport
-
         const isInMiddle =
           topPos <= offset &&
           topPos >= offset - timelineSection.current.offsetHeight;
-        setIsDarkTheme(isInMiddle);
+
         setMenuBackgroundBlack(isInMiddle);
       } else {
         return null;
