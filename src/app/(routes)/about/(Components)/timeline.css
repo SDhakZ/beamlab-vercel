@@ -1,0 +1,90 @@
+:root {
+  --line-color: #575757 !important;
+}
+
+.date-timeline {
+  color: rgb(255, 255, 255);
+}
+
+.vertical-timeline-element-content {
+  border-top: 3px solid;
+  border-image: linear-gradient(to left, #ffe60800, #fe9600) 1 0 0 0;
+}
+
+.vertical-timeline-element--work h3 {
+  font-size: 1.4rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  color: #eeeeee;
+}
+
+.vertical-timeline-element--work p {
+  font-size: 1.05rem;
+  color: #c0c5c9;
+}
+
+/* Ring color */
+.vertical-timeline-element--work .vertical-timeline-element-icon {
+  box-shadow: 0 0 0 4px #797878, inset 0 2px 0 rgba(0, 0, 0, 0.301),
+    0 3px 0 4px rgba(0, 0, 0, 0.05);
+}
+
+.vertical-timeline-element-icon {
+  background-color: #282828 !important;
+}
+
+.vertical-timeline-element-subtitle {
+  font-weight: 500;
+}
+
+.vertical-timeline-element-content-arrow {
+  border-right: 7px solid #282828 !important;
+}
+
+@media (max-width: 1460px) {
+  .vertical-timeline-element--work h3 {
+    font-size: 1.2rem;
+  }
+
+  .vertical-timeline-element--work h4 {
+    font-size: 0.8rem;
+  }
+
+  .vertical-timeline-element--work p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 1170px) {
+  .date-timeline {
+    color: rgb(255, 255, 255);
+  }
+}
+
+@media (max-width: 769px) {
+  .vertical-timeline-element--work h3 {
+    font-size: 1.2rem;
+  }
+
+  .vertical-timeline-element--work h4 {
+    font-size: 0.8rem;
+  }
+
+  .vertical-timeline-element--work p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .vertical-timeline-element--work h3 {
+    font-size: 1.1rem;
+  }
+
+  .vertical-timeline-element--work h4 {
+    font-size: 0.8rem;
+  }
+
+  .vertical-timeline-element--work p {
+    font-size: 0.9rem;
+  }
+}

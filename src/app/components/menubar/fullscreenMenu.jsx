@@ -31,7 +31,7 @@ export default function FullscreenMenu(props) {
       setDisplayTitle(activeTitle); // Change the title after fade out
       setOpacity(1); // Start fade in
       setBlur(0);
-    }, 100); // Match the duration of your CSS transition
+    }, 0); // Match the duration of your CSS transition
 
     return () => clearTimeout(timeoutId);
   }, [activeTitle]);
@@ -57,7 +57,7 @@ export default function FullscreenMenu(props) {
                     pathname === menuItem.link
                       ? "text-black-shade-300"
                       : "text-white-shade-300"
-                  }  hover:text-black-shade-300 transition-all duration-300`}
+                  }  hover:text-black-shade-300 transition-all duration-0`}
                   href={menuItem.link}
                 >
                   {menuItem.title}

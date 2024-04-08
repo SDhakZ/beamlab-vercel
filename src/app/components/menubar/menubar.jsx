@@ -69,13 +69,15 @@ export default function Menubar() {
       }}
       className={`flex ${
         isOpen
-          ? "bg-[#F5F5F7] duration-700"
+          ? "bg-[#F5F5F7]"
           : hasShadow
           ? menuBackgroundBlack
-            ? "bg-[#121212] duration-[1300ms]"
-            : "bg-[#F5F5F7] duration-[800ms]"
-          : "bg-transparent duration-700"
-      } sticky justify-between transition-color  items-center top-0 w-full h-20 lg:h-24`}
+            ? "bg-[#121212] duration-[500ms]"
+            : "bg-[#F5F5F7]"
+          : "bg-[#F5F5F7]"
+      } sticky justify-between ${
+        isOpen || hasShadow ? "transition-colors duration-500" : "duration-500"
+      } items-center top-0 w-full h-20 lg:h-24`}
     >
       <div className="flex items-center justify-between w-full h-full container-margin">
         {/*    <a href="/" className="w-[150px]">

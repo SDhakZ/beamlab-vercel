@@ -114,9 +114,14 @@ export default function Work() {
             .
           </h2>
           <div className="flex flex-col justify-between w-full mt-10 md:mt-20 gap-8 sm:gap-16 max-w-[550px] sm:flex-row">
-            <Counter number={100} title="Satisfaction" unit="%" />
-            <Counter number={40} title="Clients" unit="+" />
-            <Counter number={5} title="Years" unit="+" />
+            <Counter
+              alignStart={true}
+              number={100}
+              title="Satisfaction"
+              unit="%"
+            />
+            <Counter alignStart={true} number={40} title="Clients" unit="+" />
+            <Counter alignStart={true} number={5} title="Years" unit="+" />
           </div>
         </section>
         <section className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 lg:gap-x-16 gap-y-12 sm:gap-y-0 section-y">
