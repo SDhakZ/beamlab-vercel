@@ -102,13 +102,13 @@ export default function Work() {
           <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-300 sm:invisible sm:hidden">
             The evidence
           </h1>
-          <h2 className="font-medium leading-snug tracking-tight text-center sm:text-start heading-medium text-black-shade-300">
+          <h2 className="font-medium leading-tight tracking-tight text-center sm:font-semibold sm:text-start heading-medium text-black-shade-300">
             The project you&apos;re tackling deserves outstanding{" "}
-            <span className="font-medium tracking-wide uppercase lg:font-bold text-primary-orange-300">
+            <span className="tracking-wide uppercase lg:font-bold text-primary-orange-300">
               ATTENTION
             </span>{" "}
             and{" "}
-            <span className="font-medium tracking-wide uppercase lg:font-bold text-primary-orange-300">
+            <span className="tracking-wide uppercase lg:font-bold text-primary-orange-300">
               EFFORT
             </span>
             .
