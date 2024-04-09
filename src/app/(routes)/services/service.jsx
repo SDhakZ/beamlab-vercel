@@ -5,9 +5,9 @@ import { serviceData } from "../../data/service";
 
 export default function service() {
   return (
-    <div className="">
-      <section className="top-section-p container-margin ">
-        <h1 className="text-2xl font-medium leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
+    <div className="relative">
+      <section className="top-section-p container-margin">
+        <h1 className="text-2xl font-semibold text-black-shade-300 lg:leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
           From <span className="gradient">Imagination</span> to{" "}
           <span className="gradient">Implementation</span>: Full-spectrum
           services for dynamic outcomes
@@ -22,17 +22,19 @@ export default function service() {
               <span></span>
               <div className="flex flex-col items-center content">
                 <img
-                  className="w-full -mt-6 max-w-[100px] default-image"
+                  className="w-full -mt-6 max-w-[90px] sm:max-w-[100px] default-image"
                   src={service.images.default}
                 />
                 <img
-                  className="w-full hidden -mt-6 max-w-[100px] hover-image"
+                  className="w-full hidden -mt-6 max-w-[90px] sm:max-w-[100px] hover-image"
                   src={service.images.hover}
                 />
                 <h2 className="mt-2 text-xl font-semibold leading-tight blob-h2">
                   {service.title}
                 </h2>
-                <p className="mt-1 blob-para">{service.brief}</p>
+                <p className="mt-1 text-black-shade-300 blob-para">
+                  {service.brief}
+                </p>
               </div>
             </Link>
           ))}

@@ -12,13 +12,19 @@
   align-items: center;
 }
 
-.blob-para,
 .blob-h2 {
+  color: #282828;
+}
+
+.blob-para {
   color: #3f3f3f;
 }
 
-.square:hover .blob-para,
 .square:hover .blob-h2 {
+  color: #ffffff;
+}
+
+.square:hover .blob-para {
   color: #fcfcfc;
 }
 
@@ -45,7 +51,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  border: 2px solid rgb(46, 46, 46);
+  border: 2px solid rgb(97, 97, 97);
   border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
   transition: 0.5s;
   animation: animate 18s linear infinite;
@@ -78,10 +84,9 @@
   padding: 40px 60px;
   text-align: center;
   transition: 0.5s;
-  z-index: 1000;
+  z-index: 90;
 }
 
-/* Optional: CSS to hide the second image initially */
 .hover-image {
   display: none;
 }
@@ -109,5 +114,16 @@
   }
   100% {
     transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 540px) {
+  .square {
+    height: 300px;
+    max-height: 300px;
+    max-width: 300px;
+  }
+  .content {
+    padding: 40px 20px;
   }
 }
