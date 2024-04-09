@@ -1,0 +1,14 @@
+.sticky-image-container {
+  position: sticky;
+  top: calc(50% - 100px);
+  height: calc(100vh - 620px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.gradient-heading {
+  color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}

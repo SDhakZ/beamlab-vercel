@@ -16,7 +16,11 @@ export default function service() {
       <section className="mt-10 lg:mt-20 md:mt-16 sm:mt-12 container-margin ">
         <div className="flex flex-wrap gap-x-6 gap-y-16 justify-evenly">
           {serviceData.map((service, index) => (
-            <Link key={index} href={service.href} className="square twitter">
+            <Link
+              key={index}
+              href={`/services/${service.slug}`}
+              className="square twitter"
+            >
               <span></span>
               <span></span>
               <span></span>
