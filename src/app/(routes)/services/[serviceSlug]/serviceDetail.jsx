@@ -5,50 +5,20 @@ import { serviceData } from "@/app/data/service";
 import "./serviceDetail.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
+import Testimonial from "@/app/components/testimonial/testimonial";
+import useScrollProgress from "@/app/hooks/useScrollProgress";
+import calculateGradient from "@/app/utility/calculateGradient";
+import calculateOpacity from "@/app/utility/calculateOpacity";
 
 export default function ServiceDetail() {
   const params = useParams();
   const serviceSlug = params.serviceSlug;
   const offerSectionRef = useRef(null);
-  const [scrollY, setScrollY] = useState(0);
+  const scrollY = useScrollProgress(offerSectionRef);
 
   const selectedServiceData = serviceData.find(
     (service) => service.slug === serviceSlug
   );
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const windowScroll = window.scrollY;
-      const sectionTop = offerSectionRef.current.offsetTop;
-      const sectionHeight = offerSectionRef.current.offsetHeight;
-
-      if (
-        windowScroll > sectionTop - window.innerHeight &&
-        windowScroll < sectionTop + sectionHeight
-      ) {
-        const maxScroll = sectionHeight + window.innerHeight;
-        const scrolled = windowScroll - sectionTop + window.innerHeight;
-        const scrollPercent = scrolled / maxScroll;
-        setScrollY(scrollPercent * 100);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  const calculateGradient = () => {
-    const scrollProgress = Math.min(100, Math.max(0, scrollY));
-    // As the user scrolls down, the starting point of the orange color moves upwards
-    const orangeStart = Math.max(0, 200 - 4 * scrollProgress); // Start the orange gradient earlier
-    const orangeEnd = 90; // End of the orange color
-    return `linear-gradient(to bottom, rgba(251, 0, 0, 1) 0%, rgba(0, 0, 0, 1) ${orangeStart}%, rgba(254, 122, 0) ${orangeEnd}%)`;
-  };
-
-  const calculateOpacity = () => {
-    let adjustedScroll = 120 - scrollY;
-    return Math.pow(adjustedScroll / 90, 10);
-  };
 
   return (
     <div>
@@ -76,7 +46,7 @@ export default function ServiceDetail() {
               <span
                 className="gradient-heading "
                 style={{
-                  background: calculateGradient(),
+                  background: calculateGradient(scrollY),
                 }}
               >
                 stand out
@@ -86,7 +56,7 @@ export default function ServiceDetail() {
           </div>
           <div className="flex gap-10 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[450px]">
             <h2
-              style={{ opacity: calculateOpacity() }}
+              style={{ opacity: calculateOpacity(scrollY) }}
               className="w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15]  "
             >
               Find out the type of services we provide{" "}
