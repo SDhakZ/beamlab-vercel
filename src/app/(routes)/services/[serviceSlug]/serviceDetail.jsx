@@ -59,7 +59,7 @@ export default function ServiceDetail() {
               style={{ opacity: calculateOpacity(scrollY) }}
               className="w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15]  "
             >
-              Find out the type of services we provide{" "}
+              Why website development at beamlab?{" "}
             </h2>
             <p className="font-medium sm:text-base md:text-lg text-black-shade-200">
               At Beamlab we specialize in delivering cutting-edge web
@@ -93,7 +93,9 @@ export default function ServiceDetail() {
           </div>
         </div>
       </section>
-      <section className="margin-t"></section>
+      <section className="margin-t">
+        <Testimonial />
+      </section>
     </div>
   );
 }

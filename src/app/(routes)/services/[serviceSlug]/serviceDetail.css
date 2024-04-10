@@ -1,7 +1,7 @@
 .sticky-image-container {
   position: sticky;
   top: calc(50% - 100px);
-  height: calc(100vh - 620px);
+  height: 100%;
 }
 
 .gradient-heading {
