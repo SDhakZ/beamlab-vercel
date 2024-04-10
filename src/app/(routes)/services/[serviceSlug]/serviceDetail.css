@@ -2,13 +2,18 @@
   position: sticky;
   top: calc(50% - 100px);
   height: calc(100vh - 620px);
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 .gradient-heading {
   color: transparent;
   -webkit-background-clip: text !important;
   background-clip: text !important;
+}
+
+@media (max-width: 540px) {
+  .sticky-image-container {
+    position: relative;
+    top: 0;
+    height: fit-content;
+  }
 }
