@@ -17,12 +17,9 @@ export default function WorkDetail() {
   const workItem = useWorkDetails(workSlug);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  // Moved up and is no longer conditional.
   const [activeImage, setActiveImage] = useState(
     workItem ? workItem.mainContent.processContainer[0].image : null
   );
-
-  // This check is moved to render logic instead of wrapping hooks.
 
   const briefText = workItem.mainContent.briefContainer.brief;
 
@@ -248,7 +245,6 @@ export default function WorkDetail() {
               className="relative hidden sm:block z-10 w-full sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] xl:max-w-[450px] fade-in"
               src={activeImage}
             />
-
             <svg
               className="absolute z-0 w-full sm:max-w-[240px] md:max-w-[400px] lg:max-w-[580px] fade-out"
               viewBox="0 0 520 471"

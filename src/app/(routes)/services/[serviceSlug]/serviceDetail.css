@@ -17,3 +17,58 @@
     height: fit-content;
   }
 }
+
+/* Feature section css */
+.feature-section-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: start;
+  gap: 20px; /* Adjust based on your design */
+}
+
+.feature-sticky-image-container {
+  position: sticky;
+  top: 40%; /* Adjust based on your needs */
+  height: 100%; /* Adjust based on your needs */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feature-client {
+  position: sticky;
+  top: 10%; /* Adjust based on your needs */
+  height: 100%;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.feature-image-container {
+  transition: opacity 0.5s ease-out;
+  opacity: 0; /* Start invisible */
+}
+
+/* When not fading, we want the image fully visible */
+.not-fading {
+  opacity: 1;
+}
+
+@media (max-width: 540px) {
+  .feature-section-layout {
+    grid-template-columns: 1fr;
+  }
+  .feature-sticky-image-container {
+    display: none;
+  }
+}

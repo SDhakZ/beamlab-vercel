@@ -23,6 +23,7 @@ module.exports = {
         "textured-white-background": "url('/portfolio/texturedWhiteBG.png')",
         "textured-black-background": "url('/portfolio/texturedBlackBG.png')",
         "textured-testimonial-background": "url('/testimonialBG.png')",
+        "textured-testimonial-background-dark": "url('/testimonialBGDark.png')",
       },
       colors: {
         "background-white": "#F5F5F7",

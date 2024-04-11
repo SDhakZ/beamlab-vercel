@@ -1,3 +1,8 @@
+import boltAnimation from "@/app/assets/animations/boltAnimation.json";
+import responsiveAnimation from "@/app/assets/animations/responsiveAnimation.json";
+import securityAnimation from "@/app/assets/animations/securityAnimation.json";
+import customDesignAnimation from "@/app/assets/animations/customDesignAnimation.json";
+
 export const serviceData = [
   {
     id: 1,
@@ -25,25 +30,29 @@ export const serviceData = [
           title: "Fast Performance",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
-          image: "/services/web-development/circle1.png",
+          image: boltAnimation,
+          imageWidth: "300px",
         },
         {
-          title: "Fast Performance",
+          title: "Complete Responsiveness",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
-          image: "/services/web-development/circle1.png",
+          image: responsiveAnimation,
+          imageWidth: "300px",
         },
         {
-          title: "Fast Performance",
+          title: "Secured webiste",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
-          image: "/services/web-development/circle1.png",
+          image: securityAnimation,
+          imageWidth: "400px",
         },
         {
-          title: "Fast Performance",
+          title: "Custom Design",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
-          image: "/services/web-development/circle1.png",
+          image: customDesignAnimation,
+          imageWidth: "400px",
         },
       ],
     },

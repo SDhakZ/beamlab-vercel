@@ -1,8 +1,18 @@
+"use client";
 import React from "react";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function testimonial() {
+  const { menuBackgroundBlack } = useGlobalState();
+
   return (
-    <div className="bg-[#F5F5F7] relative pt-14 pb-14 sm:pt-12 sm:pb-16 md:pt-16 md:pb-24 lg:pt-[5.3rem] lg:pb-[10rem] bg-textured-testimonial-background bg-cover">
+    <div
+      className={`relative duration-[1300ms] pt-14 pb-14 sm:pt-12 sm:pb-16 md:pt-16 md:pb-24 lg:pt-[5.3rem] lg:pb-[10rem] ${
+        menuBackgroundBlack
+          ? "bg-textured-testimonial-background-dark"
+          : "bg-textured-testimonial-background"
+      } bg-cover`}
+    >
       <div className="relative z-10 mx-8 sm:mx-10 md:mx-20 lg:mx-36 xl:mx-56">
         <svg
           viewBox="0 0 58 46"
@@ -15,11 +25,23 @@ export default function testimonial() {
             fill="#FE9600"
           />
         </svg>
-        <h3 className="text-2xl font-semibold sm:text-3xl md:text-4xl text-black-shade-300">
+        <h3
+          className={`text-2xl font-semibold sm:text-3xl md:text-4xl ${
+            menuBackgroundBlack
+              ? "text-white-shade-200"
+              : "text-black-shade-300"
+          }`}
+        >
           <span className="gradient-x">Voices Of Satisfaction:</span> Feedback
           left by our valued client{" "}
         </h3>
-        <p className="mt-5 text-xl font-medium tracking-wide max-w-[1200px] leading-relaxed text-black-shade-100 md:mt-7 ">
+        <p
+          className={`mt-5 text-xl duration-[1300ms] font-medium tracking-wide max-w-[1200px] leading-relaxed ${
+            menuBackgroundBlack
+              ? "text-white-shade-200"
+              : "text-black-shade-100"
+          } md:mt-7 `}
+        >
           &quot;Working with the team was transformative for our business. Their
           communication was exceptional, making us feel connected at every step.
           The designs they delivered not only wowed us but also perfectly
@@ -27,16 +49,33 @@ export default function testimonial() {
           They&apos;ve redefined excellence for us, and we&apos;re excited for
           what&apos;s next in our partnership.&quot;
         </p>
-        <p className="mt-5 text-lg font-medium font-manrope text-black-shade-100">
+        <p
+          className={`mt-5 text-lg duration-[1300ms] font-medium font-manrope ${
+            menuBackgroundBlack
+              ? "text-white-shade-200"
+              : "text-black-shade-100"
+          } `}
+        >
           Amulya Bajracharya
         </p>
       </div>
-      <img
-        alt="artifact"
-        aria-hidden="true"
-        className="absolute bottom-0 bg-opacity-95"
-        src="/testimonialArtifact.png"
-      />
+      <picture>
+        {/* Small Image */}
+        <source
+          media="(max-width: 540px)"
+          srcSet="/testimonialArtifactSM.png"
+        />
+        <img
+          alt="artifact"
+          aria-hidden="true"
+          className="absolute bottom-0 bg-opacity-95"
+          src={
+            menuBackgroundBlack
+              ? "/testimonialArtifactDark.png"
+              : "/testimonialArtifact.png"
+          }
+        />
+      </picture>
     </div>
   );
 }
