@@ -3,7 +3,10 @@ import HeroSection from "../(Components)/heroSection";
 import OfferSection from "../(Components)/offerSection";
 import FeatureSection from "../(Components)/featureSection";
 import Testimonial from "@/app/components/testimonial/testimonial";
+import Carousel from "@/app/components/partnerCarousel/Carousel";
 import "./serviceDetail.css";
+import Recommend from "@/app/components/recommend/recommend";
+import ContactModule from "@/app/components/contactModule/ContactModule";
 
 export function generateStaticParams() {
   const serviceSlugs = serviceData.map((service) => ({
@@ -24,6 +27,9 @@ export default function page({ params }) {
       <OfferSection selectedServiceData={selectedServiceData} />
       <Testimonial />
       <FeatureSection selectedServiceData={selectedServiceData} />
+      <Carousel />
+      <Recommend />
+      <ContactModule />
     </div>
   );
 }

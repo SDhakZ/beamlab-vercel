@@ -7,18 +7,30 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { partnerData } from "@/app/data/partnerData";
 import Link from "next/link";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function Carousel() {
+  const { menuBackgroundBlack } = useGlobalState();
   return (
-    <div className="flex flex-col items-center gap-4 overflow-x-hidden bg-cover bg-partner-carousel-background padding-y-lg">
-      <p className="text-3xl font-semibold text-center sm:text-3xl md:text-4xl lg:text-[2.9rem] container-margin text-black-shade-300">
+    <div
+      className={`flex relative duration-[1300ms] flex-col items-center gap-4 overflow-x-hidden bg-cover ${
+        menuBackgroundBlack
+          ? "bg-partner-carousel-background-dark"
+          : "bg-partner-carousel-background"
+      }  padding-y-lg`}
+    >
+      <p
+        className={`text-3xl ${
+          menuBackgroundBlack ? "text-white-shade-200" : "text-black-shade-300"
+        } font-semibold relative duration-[1300ms] text-center sm:text-3xl md:text-4xl lg:text-[2.9rem] container-margin `}
+      >
         Our trusted partners
       </p>
 
       <div className="flex gap-2 md:gap-4 ustify-center items-center w-full mt-4 sm:mt-4 lg:mt-8 max-w-[300px] sm:max-w-[500px] md:max-w-[1100px]">
         <hr className="block w-full h-[0.2rem] bg-black-shade-100" />
         <svg
-          className="w-[42px] spin-animate h-[42px]"
+          className="sm:w-[42px] spin-animate sm:h-[42px] w-[32px] h-[32px]"
           viewBox="0 0 42 42"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -50,14 +62,14 @@ export default function Carousel() {
           loop={true}
           allowTouchMove={false}
           preventClicks={false}
-          spaceBetween={20}
+          spaceBetween={30}
           autoplay={{
             delay: 0,
             disableOnInteraction: false,
             pauseOnMouseEnter: false,
             reverseDirection: false,
           }}
-          slidesPerView={2}
+          slidesPerView={3}
           speed={9000}
           breakpoints={{
             540: {
@@ -93,7 +105,7 @@ export default function Carousel() {
           })}
         </Swiper>
       </div>
-      <hr className="block max-w-[150px] -mt-8 sm:-mt-0 md:max-w-[500px] w-full h-[0.25rem]  bg-black-shade-100" />
+      <hr className="block max-w-[150px] -mt-8 sm:-mt-0 md:max-w-[500px] w-full h-[0.2rem]  bg-black-shade-100" />
       <div className="flex flex-col items-center justify-center gap-6 mt-12 lg:gap-10 md:mt-16">
         <div className="flex gap-2 text-3xl font-bold text-center md:text-4xl font-cervino text-black-shade-200">
           We are waiting for

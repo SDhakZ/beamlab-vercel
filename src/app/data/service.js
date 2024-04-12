@@ -31,28 +31,24 @@ export const serviceData = [
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
           image: boltAnimation,
-          imageWidth: "300px",
         },
         {
           title: "Complete Responsiveness",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
           image: responsiveAnimation,
-          imageWidth: "300px",
         },
         {
           title: "Secured webiste",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
           image: securityAnimation,
-          imageWidth: "400px",
         },
         {
           title: "Custom Design",
           description:
             "This section is designed to visually and interactively demonstrate the speed and performance advantages of your services.  Lorem ipsum is a very long lasting example of random words being displayed .",
           image: customDesignAnimation,
-          imageWidth: "400px",
         },
       ],
     },

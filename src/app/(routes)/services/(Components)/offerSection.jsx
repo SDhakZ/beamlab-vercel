@@ -18,7 +18,7 @@ export default function offerSection(props) {
       <div className="flex flex-col gap-4 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 justify-evenly container-margin">
         <div className="sticky-image-container">
           <h2
-            className={`w-full  max-w-[220px] text-xl sm:text-3xl sm:max-w-[260px] md:max-w-[300px] font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] lg:max-w-[370px] xl:max-w-[450px]`}
+            className={`w-full  max-w-[400px] text-3xl sm:text-3xl sm:max-w-[260px] md:max-w-[300px] font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] lg:max-w-[370px] xl:max-w-[450px]`}
           >
             Making you{" "}
             <span
@@ -43,15 +43,15 @@ export default function offerSection(props) {
             {selectedServiceData.serviceDetail.serviceBrief}
           </p>
           <div>
-            <h3 className="font-semibold capitalize sm:text-2xl lg:text-3xl text-black-shade-300">
+            <h3 className="text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl text-black-shade-300">
               What we offer
             </h3>
-            <ul className="mty-0 sm:mt-2">
+            <ul className="mt-2 sm:mt-2">
               {selectedServiceData.serviceDetail.offerings.map(
                 (offer, index) => (
                   <li
                     key={index}
-                    className="flex items-center gap-2 py-3 text-sm font-medium leading-snug border-b-2 sm:py-6 sm:text-base border-black-shade-100"
+                    className="flex items-center gap-2 py-4 text-base font-medium leading-snug border-b-2 text-black-shade-200 sm:py-6 sm:text-base border-black-shade-100"
                   >
                     <FontAwesomeIcon
                       className="text-green-600"

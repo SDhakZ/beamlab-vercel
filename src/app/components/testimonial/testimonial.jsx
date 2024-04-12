@@ -17,7 +17,7 @@ export default function testimonial() {
         <svg
           viewBox="0 0 58 46"
           fill="none"
-          className="w-5 -ml-4 sm:w-6 sm:-ml-7 md:w-8 md:-ml-10 lg:w-12 lg:-ml-20"
+          className="w-4 -ml-4 sm:w-6 sm:-ml-7 md:w-8 md:-ml-10 lg:w-12 lg:-ml-20"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -26,7 +26,7 @@ export default function testimonial() {
           />
         </svg>
         <h3
-          className={`text-2xl font-semibold sm:text-3xl md:text-4xl ${
+          className={`text-2xl relative duration-[1300ms] font-semibold sm:text-3xl md:text-4xl ${
             menuBackgroundBlack
               ? "text-white-shade-200"
               : "text-black-shade-300"
@@ -36,7 +36,7 @@ export default function testimonial() {
           left by our valued client{" "}
         </h3>
         <p
-          className={`mt-5 text-xl duration-[1300ms] font-medium tracking-wide max-w-[1200px] leading-relaxed ${
+          className={`mt-5 text-lg duration-[1300ms] font-medium tracking-wide max-w-[1200px] leading-relaxed ${
             menuBackgroundBlack
               ? "text-white-shade-200"
               : "text-black-shade-100"
