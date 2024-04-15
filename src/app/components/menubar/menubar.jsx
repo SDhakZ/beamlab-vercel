@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import FullscreenMenu from "./fullScreenMenu.module.css";
+import FullscreenMenu from "./FSM.module.css";
 import "./menubar.css";
 import Link from "next/link";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
