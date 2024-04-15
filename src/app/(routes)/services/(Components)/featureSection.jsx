@@ -76,7 +76,10 @@ export default function FeatureSection(props) {
           <div className="flex flex-col gap-16 max-w-[500px]  sm:gap-36 md:gap-44 lg:gap-44 ">
             {selectedServiceData.serviceDetail.sellingProposition.map(
               (serviceDetail, index) => (
-                <div className="flex flex-col-reverse items-center gap-2">
+                <div
+                  key={index}
+                  className="flex flex-col-reverse items-center gap-2"
+                >
                   <section className="section-class" key={index}>
                     <h3
                       className={`${

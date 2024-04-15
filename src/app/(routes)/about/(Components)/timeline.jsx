@@ -9,6 +9,7 @@ import { useInView } from "react-intersection-observer";
 import "./timeline.css";
 import { TimelineData } from "@/app/data/timeline";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import TimelineElement from "./timelineElement";
 
 export default function Timeline() {
   const { setMenuBackgroundBlack } = useGlobalState();
@@ -36,51 +37,9 @@ export default function Timeline() {
   return (
     <div ref={timelineSection}>
       <VerticalTimeline>
-        {TimelineData.map((data, index) => {
-          const { ref, inView } = useInView({
-            triggerOnce: true,
-          });
-
-          return (
-            <div key={index} ref={ref} className="vertical-timeline-element">
-              <VerticalTimelineElement
-                key={index}
-                className="vertical-timeline-element--work"
-                contentStyle={{
-                  background: "#282828",
-                  color: "#636363",
-
-                  boxShadow: "none",
-                }}
-                contentArrowStyle={{ borderRight: "7px solid #FFFFFF" }}
-                dateClassName={"date-timeline"}
-                date={data.date}
-                visible={inView}
-                layout="2-columns"
-                iconStyle={{
-                  background: data.selected ? "#F5B331" : "rgb(33, 150, 243)",
-                  color: "#fff",
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                }}
-                icon={data.icon ? data.icon : <TickIcon />}
-              >
-                <div key={index}>
-                  <h3 className="vertical-timeline-element-title">
-                    {data.title}
-                  </h3>
-                  {data.subtitle && (
-                    <h4 className="vertical-timeline-element-subtitle">
-                      {data.subtitle}
-                    </h4>
-                  )}
-                  <p>{data.description}</p>
-                </div>
-              </VerticalTimelineElement>
-            </div>
-          );
-        })}
+        {TimelineData.map((data, index) => (
+          <TimelineElement key={index} data={data} />
+        ))}
       </VerticalTimeline>
       <div className="flex items-center justify-center margin-t container-margin">
         <p className="text-center text-white-shade-200  w-full max-w-[900px]">
