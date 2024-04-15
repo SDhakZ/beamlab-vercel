@@ -2,7 +2,7 @@ import "./globals.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
 import Menubar from "./components/menubar/menubar";
-import Footer from "./components/footer/footer";
+import Footer from "@/app/components/footer/footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { GlobalStateProvider } from "./utility/globalStateProvide";
