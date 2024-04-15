@@ -94,7 +94,9 @@ export default function Carousel() {
                   style={{ height: "150px" }}
                 >
                   <img
-                    className="object-contain object-center "
+                    className={`${
+                      menuBackgroundBlack ? "invert" : "invert-0"
+                    } object-contain object-center `}
                     title={partner?.name}
                     src={partner?.icon}
                     alt={partner?.name}

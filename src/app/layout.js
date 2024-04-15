@@ -6,6 +6,8 @@ import Footer from "./components/footer/footer";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { GlobalStateProvider } from "./utility/globalStateProvide";
+import SmoothScrolling from "./SmoothScrolling";
+import Providers from "./components/ProgressBarProvider/ProgressBarProvider";
 
 config.autoAddCss = false;
 
@@ -51,9 +53,13 @@ export default function RootLayout({ children }) {
     <GlobalStateProvider>
       <html lang="en">
         <body className={`${poppins.className} ${cervino.variable}`}>
-          <Menubar />
-          <div id="main">{children}</div>
-          <Footer />
+          <Providers>
+            <Menubar />
+            <SmoothScrolling>
+              <div id="main">{children}</div>
+            </SmoothScrolling>
+            <Footer />
+          </Providers>
         </body>
       </html>
     </GlobalStateProvider>

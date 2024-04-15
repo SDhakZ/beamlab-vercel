@@ -9,12 +9,6 @@ export default function featureSection(props) {
   const mainRef = useRef(null);
   const { setMenuBackgroundBlack } = useGlobalState();
 
-  const [imageWidth, setImageWidth] = useState(
-    selectedServiceData
-      ? selectedServiceData.serviceDetail.sellingProposition[0].imageWidth
-      : null
-  );
-
   const [activeImage, setActiveImage] = useState(
     selectedServiceData
       ? selectedServiceData.serviceDetail.sellingProposition[0].image
@@ -32,10 +26,6 @@ export default function featureSection(props) {
           currentSection = section;
           setActiveImage(
             selectedServiceData.serviceDetail.sellingProposition[index].image
-          );
-          setImageWidth(
-            selectedServiceData.serviceDetail.sellingProposition[index]
-              .imageWidth
           );
         } else {
           return null;
@@ -77,7 +67,7 @@ export default function featureSection(props) {
       <h2
         className={`${
           isDarkTheme ? "text-white-shade-200" : "text-black-shade-300"
-        } sm:mb-16 leading-tight md:mb-28 text-center mb-10 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold`}
+        } sm:mb-16 leading-tight md:mb-28 text-center mb-10 text-2xl px-2 sm:text-3xl md:text-4xl lg:text-5xl font-semibold`}
       >
         Why Clients Choose Us?
       </h2>
@@ -118,7 +108,7 @@ export default function featureSection(props) {
           </div>
         </div>
         <div
-          className={`sm:block justify-center w-full items-center hidden feature-sticky-image-container `}
+          className={`sm:block fade-in justify-center w-full items-center hidden feature-sticky-image-container `}
         >
           <Lottie
             className={`sm:w-[190px] md:w-[250px]`}

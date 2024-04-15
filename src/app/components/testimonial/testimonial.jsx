@@ -7,7 +7,7 @@ export default function testimonial() {
 
   return (
     <div
-      className={`relative duration-[1300ms] pt-14 pb-14 sm:pt-12 sm:pb-16 md:pt-16 md:pb-24 lg:pt-[5.3rem] lg:pb-[10rem] ${
+      className={`relative duration-[1300ms] pt-14 pb-10 sm:pt-12 sm:pb-16 md:pt-16 md:pb-16 lg:pt-[5.3rem] lg:pb-[5.3rem] ${
         menuBackgroundBlack
           ? "bg-textured-testimonial-background-dark"
           : "bg-textured-testimonial-background"
@@ -59,8 +59,8 @@ export default function testimonial() {
           Amulya Bajracharya
         </p>
       </div>
-      <picture>
-        {/* Small Image */}
+      {/*     <picture>
+    
         <source
           media="(max-width: 540px)"
           srcSet="/testimonialArtifactSM.png"
@@ -74,8 +74,7 @@ export default function testimonial() {
               ? "/testimonialArtifactDark.png"
               : "/testimonialArtifact.png"
           }
-        />
-      </picture>
+        /> </picture> */}
     </div>
   );
 }
