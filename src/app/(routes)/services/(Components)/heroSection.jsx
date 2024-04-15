@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function heroSection(props) {
+export default function HeroSection(props) {
   const { selectedServiceData } = props;
   return (
     <section className="relative flex flex-col-reverse items-center justify-between gap-6 sm:gap-0 sm:flex-row ">

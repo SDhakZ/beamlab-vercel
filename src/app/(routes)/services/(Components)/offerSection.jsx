@@ -6,7 +6,7 @@ import useScrollProgress from "@/app/hooks/useScrollProgress";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareCheck } from "@fortawesome/free-solid-svg-icons";
 
-export default function offerSection(props) {
+export default function OfferSection(props) {
   const { selectedServiceData } = props;
   const offerSectionRef = useRef(null);
   const scrollY = useScrollProgress(offerSectionRef);

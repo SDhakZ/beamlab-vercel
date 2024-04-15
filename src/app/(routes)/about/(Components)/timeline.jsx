@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -42,8 +42,9 @@ export default function Timeline() {
           });
 
           return (
-            <div ref={ref} className="vertical-timeline-element">
+            <div key={index} ref={ref} className="vertical-timeline-element">
               <VerticalTimelineElement
+                key={index}
                 className="vertical-timeline-element--work"
                 contentStyle={{
                   background: "#282828",
@@ -84,9 +85,9 @@ export default function Timeline() {
       <div className="flex items-center justify-center margin-t container-margin">
         <p className="text-center text-white-shade-200  w-full max-w-[900px]">
           Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book.
+          industry. Lorem Ipsum has been the industry&apos;s standard dummy text
+          ever since the 1500s, when an unknown printer took a galley of type
+          and scrambled it to make a type specimen book.
         </p>
       </div>
     </div>

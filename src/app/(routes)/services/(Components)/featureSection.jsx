@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 import Lottie from "lottie-react";
 
-export default function featureSection(props) {
+export default function FeatureSection(props) {
   const { selectedServiceData } = props;
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const mainRef = useRef(null);
