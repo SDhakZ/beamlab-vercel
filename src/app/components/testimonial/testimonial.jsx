@@ -2,7 +2,7 @@
 import React from "react";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 
-export default function testimonial() {
+export default function Testimonial() {
   const { menuBackgroundBlack } = useGlobalState();
 
   return (

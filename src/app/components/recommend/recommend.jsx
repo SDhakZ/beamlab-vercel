@@ -3,7 +3,7 @@ import React, { useState, useCallback } from "react";
 import workData from "@/app/data/work";
 import Link from "next/link";
 
-export default function recommend() {
+export default function Recommend() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [hoverIndex, setHoverIndex] = useState(null);
 
