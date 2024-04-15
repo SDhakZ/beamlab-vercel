@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import FullMenuCSS from "./FSM.module.css";
+
 import { menuData, socialInfo } from "../../data/companyInfo";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
