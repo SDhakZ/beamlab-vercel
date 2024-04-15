@@ -6,7 +6,7 @@ import "./workDetail.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Brief from "../(Components)/Brief";
+import Brief from "../(Components)/brief";
 
 export default function WorkDetail() {
   const { setMenuBackgroundBlack } = useGlobalState();
