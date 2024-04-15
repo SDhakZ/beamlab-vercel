@@ -4,7 +4,7 @@ import Link from "next/link";
 import { menuData, socialInfo } from "@/app/data/companyInfo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function footer() {
+export default function Footer() {
   return (
     <footer className=" bg-background-black" id="footer">
       <div className="pt-16 pb-20 space-y-8 tracking-wider lg:pt-20 container-margin">
