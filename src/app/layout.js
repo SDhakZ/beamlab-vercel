@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Poppins } from "next/font/google";
 import localFont from "next/font/local";
-import Menubar from "./components/menubar/Menubar";
+import Menubar from "./components/menubar/menubar";
 import AppFooter from "./components/appFooter/AppFooter";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
