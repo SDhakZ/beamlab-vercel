@@ -33,6 +33,7 @@ export default function Contact(props) {
 
   useEffect(() => {
     if (token) {
+      console.log(`token: ${token}`);
       setVisible(false);
     }
   }, [token]);
@@ -60,7 +61,6 @@ export default function Contact(props) {
 
     try {
       setLoading(true);
-      console.log(dataToSend);
       const res = await axios.post(
         "http://localhost:3000/api/send",
         dataToSend,
@@ -151,20 +151,15 @@ export default function Contact(props) {
               />
 
               <div className="flex flex-col gap-6 mt-2">
-                <Tippy
-                  trigger="manual"
-                  content={<span>Click to complete CAPTCHA</span>}
-                  visible={visible}
-                >
-                  <div>
-                    <HCaptcha
-                      sitekey={hcaptcha_site_key}
-                      onVerify={handleVerifyCaptcha}
-                      ref={captchaRef}
-                      size="normal"
-                    />
-                  </div>
-                </Tippy>
+                <div>
+                  <HCaptcha
+                    sitekey={hcaptcha_site_key}
+                    onVerify={handleVerifyCaptcha}
+                    ref={captchaRef}
+                    size="normal"
+                  />
+                </div>
+
                 <button
                   type="submit"
                   className={`flex border-gradient border-2 border-primary-orange-200 bg-white-shade-100 hover:text-white-shade-200 hover:bg-primary-orange-300 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[350px] lg:max-w-[300px] justify-center p-3 text-lg font-semibold tracking-wider rounded-full text-primary-orange-300 ${

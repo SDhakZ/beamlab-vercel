@@ -1,4 +1,4 @@
-import EmailTemplate from "@/app/components/email-template/emailTemplate";
+import EmailTemplate from "../../components/email-template/emailTemplate";
 import { Resend } from "resend";
 import axios from "axios";
 import { NextResponse } from "next/server";
@@ -8,12 +8,12 @@ const SECRET_KEY = process.env.HCAPTCHA_SECRET_KEY;
 
 export async function POST(request, response) {
   try {
-    const formData = await request.formData();
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const message = formData.get("message");
-    const organization = formData.get("organization");
-    const token = formData.get("token");
+    const form = await request.formData();
+    const name = form.get("name");
+    const email = form.get("email");
+    const message = form.get("message");
+    const organization = form.get("organization");
+    const token = form.get("token");
 
     const response = await axios.post(
       `https://api.hcaptcha.com/siteverify?response=${token}&secret=${SECRET_KEY}`,
@@ -21,11 +21,10 @@ export async function POST(request, response) {
     );
 
     if (response.data.success) {
-      console.log("Sending email");
       await resend.emails.send({
         from: "onboarding@resend.dev",
         to: "sharnam34@gmail.com",
-        subject: `Form submission from ${name} via Beamlab website`,
+        subject: `Form submission from ${name} via TwelveLetter website`,
         react: (
           <EmailTemplate formData={{ name, email, message, organization }} />
         ),
