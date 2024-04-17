@@ -174,14 +174,13 @@ body {
   /* Display & Box Model */
   margin: 0;
   padding: 0;
-  display: flex;
 }
 
 .flicker li {
   /* Other */
   list-style: none;
-  color: #888888;
-  animation: lighting 2s linear infinite; /*Mod3: Control animation speed*/
+  color: #282828;
+  animation: lighting 3s linear infinite; /*Mod3: Control animation speed*/
 }
 
 @keyframes lighting {
@@ -219,4 +218,18 @@ body {
 
 .flicker li:nth-child(4) {
   animation-delay: 0.6s;
+}
+
+.flicker li:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.flicker li:nth-child(6) {
+  animation-delay: 1s;
+}
+.flicker li:nth-child(7) {
+  animation-delay: 1.2s;
+}
+
+.flicker li:nth-child(8) {
+  animation-delay: 1.4s;
 }

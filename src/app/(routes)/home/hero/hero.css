@@ -1,0 +1,39 @@
+.shiny {
+  /* Positioning */
+  position: relative;
+  /* Display & Box Model */
+  padding: 10px 30px;
+  overflow: hidden;
+  /* Other */
+  text-decoration: none;
+  color: #282828;
+  background-color: transparent;
+  border: 3px solid #555555;
+  transition: all 0.3s; /* Mod1: Can change transition duration */
+}
+
+.shiny:hover {
+  /* Other */
+  background-color: #fe9600; /* Mod2: Can change bg color on hover */
+  color: white;
+}
+
+.shiny:before {
+  content: "";
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Display & Box Model */
+  width: 100%;
+  height: 50px;
+  transform: translateX(-100%) rotate(45deg); /* Mod3: Can change the shining effect direction and angle */
+  /* Other */
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.shiny:hover:before {
+  /* Display & Box Model */
+  transform: translateX(100%) rotate(45deg); /* Mod3: Can change the shining effect direction and angle */
+}

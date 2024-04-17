@@ -1,7 +1,11 @@
+import Hero from "./(routes)/home/hero/hero";
+import Offer from "./(routes)/home/offerSection/offer";
+
 export default function Home() {
   return (
-    <div className="flex items-center justify-center min-h-[70vh]">
-      <h1 className="text-4xl font-semibold font-cervino ">Home</h1>
-    </div>
+    <>
+      <Hero />
+      <Offer />
+    </>
   );
 }

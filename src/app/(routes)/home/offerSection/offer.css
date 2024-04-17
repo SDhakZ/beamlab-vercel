@@ -1,0 +1,57 @@
+.wave-container {
+  position: relative;
+  display: inline-block;
+}
+
+.wave-text {
+  position: relative;
+  color: transparent; /* Original text color */
+  display: inline-block;
+}
+
+.wave-text::before {
+  content: attr(data-text); /* Duplicate the text */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  white-space: nowrap;
+  background-image: var(--wave-image); /* Seamless wave pattern */
+  /* Adjust background size to cover text height */
+  background-repeat: repeat-x;
+  background-color: #282828;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Make pseudo-element text transparent to show background */
+
+  display: inline-block;
+}
+
+.orange-wave::before {
+  --wave-image: url("/orange-wave.png");
+  animation: wavy-orange 7s linear infinite;
+}
+
+.blue-wave::before {
+  --wave-image: url("/blue-wave.png");
+  animation: wavy-blue 10s linear infinite;
+}
+
+@keyframes wavy-orange {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 240px;
+  }
+}
+
+@keyframes wavy-blue {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: -360px;
+  }
+}
