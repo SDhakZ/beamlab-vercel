@@ -1,6 +1,6 @@
 .sticky-image-container {
   position: sticky;
-  top: calc(50% - 100px);
+  top: calc(50% - 120px);
   height: 100%;
 }
 
