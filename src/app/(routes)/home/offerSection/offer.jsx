@@ -18,7 +18,7 @@ export default function Offer() {
   const newPositionYBlue = Math.round(50 - (scrollY / 100) * 50);
 
   return (
-    <section ref={offerSectionRef} className=" padding-y-lg">
+    <section ref={offerSectionRef} className="relative padding-y-lg">
       <style>
         {`
           .orange-wave::before {
@@ -38,7 +38,8 @@ export default function Offer() {
       }
         `}
       </style>
-      <div className="flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 justify-evenly container-margin">
+
+      <div className="relative flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 justify-evenly container-margin">
         <div className="sticky-image-container">
           <h2
             className={`w-full uppercase max-w-[400px] text-3xl sm:text-3xl sm:max-w-[260px] md:max-w-[300px] font-semibold md:text-4xl lg:text-5xl xl:text-6xl xl:leading-[1.18] lg:leading-[1.15] lg:max-w-[370px] xl:max-w-[450px]`}

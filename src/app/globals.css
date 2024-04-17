@@ -172,6 +172,7 @@ body {
 /* -----------------Flicker Effect------------------- */
 .flicker {
   /* Display & Box Model */
+
   margin: 0;
   padding: 0;
 }

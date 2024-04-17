@@ -111,7 +111,7 @@ export default function Carousel() {
       <div className="flex flex-col items-center justify-center gap-6 mt-12 lg:gap-10 md:mt-16">
         <div className="flex gap-2 text-3xl font-bold text-center md:text-4xl font-cervino text-black-shade-200">
           We are waiting for
-          <ul className="flicker">
+          <ul className="flex flicker">
             <li>y</li>
             <li>o</li>
             <li>u</li>
