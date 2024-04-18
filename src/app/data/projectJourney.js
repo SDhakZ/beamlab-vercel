@@ -4,7 +4,7 @@ export const projectJourneyData = [
     name: "Requirement Collection",
     image: "/project_journey/requirement-collection.png",
     description:
-      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  ",
+      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
   },
 
   {
@@ -12,27 +12,27 @@ export const projectJourneyData = [
     name: "Initial Designing",
     image: "/project_journey/initial-design.png",
     description:
-      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  ",
+      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
   },
   {
     id: 3,
     name: "Product Development",
-    image: "/partners/TechCrunch.png",
+    image: "/project_journey/requirement-collection.png",
     description:
-      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  ",
+      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
   },
   {
     id: 4,
     name: "Pre Launch",
-    image: "/partners/TheBoringCompany.png",
+    image: "/project_journey/requirement-collection.png",
     description:
-      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  ",
+      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
   },
   {
     id: 5,
     name: "Deploy Product",
-    image: "/partners/Hubspot.png",
+    image: "/project_journey/requirement-collection.png",
     description:
-      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in  ",
+      "imagelorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, ",
   },
 ];
