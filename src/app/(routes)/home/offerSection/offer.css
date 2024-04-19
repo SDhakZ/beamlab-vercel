@@ -24,7 +24,6 @@
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent; /* Make pseudo-element text transparent to show background */
-
   display: inline-block;
 }
 

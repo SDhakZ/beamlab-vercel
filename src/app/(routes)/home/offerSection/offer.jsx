@@ -7,8 +7,10 @@ import "../../services/[serviceSlug]/serviceDetail.css";
 import { menuData } from "../../../data/companyInfo";
 import Link from "next/link";
 import "./offer.css";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function Offer() {
+  const { menuBackgroundBlack } = useGlobalState();
   const offerSectionRef = useRef(null);
   const scrollY = useScrollProgress(offerSectionRef);
 
@@ -18,7 +20,12 @@ export default function Offer() {
   const newPositionYBlue = Math.round(50 - (scrollY / 100) * 50);
 
   return (
-    <section ref={offerSectionRef} className="relative padding-y-lg">
+    <section
+      ref={offerSectionRef}
+      className={`relative transition-colors duration-[1300ms] padding-y ${
+        menuBackgroundBlack ? "bg-background-black" : "bg-background-white"
+      }`}
+    >
       <style>
         {`
           .orange-wave::before {
@@ -42,7 +49,9 @@ export default function Offer() {
       <div className="relative flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 justify-evenly container-margin">
         <div className="sticky-image-container">
           <h2
-            className={`w-full uppercase max-w-[400px] text-3xl sm:text-3xl sm:max-w-[260px] md:max-w-[300px] font-semibold md:text-4xl lg:text-5xl xl:text-6xl xl:leading-[1.18] lg:leading-[1.15] lg:max-w-[370px] xl:max-w-[450px]`}
+            className={`w-full ${
+              menuBackgroundBlack ? "text-white-shade-200" : ""
+            } transition-colors duration-[1300ms] uppercase max-w-[400px] text-3xl sm:text-3xl sm:max-w-[260px] md:max-w-[300px] font-semibold md:text-4xl lg:text-5xl xl:text-6xl xl:leading-[1.18] lg:leading-[1.15] lg:max-w-[370px] xl:max-w-[450px]`}
           >
             <div className="wave-container">
               <span className="wave-text orange-wave" data-text="FUELING">
@@ -72,9 +81,10 @@ export default function Offer() {
             of ingenuity for large-scale application{" "}
           </h2>
           <p className="font-medium sm:text-base md:text-lg text-black-shade-200">
-            Lorem ipsum is placeholder text commonly used in the graphic, print,
-            and publisHing industries for previewing layouts and visual mockups
-            lorem ipsum.
+            Our agency excels in crafting innovative software solutions for
+            large-scale projects. With a team skilled in the latest
+            technologies, we deliver exceptional results that surpass client
+            expectations.
           </p>
           <div>
             <h3 className="text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl text-black-shade-300">
@@ -82,7 +92,13 @@ export default function Offer() {
             </h3>
             <ul className="mt-2 sm:mt-2">
               {menuData[1].items.map((service, index) => (
-                <li className="flex items-center gap-2 py-4 text-base font-medium leading-snug transition-all duration-200 border-b-2 text-black-shade-200 sm:py-6 sm:text-lg hover:text-primary-orange-300 border-black-shade-100">
+                <li
+                  className={`flex items-center gap-2 py-4 text-base font-medium leading-snug transition-all duration-200 border-b-2 ${
+                    menuBackgroundBlack
+                      ? "text-white-shade-200"
+                      : "text-black-shade-200"
+                  } sm:py-6 sm:text-lg hover:text-primary-orange-300 border-black-shade-100`}
+                >
                   <Link href={service.link}> {service.title}</Link>
                 </li>
               ))}

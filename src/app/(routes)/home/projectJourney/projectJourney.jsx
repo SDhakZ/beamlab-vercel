@@ -2,10 +2,32 @@
 import React, { useRef, useState, useEffect } from "react";
 import "./PJ.css";
 import { projectJourneyData } from "@/app/data/projectJourney";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function projectJourney() {
   const pjRef = useRef(null);
   const [activeItem, setActiveItem] = useState(null);
+  const { setMenuBackgroundBlack } = useGlobalState();
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (pjRef.current) {
+        const topPos = pjRef.current.getBoundingClientRect().top;
+        const offset = window.innerHeight / 2; // Middle of the viewport
+
+        const isInMiddle =
+          topPos <= offset && topPos >= offset - pjRef.current.offsetHeight;
+        setMenuBackgroundBlack(isInMiddle);
+        setIsDarkTheme(isInMiddle);
+      } else {
+        return null;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setMenuBackgroundBlack]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -35,9 +57,15 @@ export default function projectJourney() {
   return (
     <section
       ref={pjRef}
-      className="relative py-16 margin-t sm:py-20 md:py-24 lg:py-28 xl:py-32 bg-background-black"
+      className={`relative transition-colors duration-[1300ms] py-8 margin-t sm:py-20 md:py-24 lg:py-28 xl:py-32 ${
+        isDarkTheme ? "bg-background-black" : "bg-background-white"
+      }`}
     >
-      <h2 className="mb-12 text-3xl font-semibold text-center container-margin sm:mb-14 lg:mb-20 md:mb-16 xl:mb-24 sm:text-3xl lg:text-4xl xl:text-5xl text-white-shade-200">
+      <h2
+        className={`mb-12 transition-colors duration-[1300ms] text-3xl font-semibold text-center container-margin sm:mb-14 lg:mb-20 md:mb-16 xl:mb-24 sm:text-3xl lg:text-4xl xl:text-5xl ${
+          isDarkTheme ? "text-white-shade-200" : "text-black-shade-300"
+        }`}
+      >
         Project Journey
       </h2>
 
@@ -50,7 +78,11 @@ export default function projectJourney() {
                 className={`
                   ${
                     activeItem === item.id.toString()
-                      ? "sm:text-white-shade-100"
+                      ? `${
+                          isDarkTheme
+                            ? "sm:text-white-shade-100"
+                            : "sm:text-black-shade-400"
+                        }`
                       : "sm:text-black-shade-100"
                   } flex-col flex gap-4 whitespace-nowrap text-white-shade-100
                 `}
@@ -69,7 +101,13 @@ export default function projectJourney() {
                 </div>
                 <div className="relative w-full h-full sm:hidden sm:invisible">
                   <img loading="lazy" src={item.image} alt={item.name} />
-                  <p className="text-base font-normal whitespace-normal sm:text-base lg:text-lg text-white-shade-300">
+                  <p
+                    className={`${
+                      isDarkTheme
+                        ? "text-white-shade-300"
+                        : "text-black-shade-100"
+                    } mt-4 text-base font-normal whitespace-normal sm:text-base lg:text-lg`}
+                  >
                     {item.description}
                   </p>
                 </div>
@@ -85,7 +123,11 @@ export default function projectJourney() {
               data-id={item.id}
             >
               <img src={item.image} alt={item.name} />
-              <p className="font-medium sm:text-base lg:text-lg text-white-shade-300">
+              <p
+                className={`${
+                  isDarkTheme ? "text-white-shade-300" : "text-black-shade-100"
+                } font-medium sm:text-base lg:text-lg `}
+              >
                 {item.description}
               </p>
             </div>
