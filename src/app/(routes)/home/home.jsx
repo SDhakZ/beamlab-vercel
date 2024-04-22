@@ -4,6 +4,8 @@ import Offer from "../../(routes)/home/offerSection/offer";
 import ProjectJourney from "../../(routes)/home/projectJourney/projectJourney";
 import Evidence from "../../(routes)/home/evidenceSection/evidence";
 import { useGlobalState } from "../../utility/globalStateProvide";
+import Carousel from "@/app/components/partnerCarousel/Carousel";
+import Technology from "./technologyStack/technology";
 
 export default function Home() {
   const { menuBackgroundBlack } = useGlobalState();
@@ -17,6 +19,8 @@ export default function Home() {
       <Offer />
       <ProjectJourney />
       <Evidence />
+      <Carousel />
+      <Technology />
     </div>
   );
 }

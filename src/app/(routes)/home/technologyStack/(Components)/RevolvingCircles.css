@@ -1,0 +1,32 @@
+.solar-system-container {
+  position: relative;
+  min-height: 1080px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("/techstack/bg2.png") no-repeat center center;
+  background-size: cover;
+}
+
+.central-sun {
+  width: 90px; /* Adjust the size as needed */
+  position: absolute;
+  /* Center the image within the div */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #fbe201;
+  box-shadow: 0px 0px 100px 3px #6b6b6b, 0px 0px 750px 17px #fff700;
+  transition: all 0.5s;
+}
+
+.central-sun:hover {
+  box-shadow: 0px 0px 100px 3px #6b6b6b, 0px 0px 500px 17px #ff7b00;
+}
+
+.orbiting-logo {
+  position: absolute;
+  border: 3px solid #c0c5c9;
+
+  transform-origin: center;
+}

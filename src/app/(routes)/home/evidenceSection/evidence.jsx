@@ -121,7 +121,7 @@ export default function EvidenceSection() {
                   </p>
                 </div>
                 <div className="flex flex-wrap w-full gap-2 mt-3 sm:mt-5 md:mt-4 sm:gap-3">
-                  {work.tags.map((tag, index) => (
+                  {work.tags.slice(0, 2).map((tag, index) => (
                     <span
                       key={index}
                       className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"

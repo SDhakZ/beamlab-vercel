@@ -28,7 +28,7 @@
 
 .feature-sticky-image-container {
   position: sticky;
-  top: 40%; /* Adjust based on your needs */
+  top: 32%; /* Adjust based on your needs */
   height: 100%; /* Adjust based on your needs */
   display: flex;
   justify-content: center;
