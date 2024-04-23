@@ -49,7 +49,7 @@ const ProjectJourney = React.forwardRef((props, ref) => {
       </h2>
 
       <div className="relative flex flex-col gap-8 sm:flex-row sm:gap-4 md:gap-16 lg:gap-16 xl:gap-16 justify-evenly container-margin">
-        <div className="feature-sticky-image-container">
+        <div className="pj-sticky-image-container">
           <ul className="flex flex-col text-xl font-medium gap-14 sm:gap-2 sm:text-lg md:gap-6 lg:gap-8 xl:gap-10 md:text-2xl lg:text-3xl xl:text-4xl text-white-shade-200">
             {projectJourneyData.map((item) => (
               <li

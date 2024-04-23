@@ -10,26 +10,6 @@ import { useGlobalState } from "@/app/utility/globalStateProvide";
 const RevolvingCircles = () => {
   const [widthScale, setWidthScale] = useState(1);
   const [orbitScale, setOrbitScale] = useState(1);
-  const tsRef = useRef(null);
-  const { setMenuBackgroundBlack } = useGlobalState();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (tsRef.current) {
-        const topPos = tsRef.current.getBoundingClientRect().top;
-        const offset = window.innerHeight / 2; // Middle of the viewport
-
-        const isInMiddle =
-          topPos <= offset && topPos >= offset - tsRef.current.offsetHeight;
-        setMenuBackgroundBlack(isInMiddle);
-      } else {
-        return null;
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setMenuBackgroundBlack]);
 
   useEffect(() => {
     const updateScale = () => {
@@ -53,7 +33,7 @@ const RevolvingCircles = () => {
   }, []);
 
   return (
-    <div ref={tsRef} className="bg-cover bg-techstack-background padding-y-lg">
+    <div className="bg-cover bg-techstack-background padding-y-lg">
       <h3 className="relative z-10 self-start text-2xl font-semibold leading-snug text-center capitalize container-margin lg:text-4xl md:text-3xl xl:text-5xl text-white-shade-200">
         Technology we excel at
       </h3>

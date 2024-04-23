@@ -81,7 +81,7 @@ export default function EvidenceSection() {
                 key={index}
                 className={`card ${
                   index % 2 === 0 ? "self-start" : "self-end"
-                } relative w-full flex flex-col flex-1 sm:max-w-[50%] `}
+                } relative w-full flex flex-col flex-1 sm:max-w-[50%]`}
               >
                 <div
                   onMouseMove={handleMouseMove}

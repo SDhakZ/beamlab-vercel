@@ -13,9 +13,7 @@ export default function Offer() {
   const { menuBackgroundBlack } = useGlobalState();
   const offerSectionRef = useRef(null);
   const scrollY = useScrollProgress(offerSectionRef);
-
   const startOffset = 60;
-
   const newPositionY = Math.round(startOffset - (scrollY / 100) * startOffset);
   const newPositionYBlue = Math.round(50 - (scrollY / 100) * 50);
 
@@ -109,6 +107,7 @@ export default function Offer() {
             <ul className="mt-2 sm:mt-2">
               {menuData[1].items.map((service, index) => (
                 <li
+                  key={index}
                   className={`flex items-center gap-2 py-4 text-base font-medium leading-snug transition-all duration-200 border-b-2 ${
                     menuBackgroundBlack
                       ? "text-white-shade-200"

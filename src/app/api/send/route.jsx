@@ -29,7 +29,6 @@ export async function POST(request, response) {
           <EmailTemplate formData={{ name, email, message, organization }} />
         ),
       });
-      console.log(response.data);
       return NextResponse.json({ success: true }, { status: 200 });
     } else {
       return NextResponse.json(

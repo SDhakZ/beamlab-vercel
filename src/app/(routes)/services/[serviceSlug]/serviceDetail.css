@@ -68,6 +68,7 @@
   .feature-section-layout {
     grid-template-columns: 1fr;
   }
+
   .feature-sticky-image-container {
     display: none;
   }

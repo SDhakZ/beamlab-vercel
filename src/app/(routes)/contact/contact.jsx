@@ -36,7 +36,6 @@ export default function Contact(props) {
 
   useEffect(() => {
     if (token) {
-      console.log(`token: ${token}`);
       setVisible(false);
     }
   }, [token]);
