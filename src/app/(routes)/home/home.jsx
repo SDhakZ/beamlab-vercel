@@ -7,10 +7,11 @@ import { useGlobalState } from "../../utility/globalStateProvide";
 import Carousel from "@/app/components/partnerCarousel/Carousel";
 import Technology from "./technologyStack/technology";
 import React, { useRef, useEffect } from "react";
+import Contact from "../contact/contact";
 
-export default function Home() {
+export default function Home(props) {
   const { setMenuBackgroundBlack, menuBackgroundBlack } = useGlobalState();
-
+  const { hcaptcha_site_key } = props;
   const pjRef = useRef(null);
   const tsRef = useRef(null);
 
@@ -54,6 +55,7 @@ export default function Home() {
       <Evidence />
       <Carousel />
       <Technology ref={tsRef} />
+      <Contact hcaptcha_site_key={hcaptcha_site_key} />
     </div>
   );
 }

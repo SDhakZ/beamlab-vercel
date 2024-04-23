@@ -7,6 +7,7 @@ import axios from "axios";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
+import { useGlobalState } from "@/app/utility/globalStateProvide";
 
 export default function Contact(props) {
   const { hcaptcha_site_key } = props;
@@ -16,6 +17,8 @@ export default function Contact(props) {
     organization: "",
     message: "",
   };
+
+  const { menuBackgroundBlack } = useGlobalState();
 
   const [formData, setFormData] = useState({ ...initialFormData });
   const [loading, setLoading] = useState(false);
@@ -95,7 +98,11 @@ export default function Contact(props) {
     setVisible(false);
   };
   return (
-    <div className="relative">
+    <div
+      className={`relative transition-colors duration-[1200ms] ${
+        menuBackgroundBlack ? "bg-background-black" : "bg-background-white"
+      }`}
+    >
       <picture>
         <source media="(max-width: 540px)" srcSet="/contact-bg-mobile.png" />
         <img
@@ -107,7 +114,13 @@ export default function Contact(props) {
       </picture>
       <div className="relative container-margin-compact">
         <section className="top-section-p">
-          <h1 className="text-2xl font-semibold sm:text-3xl md:text-4xl text-black-shade-300 lg:text-5xl">
+          <h1
+            className={`text-3xl lg:leading-tight font-semibold sm:text-3xl md:text-4xl ${
+              menuBackgroundBlack
+                ? "text-white-shade-300 "
+                : "text-black-shade-300 "
+            } lg:text-5xl`}
+          >
             <span className="gradient-x">Get in Touch:</span> Drop us a line for
             your inquiries
           </h1>
@@ -161,15 +174,20 @@ export default function Contact(props) {
                 />
 
                 <div className="flex flex-col gap-6 mt-2">
-                  <div>
-                    <HCaptcha
-                      sitekey={hcaptcha_site_key}
-                      onVerify={handleVerifyCaptcha}
-                      ref={captchaRef}
-                      size="normal"
-                    />
-                  </div>
-
+                  <Tippy
+                    trigger="manual"
+                    content={<span>Click to complete CAPTCHA</span>}
+                    visible={visible}
+                  >
+                    <div>
+                      <HCaptcha
+                        sitekey={hcaptcha_site_key}
+                        onVerify={handleVerifyCaptcha}
+                        ref={captchaRef}
+                        size="normal"
+                      />
+                    </div>
+                  </Tippy>
                   <button
                     type="submit"
                     className={`flex border-gradient border-2 hover:border-primary-orange-200 hover:bg-white-shade-100 text-white-shade-200 hover:text-primary-orange-300 bg-primary-orange-300 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[350px] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
