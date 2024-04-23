@@ -15,7 +15,7 @@ export const serviceData = [
     },
     serviceDetail: {
       heroTitle: "Desktop to Mobile Ready Web Design",
-      heroImage: "/services/web-development/web-dev-hero.png",
+      heroImage: "/services/web-development/web-dev-hero3.png",
       serviceBrief:
         "At Beamlab we specialize in delivering cutting-edge web development services tailored to meet the unique needs of businesses and organizations across various industries. Our team of experienced developers and designers is dedicated to crafting exceptional digital experiences that drive results. Explore our range of services below:",
       offerings: [
@@ -113,7 +113,7 @@ export const serviceData = [
     },
     serviceDetail: {
       heroTitle: "Desktop to Mobile Ready Web Design",
-      heroImage: "/services/web-development/web-dev-hero.png",
+      heroImage: "/services/web-development/web-dev-hero2.png",
       serviceBrief:
         "At Beamlab we specialize in delivering cutting-edge web development services tailored to meet the unique needs of businesses and organizations across various industries. Our team of experienced developers and designers is dedicated to crafting exceptional digital experiences that drive results. Explore our range of services below:",
       offerings: [

@@ -58,7 +58,7 @@ const RevolvingCircles = () => {
         Technology we excel at
       </h3>
       <div className="solar-system-container">
-        <div className="rounded-full w-[50px] sm:w-[80px] lg:w-[90px] central-sun">
+        <div className="rounded-full w-[50px] sm:w-[80px] lg:w-[100px] central-sun">
           <img src="/techstack/mainCircle.png" alt="Central Tech" />
         </div>
 
