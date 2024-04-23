@@ -7,6 +7,11 @@ const useScrollProgress = (ref) => {
 
   useEffect(() => {
     const handleScroll = () => {
+      if (!ref.current) {
+        // If the ref is null, exit early
+        return;
+      }
+
       const windowScroll = window.scrollY;
       const sectionTop = ref.current.offsetTop;
       const sectionHeight = ref.current.offsetHeight;
@@ -22,9 +27,12 @@ const useScrollProgress = (ref) => {
       }
     };
 
+    // Attach the event listener
     window.addEventListener("scroll", handleScroll);
+
+    // Ensure to clean up the event listener
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [ref]);
+  }, [ref]); // Dependency array includes ref to re-attach listener if the ref changes
 
   return scrollY;
 };

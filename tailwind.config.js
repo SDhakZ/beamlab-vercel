@@ -27,6 +27,7 @@ module.exports = {
         "textured-testimonial-background": "url('/testimonialBG.png')",
         "textured-testimonial-background-dark": "url('/testimonialBGDark.png')",
         "contact-background": "url('/contact-bg.png')",
+        "techstack-background": "url('/techstack/bg2.png')",
       },
       colors: {
         "background-white": "#F5F5F7",

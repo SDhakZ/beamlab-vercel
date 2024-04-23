@@ -45,8 +45,9 @@ export default function WorkDetail() {
   }, [workItem]);
 
   useEffect(() => {
+    let isMounted = true;
     const handleScroll = () => {
-      if (processSectionRef.current) {
+      if (isMounted && processSectionRef.current) {
         const topPos = processSectionRef.current.getBoundingClientRect().top;
         const offset = window.innerHeight / 2; // Middle of the viewport
 
@@ -56,7 +57,10 @@ export default function WorkDetail() {
         setIsDarkTheme(isInMiddle);
         setMenuBackgroundBlack(isInMiddle);
       } else {
-        return null;
+        return () => {
+          isMounted = false;
+          window.removeEventListener("scroll", handleScroll);
+        };
       }
     };
 

@@ -1,15 +1,12 @@
 .solar-system-container {
   position: relative;
-  min-height: 1080px;
+  min-height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url("/techstack/bg2.png") no-repeat center center;
-  background-size: cover;
 }
 
 .central-sun {
-  width: 90px; /* Adjust the size as needed */
   position: absolute;
   /* Center the image within the div */
   display: flex;
@@ -27,6 +24,31 @@
 .orbiting-logo {
   position: absolute;
   border: 3px solid #c0c5c9;
-
   transform-origin: center;
+}
+
+@media (max-width: 1240px) {
+  .solar-system-container {
+    min-height: 800px;
+  }
+}
+
+@media (max-width: 768px) {
+  .central-sun {
+    border: 2px solid #fbe201;
+  }
+
+  .orbiting-logo {
+    border: 2px solid #c0c5c9;
+  }
+
+  .solar-system-container {
+    min-height: 800px;
+  }
+}
+
+@media (max-width: 540px) {
+  .solar-system-container {
+    min-height: 600px;
+  }
 }

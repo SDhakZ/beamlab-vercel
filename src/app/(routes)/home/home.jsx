@@ -6,9 +6,42 @@ import Evidence from "../../(routes)/home/evidenceSection/evidence";
 import { useGlobalState } from "../../utility/globalStateProvide";
 import Carousel from "@/app/components/partnerCarousel/Carousel";
 import Technology from "./technologyStack/technology";
+import React, { useRef, useEffect } from "react";
 
 export default function Home() {
-  const { menuBackgroundBlack } = useGlobalState();
+  const { setMenuBackgroundBlack, menuBackgroundBlack } = useGlobalState();
+
+  const pjRef = useRef(null);
+  const tsRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      let isInMiddle = false;
+
+      // Check if ProjectJourney is in the middle of the viewport
+      if (pjRef && pjRef.current) {
+        const topPosPJ = pjRef.current.getBoundingClientRect().top;
+        const offset = window.innerHeight / 2;
+        isInMiddle =
+          topPosPJ <= offset && topPosPJ >= offset - pjRef.current.offsetHeight;
+      }
+
+      // Check if TechnologyStack is in the middle of the viewport
+      if (tsRef && tsRef.current && !isInMiddle) {
+        // Only check if not already set by ProjectJourney
+        const topPosTS = tsRef.current.getBoundingClientRect().top;
+        const offset = window.innerHeight / 2;
+        isInMiddle =
+          topPosTS <= offset && topPosTS >= offset - tsRef.current.offsetHeight;
+      }
+
+      setMenuBackgroundBlack(isInMiddle);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [pjRef, tsRef, setMenuBackgroundBlack]);
+
   return (
     <div
       className={`transition-colors duration-[1300ms] ${
@@ -17,10 +50,10 @@ export default function Home() {
     >
       <Hero />
       <Offer />
-      <ProjectJourney />
+      <ProjectJourney ref={pjRef} />
       <Evidence />
       <Carousel />
-      <Technology />
+      <Technology ref={tsRef} />
     </div>
   );
 }

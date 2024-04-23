@@ -1,12 +1,11 @@
 import React from "react";
 import RevolvingCircles from "./(Components)/RevolvingCircles";
 
-export default function Technology() {
+const Technology = React.forwardRef((props, ref) => {
   return (
-    <div className="bg-background-black">
-      <div className="">
-        <RevolvingCircles />
-      </div>
+    <div ref={ref} className="bg-background-black">
+      <RevolvingCircles ref={ref} />
     </div>
   );
-}
+});
+export default Technology;

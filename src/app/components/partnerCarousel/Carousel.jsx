@@ -109,7 +109,13 @@ export default function Carousel() {
       </div>
       <hr className="block max-w-[150px] -mt-8 sm:-mt-0 md:max-w-[500px] w-full h-[0.2rem]  bg-black-shade-100" />
       <div className="flex flex-col items-center justify-center gap-6 mt-12 lg:gap-10 md:mt-16">
-        <div className="flex gap-2 text-3xl font-bold text-center md:text-4xl font-cervino text-black-shade-200">
+        <div
+          className={`flex gap-2 text-3xl font-bold text-center md:text-4xl font-cervino ${
+            menuBackgroundBlack
+              ? "text-white-shade-200"
+              : "text-black-shade-200"
+          }`}
+        >
           We are waiting for
           <ul className="flex flicker">
             <li>y</li>
@@ -119,7 +125,9 @@ export default function Carousel() {
           </ul>
         </div>
         <Link
-          className="px-8 py-2 font-medium transition-all rounded-full md:px-10 md:py-3 glow-effect w-fit outline outline-primary-orange-100 outline-2 bg-white-shade-100 "
+          className={`px-8 py-2 font-medium transition-all duration-300 rounded-full md:px-10 md:py-3 glow-effect w-fit outline outline-primary-orange-100 outline-2 ${
+            menuBackgroundBlack ? "bg-black-shade-300 " : "bg-white-shade-100 "
+          } `}
           href="/contact"
         >
           <span className="text-lg md:text-xl gradient">Join Us Now</span>
