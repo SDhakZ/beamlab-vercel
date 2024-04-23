@@ -3,10 +3,20 @@ import React, { useState, useEffect } from "react";
 import "./PJ.css";
 import { projectJourneyData } from "@/app/data/projectJourney";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const ProjectJourney = React.forwardRef((props, ref) => {
   const [activeItem, setActiveItem] = useState(null);
   const { menuBackgroundBlack } = useGlobalState();
+
+  useEffect(() => {
+    Aos.init({
+      duration: "500",
+      easing: "ease-in-out",
+      once: true,
+    });
+  });
 
   useEffect(() => {
     const handleScroll = () => {
@@ -16,7 +26,6 @@ const ProjectJourney = React.forwardRef((props, ref) => {
       items.forEach((item) => {
         const { top, bottom } = item.getBoundingClientRect();
         const vpHeight = window.innerHeight;
-        // Check if the item is in the viewport
         if (top < vpHeight / 2 && bottom > vpHeight / 2) {
           activeId = item.getAttribute("data-id");
         }
@@ -36,12 +45,13 @@ const ProjectJourney = React.forwardRef((props, ref) => {
   return (
     <section
       ref={ref}
-      className={`relative transition-colors duration-[1300ms] py-8 margin-t sm:py-20 md:py-24 lg:py-28 xl:py-32 ${
+      className={`relative transition-colors duration-[1300ms] py-16 margin-t sm:py-20 md:py-24 lg:py-28 xl:py-32 ${
         menuBackgroundBlack ? "bg-background-black" : "bg-background-white"
       }`}
     >
       <h2
-        className={`mb-12 transition-colors duration-[1300ms] text-3xl font-semibold text-center container-margin sm:mb-14 lg:mb-20 md:mb-16 xl:mb-24 sm:text-3xl lg:text-4xl xl:text-5xl ${
+        data-aos="fade-up"
+        className={`mb-10 transition-colors duration-[1300ms] text-3xl font-semibold text-left sm:text-center container-margin sm:mb-14 lg:mb-20 md:mb-16 xl:mb-24 sm:text-3xl lg:text-4xl xl:text-5xl ${
           menuBackgroundBlack ? "text-white-shade-200" : "text-black-shade-300"
         }`}
       >
@@ -53,6 +63,7 @@ const ProjectJourney = React.forwardRef((props, ref) => {
           <ul className="flex flex-col text-xl font-medium gap-14 sm:gap-2 sm:text-lg md:gap-6 lg:gap-8 xl:gap-10 md:text-2xl lg:text-3xl xl:text-4xl text-white-shade-200">
             {projectJourneyData.map((item) => (
               <li
+                data-aos="fade-up"
                 key={item.id}
                 className={`
                   ${
@@ -62,8 +73,12 @@ const ProjectJourney = React.forwardRef((props, ref) => {
                             ? "sm:text-white-shade-100"
                             : "sm:text-black-shade-400"
                         }`
-                      : "sm:text-black-shade-100"
-                  } flex-col flex gap-4 whitespace-nowrap text-white-shade-100
+                      : "text-black-shade-300 sm:text-black-shade-100"
+                  } ${
+                  menuBackgroundBlack
+                    ? "text-white-shade-100"
+                    : "text-black-shade-400"
+                } flex-col flex gap-4 whitespace-nowrap duration-[1200ms]
                 `}
               >
                 <div>
@@ -78,7 +93,10 @@ const ProjectJourney = React.forwardRef((props, ref) => {
                   </span>{" "}
                   {item.name}
                 </div>
-                <div className="relative w-full h-full sm:hidden sm:invisible">
+                <div
+                  data-aos="fade-up"
+                  className="relative w-full h-full sm:hidden sm:invisible"
+                >
                   <img loading="lazy" src={item.image} alt={item.name} />
                   <p
                     className={`${
@@ -100,6 +118,7 @@ const ProjectJourney = React.forwardRef((props, ref) => {
               key={item.id}
               className="flex flex-col gap-4 project-image"
               data-id={item.id}
+              data-aos="fade-up"
             >
               <img src={item.image} alt={item.name} />
               <p

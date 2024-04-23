@@ -6,7 +6,7 @@ import { NextResponse } from "next/server";
 const resend = new Resend(process.env.RESEND_API_KEY);
 const SECRET_KEY = process.env.HCAPTCHA_SECRET_KEY;
 
-export async function POST(request, response) {
+export async function POST(request) {
   try {
     const form = await request.formData();
     const name = form.get("name");

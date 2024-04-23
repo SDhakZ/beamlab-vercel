@@ -54,3 +54,36 @@
     background-position-x: -360px;
   }
 }
+
+.sticky-image-container-offer {
+  position: sticky;
+  top: calc(50% - 100px);
+  height: 100%;
+}
+
+.gradient-heading {
+  color: transparent;
+  -webkit-background-clip: text !important;
+  background-clip: text !important;
+}
+
+@media (max-width: 540px) {
+  .sticky-image-container-offer {
+    position: relative;
+    top: 0;
+    height: fit-content;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}

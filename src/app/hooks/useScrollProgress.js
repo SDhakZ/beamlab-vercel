@@ -8,7 +8,6 @@ const useScrollProgress = (ref) => {
   useEffect(() => {
     const handleScroll = () => {
       if (!ref.current) {
-        // If the ref is null, exit early
         return;
       }
 

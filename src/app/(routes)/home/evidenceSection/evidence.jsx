@@ -6,9 +6,19 @@ import workData from "../../../data/work";
 import Link from "next/link";
 import EvidenceSVG from "../../work/(Components)/evidence";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function useResponsiveHeight() {
-  const [height, setHeight] = useState("250px"); // Default height
+  const [height, setHeight] = useState("250px");
+
+  useEffect(() => {
+    Aos.init({
+      duration: "500",
+      easing: "ease-in-out",
+      once: true,
+    });
+  });
 
   useEffect(() => {
     function updateSize() {
@@ -82,6 +92,7 @@ export default function EvidenceSection() {
                 className={`card ${
                   index % 2 === 0 ? "self-start" : "self-end"
                 } relative w-full flex flex-col flex-1 sm:max-w-[50%]`}
+                data-aos={index % 2 === 0 ? "fade-up-right" : "fade-up-left"}
               >
                 <div
                   onMouseMove={handleMouseMove}

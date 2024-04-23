@@ -17,6 +17,7 @@
     "@react-spring/web": "^9.7.3",
     "@studio-freight/react-lenis": "^0.0.47",
     "@tippyjs/react": "^4.2.6",
+    "aos": "^2.3.4",
     "axios": "^1.6.8",
     "gsap": "^3.12.5",
     "lottie-react": "^2.4.0",

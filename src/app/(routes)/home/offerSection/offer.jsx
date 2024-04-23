@@ -1,25 +1,36 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import calculateGradient from "@/app/utility/calculateGradient";
 import calculateOpacity from "@/app/utility/calculateOpacity";
 import useScrollProgress from "@/app/hooks/useScrollProgress";
-import "../../services/[serviceSlug]/serviceDetail.css";
 import { menuData } from "../../../data/companyInfo";
 import Link from "next/link";
 import "./offer.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 export default function Offer() {
   const { menuBackgroundBlack } = useGlobalState();
-  const offerSectionRef = useRef(null);
-  const scrollY = useScrollProgress(offerSectionRef);
+  const offerRef = useRef(null);
+  const scrollParallax = useScrollProgress(offerRef);
   const startOffset = 60;
-  const newPositionY = Math.round(startOffset - (scrollY / 100) * startOffset);
-  const newPositionYBlue = Math.round(50 - (scrollY / 100) * 50);
+  const newPositionY = Math.round(
+    startOffset - (scrollParallax / 100) * startOffset
+  );
+  const newPositionYBlue = Math.round(50 - (scrollParallax / 100) * 50);
+
+  useEffect(() => {
+    Aos.init({
+      duration: "500",
+      easing: "ease-in-out",
+      once: false,
+    });
+  });
 
   return (
     <section
-      ref={offerSectionRef}
+      ref={offerRef}
       className={`relative transition-colors duration-[1300ms] padding-y ${
         menuBackgroundBlack ? "bg-background-black" : "bg-background-white"
       }`}
@@ -45,7 +56,7 @@ export default function Offer() {
       </style>
 
       <div className="relative flex flex-col gap-8 sm:flex-row sm:gap-12 md:gap-16 lg:gap-20 xl:gap-24 justify-evenly container-margin">
-        <div className="sticky-image-container">
+        <div className="sticky-image-container-offer">
           <h2
             className={`w-full ${
               menuBackgroundBlack ? "text-white-shade-200" : ""
@@ -60,7 +71,7 @@ export default function Offer() {
             <span
               className="gradient-heading "
               style={{
-                background: calculateGradient(scrollY),
+                background: calculateGradient(scrollParallax),
               }}
             >
               expertise
@@ -70,7 +81,7 @@ export default function Offer() {
         </div>
         <div className="flex gap-10 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[460px]">
           <h2
-            style={{ opacity: calculateOpacity(scrollY) }}
+            style={{ opacity: calculateOpacity(scrollParallax) }}
             className={`w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] ${
               menuBackgroundBlack
                 ? "text-white-shade-200"
@@ -83,6 +94,7 @@ export default function Offer() {
             of ingenuity for large-scale application{" "}
           </h2>
           <p
+            data-aos="fade-up"
             className={`font-medium sm:text-base md:text-lg ${
               menuBackgroundBlack
                 ? "text-white-shade-200"
@@ -96,6 +108,7 @@ export default function Offer() {
           </p>
           <div>
             <h3
+              data-aos="fade-up"
               className={`text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl ${
                 menuBackgroundBlack
                   ? "text-white-shade-200"
@@ -104,7 +117,7 @@ export default function Offer() {
             >
               What we offer
             </h3>
-            <ul className="mt-2 sm:mt-2">
+            <ul data-aos="fade-up" className="mt-2 sm:mt-2">
               {menuData[1].items.map((service, index) => (
                 <li
                   key={index}
