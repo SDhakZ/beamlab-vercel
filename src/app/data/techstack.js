@@ -4,20 +4,20 @@ const logos = [
     title: "React",
     src: "/techstack/react.png",
     orbitalRadius: 130,
-    width: "48px",
+    width: "55px",
   },
   {
     id: 2,
     title: "Vue",
     src: "/techstack/vue.png",
     orbitalRadius: 190,
-    width: "45px",
+    width: "50px",
   },
   {
     id: 3,
     title: "NextJS",
     src: "/techstack/nextJs.png",
-    orbitalRadius: 120,
+    orbitalRadius: 140,
     width: "55px",
   },
   {
@@ -26,7 +26,7 @@ const logos = [
     src: "/techstack/expressJs.png",
     orbitalSpeed: 10,
     orbitalRadius: 170,
-    width: "45px",
+    width: "50px",
   },
   {
     id: 5,
@@ -54,7 +54,7 @@ const logos = [
     title: "Flutter",
     src: "/techstack/flutter.png",
     orbitalRadius: 320,
-    width: "55px",
+    width: "58px",
   },
   {
     id: 9,

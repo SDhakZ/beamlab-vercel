@@ -58,7 +58,7 @@ export default function EvidenceSection() {
             menuBackgroundBlack
               ? "text-white-shade-200"
               : "text-black-shade-300c"
-          } mb-10 text-3xl font-semibold transition-colors duration-[1300ms]`}
+          } mb-10 text-4xl font-semibold transition-colors duration-[1300ms]`}
         >
           The Evidence
         </h3>

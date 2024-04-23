@@ -234,7 +234,7 @@ export default function Contact(props) {
                 allowFullScreen={true}
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                className="relative rounded-md z-10 w-full h-[480px] max-w-[700px] md:min-w-[300px]"
+                className="relative outline outline-2 outline-black-shade-100 rounded-md z-10 w-full h-[480px] max-w-[700px] md:min-w-[300px]"
               ></iframe>
               <div className="space-y-8 ">
                 {menuData[3].items.map((info, index) => (

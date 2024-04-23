@@ -73,21 +73,37 @@ export default function Offer() {
         <div className="flex gap-10 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[460px]">
           <h2
             style={{ opacity: calculateOpacity(scrollY) }}
-            className="w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] "
+            className={`w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] ${
+              menuBackgroundBlack
+                ? "text-white-shade-200"
+                : "text-black-shade-300"
+            }`}
           >
             <span className="wave-text blue-wave" data-text="TIDAL WAVE">
               TIDAL WAVE
             </span>{" "}
             of ingenuity for large-scale application{" "}
           </h2>
-          <p className="font-medium sm:text-base md:text-lg text-black-shade-200">
+          <p
+            className={`font-medium sm:text-base md:text-lg ${
+              menuBackgroundBlack
+                ? "text-white-shade-200"
+                : "text-black-shade-200"
+            }`}
+          >
             Our agency excels in crafting innovative software solutions for
             large-scale projects. With a team skilled in the latest
             technologies, we deliver exceptional results that surpass client
             expectations.
           </p>
           <div>
-            <h3 className="text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl text-black-shade-300">
+            <h3
+              className={`text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl ${
+                menuBackgroundBlack
+                  ? "text-white-shade-200"
+                  : "text-black-shade-300"
+              } `}
+            >
               What we offer
             </h3>
             <ul className="mt-2 sm:mt-2">
