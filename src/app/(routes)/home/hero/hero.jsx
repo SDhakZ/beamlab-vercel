@@ -4,7 +4,7 @@ import "./hero.css";
 
 export default function home() {
   return (
-    <section className="min-h-[60vh] py-10 sm:py-0 lg:min-h-[66vh] xl:min-h-[86vh] flex h-full items-center justify-center container-margin">
+    <section className="min-h-[90vh] py-10 sm:py-0 lg:min-h-[66vh] xl:min-h-[86vh] flex h-full items-center justify-center container-margin">
       <div className="flex flex-col items-center justify-center w-full gap-10">
         <h1 className="lg:text-6xl text-4xl md:text-5xl xl:text-8xl leading-[1.12] font-semibold sm:leading-[1.13] md:leading-[1.13] lg:leading-[1.13] xl:leading-[1.15] text-center font-cervino md:max-w-[900px] lg:max-w-[1000px] text-black-shade-300">
           Crafting Ideas,{" "}
