@@ -50,7 +50,6 @@ const ProjectJourney = React.forwardRef((props, ref) => {
       }`}
     >
       <h2
-        data-aos="fade-up"
         className={`mb-10 transition-colors duration-[1300ms] text-3xl font-semibold text-left sm:text-center container-margin sm:mb-14 lg:mb-20 md:mb-16 xl:mb-24 sm:text-3xl lg:text-4xl xl:text-5xl ${
           menuBackgroundBlack ? "text-white-shade-200" : "text-black-shade-300"
         }`}
