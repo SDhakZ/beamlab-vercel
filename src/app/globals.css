@@ -61,9 +61,6 @@
 
 html,
 body {
-  scroll-behavior: smooth;
-  --scroll-behavior: smooth !important;
-  scroll-behavior: smooth !important;
   font-family: var(--font-poppins);
   background-color: #f5f5f7;
 }

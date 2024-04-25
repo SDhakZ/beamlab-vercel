@@ -16,7 +16,7 @@ function useResponsiveHeight() {
     Aos.init({
       duration: "500",
       easing: "ease-in-out",
-      once: true,
+      once: false,
     });
   });
 

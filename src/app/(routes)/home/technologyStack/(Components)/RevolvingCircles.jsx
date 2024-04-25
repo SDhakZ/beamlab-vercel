@@ -1,11 +1,17 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import { animated, useSpring } from "@react-spring/web";
+import React, { useState, useEffect } from "react";
 import "./RevolvingCircles.css";
 import logos from "@/app/data/techstack";
 import Tippy from "@tippyjs/react";
 import "tippy.js/dist/tippy.css";
-import { useGlobalState } from "@/app/utility/globalStateProvide";
+import {
+  LazyMotion,
+  m,
+  domAnimation,
+  useMotionValue,
+  useTransform,
+  animate,
+} from "framer-motion";
 
 const RevolvingCircles = () => {
   const [widthScale, setWidthScale] = useState(1);
@@ -61,31 +67,48 @@ const initialRotationAngle = (index) => (index / logos.length) * 690;
 const OrbitingLogo = ({ logo, index, widthScale, orbitScale }) => {
   const scaledOrbitalRadius = logo.orbitalRadius * orbitScale;
   const scaledWidth = parseInt(logo.width, 10) * widthScale;
-  const initialAngle = initialRotationAngle(index);
-  const { rotateZ } = useSpring({
-    loop: true,
-    from: { rotateZ: initialAngle },
-    to: { rotateZ: initialAngle + 360 },
-    config: { duration: commonOrbitalDuration },
-    reset: true,
-  });
 
-  const orbitStyle = {
-    transform: rotateZ.to(
-      (z) =>
-        `rotate(${z}deg) translateX(${scaledOrbitalRadius}px) rotate(-${z}deg)`
-    ),
-  };
+  // Initialize the rotation angle based on index
+  const initialAngle = initialRotationAngle(index);
+
+  // Framer Motion rotation values
+  const rotateZ = useMotionValue(initialAngle);
+
+  useEffect(() => {
+    // Ensure animate rotates from initialAngle to initialAngle + 360
+    const controls = animate(rotateZ, initialAngle + 360, {
+      type: "tween",
+      duration: commonOrbitalDuration / 1000,
+      repeat: Infinity, // Use repeat: Infinity for endless loop
+      ease: "linear",
+    });
+
+    // Cleanup function to stop the animation on unmount
+    return () => controls.stop();
+  }, [rotateZ, initialAngle]); // Include all dependencies correctly
+
+  const orbitStyle = useTransform(
+    rotateZ,
+    (z) =>
+      `rotate(${z}deg) translateX(${scaledOrbitalRadius}px) rotate(-${z}deg)`
+  );
+
   return (
-    <Tippy animation="fade" content={logo.title} placement="auto">
-      <animated.div className="rounded-full orbiting-logo" style={orbitStyle}>
-        <img
-          src={logo.src}
-          alt={logo.title}
-          style={{ width: `${scaledWidth}px` }}
-        />
-      </animated.div>
-    </Tippy>
+    <LazyMotion features={domAnimation}>
+      <Tippy animation="fade" content={logo.title} placement="auto">
+        <m.div
+          className="rounded-full orbiting-logo"
+          style={{ transform: orbitStyle, width: `${scaledWidth}px` }}
+          transition={{ repeat: Infinity }}
+        >
+          <img
+            src={logo.src}
+            alt={logo.title}
+            style={{ width: `${scaledWidth}px` }}
+          />
+        </m.div>
+      </Tippy>
+    </LazyMotion>
   );
 };
 

@@ -1,13 +1,15 @@
 "use client";
 import React, { useRef } from "react";
 import calculateGradient from "@/app/utility/calculateGradient";
-import calculateOpacity from "@/app/utility/calculateOpacity";
 import useScrollProgress from "@/app/hooks/useScrollProgress";
 import { menuData } from "../../../data/companyInfo";
 import Link from "next/link";
 import "./offer.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
-import { LazyMotion, domAnimation, m, domMax } from "framer-motion";
+import { LazyMotion, m, domMax } from "framer-motion";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
 export default function Offer() {
   const { menuBackgroundBlack } = useGlobalState();
   const offerRef = useRef(null);
@@ -20,6 +22,11 @@ export default function Offer() {
 
   const fadeInUpVariants = {
     hidden: { opacity: 0, y: -50 },
+    visible: { opacity: 1, y: 0 },
+  };
+
+  const fadeUpLinks = {
+    hidden: { opacity: 0, y: 50 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -157,7 +164,7 @@ export default function Offer() {
                     key={index}
                     initial="hidden"
                     whileInView="visible"
-                    variants={fadeInUpVariants}
+                    variants={fadeUpLinks}
                     transition={{
                       duration: 0.8,
                       delay: index * 0.1,

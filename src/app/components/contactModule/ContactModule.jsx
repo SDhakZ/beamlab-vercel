@@ -46,7 +46,7 @@ export default function ContactModule() {
             </div>
           ))}
           <div className="col-span-2 my-4 sm:col-span-1 lg:my-2">
-            <button className="px-8 py-3 mt-2 transition-all duration-200 bg-transparent rounded-full glow-effect text-primary-orange-100 w-fit outline outline-2">
+            <button className="px-8 py-3 mt-2 transition-all duration-100 bg-transparent rounded-full glow-effect text-primary-orange-100 w-fit outline outline-2">
               Send Quick Form
             </button>
           </div>

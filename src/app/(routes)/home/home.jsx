@@ -8,6 +8,7 @@ import Carousel from "@/app/components/partnerCarousel/Carousel";
 import Technology from "./technologyStack/technology";
 import React, { useRef, useEffect } from "react";
 import Contact from "../contact/contact";
+import SmoothScrolling from "@/app/SmoothScrolling";
 
 export default function Home(props) {
   const { setMenuBackgroundBlack, menuBackgroundBlack } = useGlobalState();

@@ -1,9 +1,25 @@
+"use client";
 import React from "react";
 import "./service.css";
 import Link from "next/link";
 import { serviceData } from "../../data/service";
+import { motion } from "framer-motion";
 
 export default function service() {
+  const containerVariants = {
+    hidden: {},
+    show: {
+      transition: {
+        staggerChildren: 0.5, // Delay in seconds between each child animation
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -50 },
+    show: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+  };
+
   return (
     <div className="relative">
       <section className="top-section-p container-margin">
@@ -14,12 +30,18 @@ export default function service() {
         </h1>
       </section>
       <section className="mt-10 lg:mt-20 md:mt-16 sm:mt-12 container-margin ">
-        <div className="flex flex-wrap gap-x-6 gap-y-16 justify-evenly">
+        <motion.div
+          className="flex flex-wrap gap-x-6 gap-y-16 justify-evenly"
+          initial="hidden"
+          animate="show"
+          variants={containerVariants}
+        >
           {serviceData.map((service, index) => (
-            <Link
+            <motion.a
               key={index}
               href={`/services/${service.slug}`}
               className="square twitter"
+              variants={itemVariants}
             >
               <span></span>
               <span></span>
@@ -40,9 +62,9 @@ export default function service() {
                   {service.brief}
                 </p>
               </div>
-            </Link>
+            </motion.a>
           ))}
-        </div>
+        </motion.div>
       </section>
     </div>
   );
