@@ -12,7 +12,7 @@ const TickIcon = () => (
 
 const TimelineElement = ({ data }) => {
   const { ref, inView } = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
   });
 
   return (
@@ -22,7 +22,6 @@ const TimelineElement = ({ data }) => {
         contentStyle={{
           background: "#282828",
           color: "#636363",
-
           boxShadow: "none",
         }}
         contentArrowStyle={{ borderRight: "7px solid #FFFFFF" }}

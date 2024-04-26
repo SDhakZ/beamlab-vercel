@@ -3,12 +3,11 @@ import React, { useRef } from "react";
 import calculateGradient from "@/app/utility/calculateGradient";
 import useScrollProgress from "@/app/hooks/useScrollProgress";
 import { menuData } from "../../../data/companyInfo";
+import calculateOpacity from "@/app/utility/calculateOpacity";
 import Link from "next/link";
 import "./offer.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 import { LazyMotion, m, domMax } from "framer-motion";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 export default function Offer() {
   const { menuBackgroundBlack } = useGlobalState();
@@ -19,14 +18,14 @@ export default function Offer() {
     startOffset - (scrollParallax / 100) * startOffset
   );
   const newPositionYBlue = Math.round(50 - (scrollParallax / 100) * 50);
-
+  const scrollY = useScrollProgress(offerRef);
   const fadeInUpVariants = {
-    hidden: { opacity: 0, y: -50 },
+    hidden: { opacity: 0, y: -30 },
     visible: { opacity: 1, y: 0 },
   };
 
   const fadeUpLinks = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 30 },
     visible: { opacity: 1, y: 0 },
   };
 
@@ -104,17 +103,8 @@ export default function Offer() {
             </h2>
           </div>
           <div className="flex gap-10 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[460px]">
-            <m.h2
-              initial={{ opacity1: 1 }}
-              animate="hidden"
-              whileInView="visible"
-              variants={fadeOutVariant}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              viewport={{
-                once: false,
-                amount: 0.5,
-                margin: "-20% 0px -20% 0px",
-              }}
+            <h2
+              style={{ opacity: calculateOpacity(scrollY) }}
               className={`w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] ${
                 menuBackgroundBlack
                   ? "text-white-shade-200"
@@ -125,7 +115,7 @@ export default function Offer() {
                 TIDAL WAVE
               </span>{" "}
               of ingenuity for large-scale application{" "}
-            </m.h2>
+            </h2>
             <m.p
               initial="hidden"
               whileInView="visible"

@@ -10,9 +10,24 @@ export default function FullscreenMenu(props) {
   const { setIsOpen, setShowMenu } = props;
   const pathname = usePathname();
 
+  const pathToTitleMapping = {
+    "/services": "Services",
+    "/work": "Work",
+  };
+
   const findTitleByPath = (path) => {
-    const menuItem = menuData[0].items.find((item) => item.link === path);
-    return menuItem ? menuItem.title : "Home";
+    const exactItem = menuData[0].items.find((item) => path === item.link);
+    if (exactItem) return exactItem.title;
+
+    // Handle partial matches based on predefined mappings
+    for (let key in pathToTitleMapping) {
+      if (path.includes(key)) {
+        return pathToTitleMapping[key];
+      }
+    }
+
+    // Return 'Home' or another default if no matches are found
+    return "Home";
   };
 
   const [activeTitle, setActiveTitle] = useState(findTitleByPath(pathname));
