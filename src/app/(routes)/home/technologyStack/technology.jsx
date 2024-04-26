@@ -8,4 +8,5 @@ const Technology = React.forwardRef((props, ref) => {
     </div>
   );
 });
+Technology.displayName = "Technology";
 export default Technology;

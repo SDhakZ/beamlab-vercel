@@ -162,4 +162,5 @@ const ProjectJourney = React.forwardRef((props, ref) => {
   );
 });
 
+ProjectJourney.displayName = "ProjectJourney";
 export default ProjectJourney;
