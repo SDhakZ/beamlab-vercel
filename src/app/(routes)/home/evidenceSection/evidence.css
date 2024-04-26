@@ -3,7 +3,7 @@
 }
 
 .work-container {
-  width: 1200;
+  width: 1200px;
   max-width: calc(100% - var(--wct-margin));
   margin-left: auto;
   margin-right: auto;

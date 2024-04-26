@@ -30,7 +30,7 @@ export default function ContactModule() {
               <a
                 title={info.title}
                 href={info.link}
-                className="flex items-center space-x-4 cursor-pointer w-fit "
+                className="flex items-center space-x-4 cursor-pointer w-fit hover:text-primary-orange-100"
               >
                 <FontAwesomeIcon
                   className="text-xl lg:text-2xl text-white-shade-200"
