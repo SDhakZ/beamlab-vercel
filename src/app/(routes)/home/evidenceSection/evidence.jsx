@@ -67,7 +67,7 @@ export default function EvidenceSection() {
   }, []);
 
   return (
-    <div className="relative flex flex-col h-full overflow-hidden sm:flex-row-reverse padding-y-lg">
+    <div className="relative flex flex-col h-full sm:flex-row-reverse padding-y-lg">
       <div className="container-margin sm:hidden">
         <h3
           className={`${
