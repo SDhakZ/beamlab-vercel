@@ -110,7 +110,7 @@ export default function WorkDetail() {
             {workItem.tags.map((tag, index) => (
               <li
                 key={index}
-                className="px-3 py-1 text-base font-medium uppercase rounded-sm text-black-shade-200 bg-primary-yellow-400"
+                className="px-3 py-1 text-sm font-medium uppercase rounded-sm sm:text-base text-black-shade-200 bg-primary-yellow-400"
               >
                 {tag}
               </li>
@@ -119,32 +119,36 @@ export default function WorkDetail() {
           <div className="relative grid w-full grid-cols-1 gap-6 mt-4 sm:gap-10 sm:grid-cols-3 md:grid-cols-4 lg:mt-6">
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Project Name: Year</h2>
-              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
+              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-200"></hr>
+              <p className="mt-2 text-lg font-medium md:text-xl sm:text-lg">
                 {workItem.title}:&nbsp;{workItem.projectDetails.projectYear}
               </p>
             </div>
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Technology used</h2>
-              <hr className="block mt-1  border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
+              <hr className="block mt-1  border-none w-full h-[0.16rem] bg-black-shade-200"></hr>
+              <p className="mt-2 text-lg font-medium md:text-xl sm:text-lg">
                 {workItem.projectDetails.technologyUsed}
               </p>
             </div>
             <div className="flex flex-col text-black-shade-300">
               <h2 className="text-sm font-semibold">Services</h2>
-              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-300"></hr>
-              <p className="mt-2 text-xl font-medium md:text-xl sm:text-lg">
+              <hr className="block mt-1 border-none w-full h-[0.16rem] bg-black-shade-200"></hr>
+              <p className="mt-2 text-lg font-medium md:text-xl sm:text-lg">
                 {workItem.projectDetails.projectService}
               </p>
             </div>
           </div>
           {/*---Brief---*/}
           <section className="padding-y-lg">
-            <Brief briefText={briefText} dark={true} />
+            <Brief
+              briefText={briefText}
+              title={workItem.mainContent.briefContainer.title}
+              dark={true}
+            />
           </section>
           <div className="flex flex-wrap md:flex-nowrap margin-t gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
-            <div className="flex flex-col gap-3 min-w-[350px] md:w-1/2">
+            <div className="flex flex-col gap-3 sm:min-w-[350px] md:w-1/2">
               <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
                 The Challenge
                 <hr className="block w-full h-[0.2rem] mt-1 bg-primary-orange-200"></hr>
@@ -158,8 +162,8 @@ export default function WorkDetail() {
               </h3>
               <p
                 className={`${
-                  isDarkTheme ? "text-white-shade-200" : "text-black-shade-100"
-                } text-lg font-medium leading-relaxed `}
+                  isDarkTheme ? "text-white-shade-300" : "text-black-shade-100"
+                } paragraph font-medium leading-relaxed `}
               >
                 {workItem.mainContent.challengeContainer.challenge}
               </p>
@@ -210,7 +214,7 @@ export default function WorkDetail() {
                           ? "text-white-shade-300"
                           : "text-black-shade-300"
                       }
-                      mt-4 text-base lg:text-lg max-w-[500px] font-normal `}
+                      mt-3 text-base paragraph max-w-[500px] font-normal `}
                     >
                       {process.description}
                     </p>
@@ -280,7 +284,7 @@ export default function WorkDetail() {
           <p
             className={`${
               isDarkTheme ? "text-white-shade-100" : "text-black-shade-200"
-            }  mt-4 transition-colors duration-[1300ms] text-xl sm:text-2xl font-normal`}
+            }  mt-4 transition-colors duration-[1300ms] text-lg sm:text-2xl font-normal`}
           >
             {workItem.mainContent.endProductContainer.description}
           </p>
@@ -291,7 +295,10 @@ export default function WorkDetail() {
           >
             {workItem.mainContent.endProductContainer.points.map(
               (point, index) => (
-                <li className="text-lg font-medium sm:text-xl" key={index}>
+                <li
+                  className="text-lg font-normal sm:font-medium sm:text-xl"
+                  key={index}
+                >
                   <FontAwesomeIcon color="#00B553" icon={faCheckSquare} />
                   <span className="ml-2">{point}</span>
                 </li>
@@ -332,7 +339,7 @@ export default function WorkDetail() {
       </section>
 
       <section className="relative flex items-center justify-center padding-y-lg bg-background-black">
-        <Brief briefText={briefText} dark={false} />
+        <Brief title="Final words" briefText={briefText} dark={false} />
       </section>
     </div>
   );

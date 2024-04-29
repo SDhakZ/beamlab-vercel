@@ -3,7 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import { highlightText } from "@/app/utility/highlightText";
 
 export default function Brief(props) {
-  const { briefText, dark } = props;
+  const { briefText, dark, title } = props;
   const [isHovering, setIsHovering] = useState(false);
   const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
   const sectionRef = useRef(null);
@@ -43,7 +43,7 @@ export default function Brief(props) {
             dark ? "text-white-shade-100" : "text-black-shade-300"
           } `}
         >
-          Designing website for a digital agency{" "}
+          {title}{" "}
           <hr
             className={`block w-full h-[0.1rem] mt-1  ${
               dark ? "bg-white-shade-100" : "bg-black-shade-300"
@@ -77,7 +77,7 @@ export default function Brief(props) {
         }}
       >
         <h2 className="text-base font-semibold w-fit ">
-          Designing website for a digital agency{" "}
+          {title}{" "}
           <hr
             className={`block w-full h-[0.1rem] mt-1 ${
               dark ? "bg-black-shade-100" : "bg-white-shade-100"

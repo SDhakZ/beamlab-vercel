@@ -7,7 +7,7 @@ export default function About() {
   return (
     <div>
       <section className="container-margin-compact top-section-p">
-        <h1 className="text-3xl font-medium text-center md:text-3xl lg:text-5xl">
+        <h1 className="text-4xl font-medium text-center md:text-3xl lg:text-5xl">
           About Us
         </h1>
         <div className="flex flex-col items-center justify-between w-full gap-2 mt-10 lg:gap-20 lg:mt-20 md:gap-12 sm:flex-row sm:mt-16">
@@ -18,11 +18,11 @@ export default function About() {
             />
           </figure>
 
-          <div className="flex flex-col gap-1 sm:gap-2 md:gap-3">
-            <h2 className="text-2xl font-medium leading-normal sm:text-2xl lg:text-4xl md:text-3xl">
+          <div className="flex flex-col gap-1 sm:gap-2 md:gap-5">
+            <h2 className="text-2xl font-medium leading-normal sm:text-2xl lg:text-4xl text-black-shade-300 md:text-3xl">
               Our Long Term Vison
             </h2>
-            <p className="w-full text-base md:min-w-p[350px] lg:min-w-[400px] text-black-shade-200 leading-relaxed md:text-base lg:text-lg  max-w-[550px]">
+            <p className="w-full text-base md:min-w-p[350px] lg:min-w-[400px] text-black-shade-200 leading-relaxed font-poppins font-medium paragraph max-w-[550px]">
               Lorem Ipsum is simply dummy text of the printing and typesetting
               industry. Lorem Ipsum has been the industry&apos;s standard dummy
               text ever since the 1500s, when an unknown printer took a galley

@@ -4,7 +4,7 @@
 
 @layer components {
   .paragraph {
-    @apply text-base [word-spacing:2px] font-[600] font-manrope tracking-wide  text-black-shade-200 md:text-lg md:leading-8;
+    @apply text-base md:text-lg;
   }
 
   .heading-large {
