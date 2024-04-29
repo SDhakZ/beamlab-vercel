@@ -45,23 +45,29 @@ export default function EvidenceSection() {
   const [hoverIndex, setHoverIndex] = useState(null);
   const responsiveHeight = useResponsiveHeight();
   const handleMouseMove = useCallback((e) => {
-    const boundingRect = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - boundingRect.left,
-      y: e.clientY - boundingRect.top,
-    });
+    if (window.innerWidth > 540) {
+      const boundingRect = e.currentTarget.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - boundingRect.left,
+        y: e.clientY - boundingRect.top,
+      });
+    }
   }, []);
 
   const handleMouseEnter = useCallback((index) => {
-    setHoverIndex(index);
+    if (window.innerWidth > 540) {
+      setHoverIndex(index);
+    }
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setHoverIndex(null);
+    if (window.innerWidth > 540) {
+      setHoverIndex(null);
+    }
   }, []);
 
   return (
-    <div className="relative flex flex-col h-full sm:flex-row-reverse padding-y-lg">
+    <div className="relative flex flex-col h-full overflow-hidden sm:flex-row-reverse padding-y-lg">
       <div className="container-margin sm:hidden">
         <h3
           className={`${
@@ -127,7 +133,7 @@ export default function EvidenceSection() {
                     {work.title}
                   </h2>
 
-                  <p className="text-base font-normal sm:text-lg mt-1 sm:mt-0 max-w-[290px] sm:font-normal md:font-medium text-black-shade-200">
+                  <p className="text-lg font-normal sm:text-lg mt-1 sm:mt-0 max-w-[290px] sm:font-normal md:font-medium text-black-shade-200">
                     {work.catchPhrase}
                   </p>
                 </div>
@@ -135,7 +141,7 @@ export default function EvidenceSection() {
                   {work.tags.slice(0, 2).map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
+                      className="px-3 uppercase text-sm sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
                     >
                       {tag}
                     </span>

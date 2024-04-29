@@ -48,7 +48,7 @@ export default function Home(props) {
     <div
       className={`transition-colors duration-[1300ms] ${
         menuBackgroundBlack ? "bg-background-black" : "bg-background-white"
-      }`}
+      } `}
     >
       <Hero />
       <Offer />

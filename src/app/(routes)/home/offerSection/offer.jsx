@@ -102,10 +102,10 @@ export default function Offer() {
               and services
             </h2>
           </div>
-          <div className="flex gap-10 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[460px]">
+          <div className="flex gap-12 flex-col md:gap-20 sm:gap-16 lg:gap-24 xl:gap-28 sm:max-w-[280px] w-full md:max-w-[300px] lg:max-w-[370px] xl:max-w-[460px]">
             <h2
               style={{ opacity: calculateOpacity(scrollY) }}
-              className={`w-full hidden sm:block  text-xl  sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] ${
+              className={`w-full hidden sm:block text-xl sm:text-3xl font-semibold md:text-4xl lg:text-5xl xl:text-6xl lg:leading-[1.15] uppercase xl:leading-[1.18] ${
                 menuBackgroundBlack
                   ? "text-white-shade-200"
                   : "text-black-shade-300"
@@ -126,7 +126,7 @@ export default function Offer() {
                 amount: 0.5,
                 margin: "-20% 0px -20% 0px",
               }}
-              className={`font-medium sm:text-base md:text-lg ${
+              className={`font-medium paragraph md:text-lg ${
                 menuBackgroundBlack
                   ? "text-white-shade-200"
                   : "text-black-shade-200"

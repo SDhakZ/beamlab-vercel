@@ -10,6 +10,9 @@ import { LazyMotion, m, domAnimation } from "framer-motion";
 const ProjectJourney = React.forwardRef((props, ref) => {
   const [activeItem, setActiveItem] = useState(null);
   const { menuBackgroundBlack } = useGlobalState();
+  const [isScrollEnabled, setIsScrollEnabled] = useState(
+    window.innerWidth > 540
+  );
 
   const imageRefs = useRef(new Array(projectJourneyData.length));
   const fadeUp = {
@@ -18,6 +21,10 @@ const ProjectJourney = React.forwardRef((props, ref) => {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsScrollEnabled(window.innerWidth > 540);
+    };
+    window.addEventListener("resize", handleResize);
     const handleScroll = () => {
       const items = document.querySelectorAll(".project-image");
       let activeId = null;
@@ -40,13 +47,15 @@ const ProjectJourney = React.forwardRef((props, ref) => {
   }, []);
 
   const scrollToImage = (index) => {
-    const element = imageRefs.current[index];
-    if (element) {
-      const rect = element.getBoundingClientRect();
-      const topPosition =
-        rect.top + window.scrollY - window.innerHeight / 2 + rect.height / 2;
+    if (isScrollEnabled) {
+      const element = imageRefs.current[index];
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        const topPosition =
+          rect.top + window.scrollY - window.innerHeight / 2 + rect.height / 2;
 
-      scroll.scrollTo(topPosition);
+        scroll.scrollTo(topPosition);
+      }
     }
   };
 

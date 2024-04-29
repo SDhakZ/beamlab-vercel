@@ -73,7 +73,7 @@ export default function Recommend() {
               {work.tags.map((tag, index) => (
                 <p
                   key={index}
-                  className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
+                  className="px-3 uppercase text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
                 >
                   {tag}
                 </p>

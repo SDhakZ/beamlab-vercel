@@ -178,18 +178,18 @@ export default function Contact(props) {
                     content={<span>Click to complete CAPTCHA</span>}
                     visible={visible}
                   >
-                    <div>
+                    <>
                       <HCaptcha
                         sitekey={hcaptcha_site_key}
                         onVerify={handleVerifyCaptcha}
                         ref={captchaRef}
                         size="normal"
                       />
-                    </div>
+                    </>
                   </Tippy>
                   <button
                     type="submit"
-                    className={`flex border-gradient border-2 hover:border-primary-orange-200 hover:bg-white-shade-100 text-white-shade-200 hover:text-primary-orange-300 bg-primary-orange-300 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[350px] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
+                    className={`flex border-gradient border-2 hover:border-primary-orange-200 hover:bg-white-shade-100 text-white-shade-200 hover:text-primary-orange-300 bg-primary-orange-300 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[100%] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
                       loading
                         ? "bg-gray-400"
                         : sentStatus === "success"
@@ -260,7 +260,7 @@ export default function Contact(props) {
                     <a
                       key={index}
                       title={socialInfo.title}
-                      className="flex items-center justify-center text-3xl transition-all duration-200 rounded-full shadow-md hover:bg-primary-orange-300 w-11 h-11 sm:text-2xl lg:text-2xl bg-black-shade-200 text-white-shade-200 hover:text-primary-accent"
+                      className="flex items-center justify-center text-2xl transition-all duration-200 rounded-full shadow-md hover:bg-primary-orange-300 w-11 h-11 sm:text-2xl lg:text-2xl bg-black-shade-200 text-white-shade-200 hover:text-primary-accent"
                       href={socialInfo.link}
                     >
                       <FontAwesomeIcon icon={socialInfo.icon} />

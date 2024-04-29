@@ -15,19 +15,25 @@ export default function Work() {
   const [evidenceHeight, setEvidenceHeight] = useState(maximumHeight);
 
   const handleMouseMove = useCallback((e) => {
-    const boundingRect = e.currentTarget.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - boundingRect.left,
-      y: e.clientY - boundingRect.top,
-    });
+    if (window.innerWidth > 540) {
+      const boundingRect = e.currentTarget.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - boundingRect.left,
+        y: e.clientY - boundingRect.top,
+      });
+    }
   }, []);
 
   const handleMouseEnter = useCallback((index) => {
-    setHoverIndex(index);
+    if (window.innerWidth > 540) {
+      setHoverIndex(index);
+    }
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setHoverIndex(null);
+    if (window.innerWidth > 540) {
+      setHoverIndex(null);
+    }
   }, []);
 
   useEffect(() => {
@@ -99,7 +105,7 @@ export default function Work() {
       </div>
       <div className="work-container">
         <section className="flex flex-col justify-center top-section-p">
-          <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-300 sm:invisible sm:hidden">
+          <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-200 sm:invisible sm:hidden">
             The evidence
           </h1>
           <h2 className="font-medium leading-tight tracking-tight text-center sm:font-semibold sm:text-start heading-medium text-black-shade-300">
@@ -169,7 +175,7 @@ export default function Work() {
                 {work.tags.map((tag, index) => (
                   <p
                     key={index}
-                    className="px-3 uppercase text-xs sm:text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
+                    className="px-3 uppercase text-sm py-1 bg-[#FBE201] font-medium text-black-shade-300 rounded-[4px]"
                   >
                     {tag}
                   </p>
