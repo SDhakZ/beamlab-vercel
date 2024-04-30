@@ -87,6 +87,7 @@ export default function AppFooter() {
             </div>
             <figure className="flex self-center justify-center w-full sm: sm:justify-end sm:self-end">
               <img
+                title="Brand Logo"
                 alt="brand logo"
                 className="h-auto w-28"
                 src="/BrandLogoIllustration.png"

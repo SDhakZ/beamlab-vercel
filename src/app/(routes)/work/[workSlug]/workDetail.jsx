@@ -89,6 +89,7 @@ export default function WorkDetail() {
           </h1>
           <div className="flex flex-wrap items-center justify-between w-full gap-4 mt-4 md:mt-8 lg:mt-10">
             <img
+              title={workItem.title}
               alt={workItem.title}
               className="w-44 md:w-48"
               src={workItem.projectDetails.projectLogo}
@@ -101,6 +102,7 @@ export default function WorkDetail() {
             </a>
           </div>
           <img
+            title="hero"
             loading="lazy"
             className="mt-2"
             alt="hero"
@@ -170,6 +172,7 @@ export default function WorkDetail() {
             </div>
             <figure className="w-full max-w-[500px]">
               <img
+                title="Challenge"
                 loading="lazy"
                 alt="Challenge"
                 className="w-full h-auto"
@@ -221,6 +224,7 @@ export default function WorkDetail() {
                   </div>
                   <div className="relative w-full h-full sm:hidden sm:invisible">
                     <img
+                      title={process.title}
                       loading="lazy"
                       decoding="async"
                       alt="Active section"
@@ -246,6 +250,7 @@ export default function WorkDetail() {
           </div>
           <div className={`sm:block hidden sticky-image-container `}>
             <img
+              title="active"
               loading="lazy"
               decoding="async"
               alt="Active section"
@@ -306,6 +311,7 @@ export default function WorkDetail() {
             )}
           </ul>
           <img
+            title="End product"
             loading="lazy"
             decoding="async"
             alt="project"
@@ -328,6 +334,7 @@ export default function WorkDetail() {
           <div className="flex flex-col gap-10 margin-t">
             {workItem.mainContent.resultContainer.media.map((media, index) => (
               <img
+                title="result"
                 key={index}
                 src={media.src}
                 alt="result"

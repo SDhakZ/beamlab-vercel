@@ -126,7 +126,12 @@ const ProjectJourney = React.forwardRef((props, ref) => {
                     {item.name}
                   </div>
                   <div className="relative w-full h-full sm:hidden sm:invisible">
-                    <img loading="lazy" src={item.image} alt={item.name} />
+                    <img
+                      title={item.name}
+                      loading="lazy"
+                      src={item.image}
+                      alt={item.name}
+                    />
                     <p
                       className={`${
                         menuBackgroundBlack
@@ -157,7 +162,7 @@ const ProjectJourney = React.forwardRef((props, ref) => {
                 data-id={item.id}
                 ref={(el) => (imageRefs.current[index] = el)}
               >
-                <img src={item.image} alt={item.name} />
+                <img title={item.name} src={item.image} alt={item.name} />
                 <p
                   className={`${
                     menuBackgroundBlack

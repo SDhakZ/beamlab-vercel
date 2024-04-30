@@ -119,12 +119,12 @@ export default function Carousel() {
           </ul>
         </div>
         <Link
-          className={`px-8 py-2 font-medium transition-all duration-300 rounded-full md:px-10 md:py-3 glow-effect w-fit outline outline-primary-orange-100 outline-2 ${
+          className={`px-8 py-2 shiny-global hover:bg-primary-orange-300 font-medium transition-all text-primary-orange-300 bg-transparent hover:text-white-shade-200 duration-300 rounded-full md:px-10 md:py-3  w-fit outline outline-primary-orange-100 outline-2 ${
             menuBackgroundBlack ? "bg-black-shade-300 " : "bg-white-shade-100 "
           } `}
           href="/contact"
         >
-          <span className="text-lg md:text-xl gradient">Join Us Now</span>
+          <span className="text-lg md:text-xl ">Join Us Now</span>
         </Link>
       </div>
     </div>

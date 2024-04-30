@@ -45,7 +45,7 @@ const logos = [
   {
     id: 7,
     title: "GCP",
-    src: "/techstack/gcp.png",
+    src: "/techstack/GCP.png",
     orbitalRadius: 290,
     width: "60px",
   },

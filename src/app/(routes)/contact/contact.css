@@ -1,0 +1,37 @@
+.shiny-contact {
+  /* Positioning */
+  position: relative;
+  /* Display & Box Model */
+  padding: 10px 30px;
+  overflow: hidden;
+  /* Other */
+  text-decoration: none;
+  border: 3px solid #c2c2c2;
+  transition: all 0.3s; /* Mod1: Can change transition duration */
+}
+
+.shiny-contact:hover {
+  /* Other */
+  /* Mod2: Can change bg color on hover */
+  color: white;
+}
+
+.shiny-contact:before {
+  content: "";
+  /* Positioning */
+  position: absolute;
+  top: 0;
+  left: 0;
+  /* Display & Box Model */
+  width: 100%;
+  height: 50px;
+  transform: translateX(-100%) rotate(45deg); /* Mod3: Can change the shining effect direction and angle */
+  /* Other */
+  background-color: white;
+  transition: all 0.3s;
+}
+
+.shiny-contact:hover:before {
+  /* Display & Box Model */
+  transform: translateX(100%) rotate(45deg); /* Mod3: Can change the shining effect direction and angle */
+}

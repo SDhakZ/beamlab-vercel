@@ -108,13 +108,13 @@ export default function Work() {
           <h1 className="mb-6 text-5xl font-bold text-center font-cervino text-black-shade-200 sm:invisible sm:hidden">
             The evidence
           </h1>
-          <h2 className="font-medium leading-tight tracking-tight text-center sm:font-semibold sm:text-start heading-medium text-black-shade-300">
+          <h2 className="font-medium leading-tight tracking-tight text-center sm:font-medium sm:text-start heading-medium text-black-shade-300">
             The project you&apos;re tackling deserves outstanding{" "}
-            <span className="tracking-wide uppercase lg:font-bold text-primary-orange-300">
+            <span className="tracking-wide uppercase lg:font-semibold text-primary-orange-300">
               ATTENTION
             </span>{" "}
             and{" "}
-            <span className="tracking-wide uppercase lg:font-bold text-primary-orange-300">
+            <span className="tracking-wide uppercase lg:font-semibold text-primary-orange-300">
               EFFORT
             </span>
             .
@@ -147,7 +147,12 @@ export default function Work() {
                 onMouseLeave={handleMouseLeave}
                 className="relative overflow-hidden rounded-md cursor-none"
               >
-                <img className="w-full" alt={work.title} src={work.poster} />
+                <img
+                  className="w-full"
+                  title={work.title}
+                  alt={work.title}
+                  src={work.poster}
+                />
                 <p className="absolute z-20 font-semibold font-cervino text-sm sm:text-md uppercase px-2 py-1 rounded-[4px] left-3 top-3 bg-black-shade-300 text-white-shade-200">
                   Case Study
                 </p>
@@ -168,9 +173,9 @@ export default function Work() {
                   </div>
                 )}
               </div>
-              <h2 className="mt-3  transition-all duration-200 text-2xl font-medium sm:mt-5 sm:text-[1.7rem] md:text-4xl text-black-shade-300">
+              <h3 className="mt-3  transition-all duration-200 text-2xl font-medium sm:mt-5 sm:text-[1.7rem] md:text-4xl text-black-shade-300">
                 {work.title}
-              </h2>
+              </h3>
               <div className="flex flex-wrap w-full gap-2 mt-2 sm:mt-3 md:mt-4 sm:gap-3">
                 {work.tags.map((tag, index) => (
                   <p

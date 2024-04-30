@@ -10,7 +10,7 @@ export default function HeroSection(props) {
         </h1>
       </div>
       <figure className="w-full lg:max-w-[900px]">
-        <img src={selectedServiceData?.serviceDetail.heroImage} />
+        <img alt="hero" src={selectedServiceData?.serviceDetail.heroImage} />
       </figure>
     </section>
   );

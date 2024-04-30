@@ -6,8 +6,10 @@ import { menuData, socialInfo } from "@/app/data/companyInfo";
 import axios from "axios";
 import HCaptcha from "@hcaptcha/react-hcaptcha";
 import Tippy from "@tippyjs/react";
+
 import "tippy.js/dist/tippy.css";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
+import "./contact.css";
 
 export default function Contact(props) {
   const { hcaptcha_site_key } = props;
@@ -64,7 +66,7 @@ export default function Contact(props) {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:3000/api/send",
+        "http://localhost:3000/api/sed",
         dataToSend,
         {
           headers: {
@@ -178,18 +180,18 @@ export default function Contact(props) {
                     content={<span>Click to complete CAPTCHA</span>}
                     visible={visible}
                   >
-                    <>
+                    <div>
                       <HCaptcha
                         sitekey={hcaptcha_site_key}
                         onVerify={handleVerifyCaptcha}
                         ref={captchaRef}
                         size="normal"
                       />
-                    </>
+                    </div>
                   </Tippy>
                   <button
                     type="submit"
-                    className={`flex border-gradient border-2 hover:border-primary-orange-200 hover:bg-white-shade-100 text-white-shade-200 hover:text-primary-orange-300 bg-primary-orange-300 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[100%] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
+                    className={`flex shiny-contact border-gradient border-2 bg-transparent hover:border-primary-orange-200 hover:bg-primary-orange-300 text-white-shade-200 bg-primary-orange-200 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[100%] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
                       loading
                         ? "bg-gray-400"
                         : sentStatus === "success"

@@ -106,7 +106,12 @@ export default function EvidenceSection() {
                   onMouseLeave={handleMouseLeave}
                   className="relative overflow-hidden rounded-md cursor-none"
                 >
-                  <img className="w-full" alt={work.title} src={work.poster} />
+                  <img
+                    className="w-full"
+                    title={work.title}
+                    alt={work.title}
+                    src={work.poster}
+                  />
                   <p className="absolute z-20 font-semibold font-cervino text-sm sm:text-md uppercase px-2 py-1 rounded-[4px] left-3 top-3 bg-black-shade-300 text-white-shade-200">
                     Case Study
                   </p>

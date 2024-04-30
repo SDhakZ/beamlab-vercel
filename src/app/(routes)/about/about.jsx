@@ -14,7 +14,9 @@ export default function About() {
           <figure>
             <img
               className="w-full h-auto max-w-[450px]"
+              title="vison illustration"
               src="/assets/about-vision.png"
+              alt="vison illustration"
             />
           </figure>
 

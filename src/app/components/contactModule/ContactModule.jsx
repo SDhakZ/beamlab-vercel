@@ -6,6 +6,7 @@ export default function ContactModule() {
   return (
     <section className="relative flex justify-center w-full padding-y-lg lg:pb-24 bg-black-shade-300">
       <img
+        title="abstract logo"
         alt="abstract"
         className="absolute bottom-0 right-0 z-0 w-36 sm:w-36 md:w-52 lg:w-56"
         src="/assets/abstract-footer.png"
@@ -46,7 +47,7 @@ export default function ContactModule() {
             </div>
           ))}
           <div className="col-span-2 my-4 sm:col-span-1 lg:my-2">
-            <button className="px-8 py-3 mt-2 transition-all duration-100 bg-transparent rounded-full glow-effect text-primary-orange-100 w-fit outline outline-2">
+            <button className="px-8 py-3 mt-2 transition-all duration-100 bg-transparent rounded-full shiny-global glow-effect text-primary-orange-100 w-fit outline outline-2">
               Send Quick Form
             </button>
           </div>
