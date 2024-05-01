@@ -108,7 +108,6 @@ const OrbitingLogo = ({ logo, index, widthScale, orbitScale }) => {
           <img
             src={logo.src}
             alt={logo.title}
-            title={logo.title}
             style={{ width: `${scaledWidth}px` }}
           />
         </m.div>

@@ -104,7 +104,7 @@ export default function FullscreenMenu(props) {
               {socialInfo.map((social, index) => (
                 <a
                   key={index}
-                  className="flex items-center justify-center rounded-full w-9 h-9 md:w-11 md:h-11 bg-black-shade-200"
+                  className="flex items-center justify-center transition-colors duration-300 rounded-full w-9 h-9 md:w-11 md:h-11 bg-black-shade-200 hover:bg-primary-orange-300"
                   href={social.link}
                   target="_blank"
                   rel="noreferrer"

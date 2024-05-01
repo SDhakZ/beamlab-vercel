@@ -81,8 +81,8 @@ export default function AppFooter() {
                   </a>
                 ))}
               </div>
-              <button className="px-10 py-2 mt-2 transition-all duration-200 bg-transparent rounded-full glow-effect text-primary-orange-100 w-fit outline outline-2">
-                Send Quick Form
+              <button className="px-10 py-2 mt-2 transition-all duration-200 bg-transparent rounded-full shiny-global glow-effect text-primary-orange-100 w-fit outline outline-2">
+                Send Message
               </button>
             </div>
             <figure className="flex self-center justify-center w-full sm: sm:justify-end sm:self-end">
