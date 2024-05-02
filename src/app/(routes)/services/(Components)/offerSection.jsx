@@ -64,14 +64,14 @@ export default function OfferSection(props) {
               }}
               className="font-medium sm:text-base md:text-lg text-black-shade-200"
             >
-              {selectedServiceData.serviceDetail.serviceBrief}
+              {selectedServiceData?.serviceDetail.serviceBrief}
             </m.p>
             <div>
               <h3 className="text-2xl font-semibold capitalize sm:text-2xl lg:text-3xl text-black-shade-300">
                 What we offer
               </h3>
               <ul className="mt-2 sm:mt-2">
-                {selectedServiceData.serviceDetail.offerings.map(
+                {selectedServiceData?.serviceDetail.offerings.map(
                   (offer, index) => (
                     <m.li
                       initial="hidden"

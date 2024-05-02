@@ -7,6 +7,9 @@ import { useGlobalState } from "@/app/utility/globalStateProvide";
 import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Brief from "../(Components)/brief";
+import Aos from "aos";
+import "aos/dist/aos.css";
+import NotFound from "@/app/not-found";
 
 export default function WorkDetail() {
   const { setMenuBackgroundBlack } = useGlobalState();
@@ -21,7 +24,15 @@ export default function WorkDetail() {
     workItem ? workItem.mainContent.processContainer[0].image : null
   );
 
-  const briefText = workItem.mainContent.briefContainer.brief;
+  useEffect(() => {
+    Aos.init({
+      duration: "500",
+      easing: "ease-in-out",
+      once: false,
+    });
+  });
+
+  const briefText = workItem?.mainContent.briefContainer.brief;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -68,7 +79,7 @@ export default function WorkDetail() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, [setMenuBackgroundBlack]);
   if (!workItem) {
-    return <>Not found</>;
+    return <NotFound />;
   }
   return (
     <div
@@ -142,7 +153,7 @@ export default function WorkDetail() {
             </div>
           </div>
           {/*---Brief---*/}
-          <section className="padding-y-lg">
+          <section data-aos="fade-in" className="padding-y-lg">
             <Brief
               briefText={briefText}
               title={workItem.mainContent.briefContainer.title}
@@ -150,7 +161,10 @@ export default function WorkDetail() {
             />
           </section>
           <div className="flex flex-wrap md:flex-nowrap margin-t gap-6 sm:gap-16 items-center w-full max-w-[1100px]">
-            <div className="flex flex-col gap-3 sm:min-w-[350px] md:w-1/2">
+            <div
+              data-aos="fade-in"
+              className="flex flex-col gap-3 sm:min-w-[350px] md:w-1/2"
+            >
               <h2 className="text-base font-semibold uppercase w-fit text-primary-orange-300">
                 The Challenge
                 <hr className="block w-full h-[0.2rem] mt-1 bg-primary-orange-200"></hr>
@@ -170,7 +184,7 @@ export default function WorkDetail() {
                 {workItem.mainContent.challengeContainer.challenge}
               </p>
             </div>
-            <figure className="w-full max-w-[500px]">
+            <figure data-aos="fade-in" className="w-full max-w-[500px]">
               <img
                 title="Challenge"
                 loading="lazy"
@@ -201,7 +215,11 @@ export default function WorkDetail() {
                   className="flex flex-col gap-10 section-class"
                   key={index}
                 >
-                  <div>
+                  <div
+                    data-aos-once="true"
+                    data-aos={index == 0 ? "" : "fade-in"}
+                    data-aos-anchor-placement="top-center"
+                  >
                     <h3
                       className={`${
                         isDarkTheme
@@ -334,6 +352,7 @@ export default function WorkDetail() {
           <div className="flex flex-col gap-10 margin-t">
             {workItem.mainContent.resultContainer.media.map((media, index) => (
               <img
+                data-aos="fade-in"
                 title="result"
                 key={index}
                 src={media.src}
@@ -345,7 +364,10 @@ export default function WorkDetail() {
         </div>
       </section>
 
-      <section className="relative flex items-center justify-center padding-y-lg bg-background-black">
+      <section
+        data-aos="fade-in"
+        className="relative flex items-center justify-center padding-y-lg bg-background-black"
+      >
         <Brief title="Final words" briefText={briefText} dark={false} />
       </section>
     </div>

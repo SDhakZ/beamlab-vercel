@@ -28,12 +28,12 @@
 }
 
 .orange-wave::before {
-  --wave-image: url("/orange-wave.png");
+  --wave-image: url("/assets/orange-wave.png");
   animation: wavy-orange 7s linear infinite;
 }
 
 .blue-wave::before {
-  --wave-image: url("/blue-wave.png");
+  --wave-image: url("/assets/blue-wave.png");
   animation: wavy-blue 10s linear infinite;
 }
 

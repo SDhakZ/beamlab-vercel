@@ -24,8 +24,9 @@ module.exports = {
           "url('/partners/partnerBGDark.png')",
         "textured-white-background": "url('/portfolio/texturedWhiteBG.png')",
         "textured-black-background": "url('/portfolio/texturedBlackBG.png')",
-        "textured-testimonial-background": "url('/testimonialBG.png')",
-        "textured-testimonial-background-dark": "url('/testimonialBGDark.png')",
+        "textured-testimonial-background": "url('/assets/testimonialBG.png')",
+        "textured-testimonial-background-dark":
+          "url('/assets/testimonialBGDark.png')",
         "contact-background": "url('/contact-bg.png')",
         "techstack-background": "url('/techstack/bg2.png')",
       },

@@ -71,8 +71,8 @@ export default function Testimonial() {
           className="absolute bottom-0 bg-opacity-95"
           src={
             menuBackgroundBlack
-              ? "/testimonialArtifactDark.png"
-              : "/testimonialArtifact.png"
+              ? "/assets/testimonialArtifactDark.png"
+              : "/assets/testimonialArtifact.png"
           }
         /> </picture> */}
     </div>

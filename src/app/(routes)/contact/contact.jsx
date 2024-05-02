@@ -105,12 +105,15 @@ export default function Contact(props) {
       }`}
     >
       <picture>
-        <source media="(max-width: 540px)" srcSet="/contact-bg-mobile.png" />
+        <source
+          media="(max-width: 540px)"
+          srcSet="/assets/contact-bg-mobile.png"
+        />
         <img
           aria-hidden="true"
           alt="contact-bg"
           className="absolute bottom-0"
-          src="/contact-bg.png"
+          src="/assets/contact-bg.png"
         />
       </picture>
       <div className="relative container-margin-compact">

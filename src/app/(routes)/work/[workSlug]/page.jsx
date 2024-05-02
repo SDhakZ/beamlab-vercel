@@ -2,6 +2,7 @@ import React from "react";
 import WorkDetail from "./workDetail";
 import workData from "@/app/data/work";
 import ContactModule from "@/app/components/contactModule/ContactModule";
+import NotFound from "@/app/not-found";
 
 export function generateStaticParams() {
   const workSlugs = workData.map((work) => ({
@@ -14,7 +15,15 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   // read route params
   const workSlug = params.workSlug;
+
+  if (!workSlug) {
+    return <NotFound />;
+  }
+
   const workItem = workData.find((item) => item.slug === workSlug);
+  if (!workItem) {
+    return <NotFound />;
+  }
   const { title, tags, mainContent } = workItem;
 
   const optimizedDescription =

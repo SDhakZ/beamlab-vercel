@@ -74,6 +74,8 @@ export default function Menubar() {
           ? menuBackgroundBlack
             ? "bg-[#121212] duration-[500ms]"
             : "bg-[#F5F5F7]"
+          : menuBackgroundBlack
+          ? "bg-[#121212] duration-[500ms]"
           : "bg-[#F5F5F7]"
       } sticky justify-between ${
         isOpen || hasShadow ? "transition-colors duration-500" : "duration-500"
@@ -92,6 +94,8 @@ export default function Menubar() {
               ? menuBackgroundBlack
                 ? "text-white-shade-100"
                 : "text-black-shade-300"
+              : menuBackgroundBlack
+              ? "text-white-shade-100"
               : "text-black-shade-300"
           } text-4xl font-bold cursor-pointer font-cervino`}
         >
@@ -121,6 +125,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />
@@ -134,6 +140,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />
@@ -148,6 +156,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />
@@ -161,6 +171,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />
@@ -175,6 +187,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />
@@ -189,6 +203,8 @@ export default function Menubar() {
                     ? menuBackgroundBlack
                       ? "#fff"
                       : "#3F3F3F"
+                    : menuBackgroundBlack
+                    ? "#fff"
                     : "#3F3F3F"
                 }
               />

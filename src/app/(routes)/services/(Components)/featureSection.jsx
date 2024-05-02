@@ -3,12 +3,17 @@ import React, { useState, useEffect, useRef } from "react";
 import { useGlobalState } from "@/app/utility/globalStateProvide";
 import Lottie from "lottie-react";
 import { LazyMotion, m, domAnimation } from "framer-motion";
+import NotFound from "@/app/not-found";
 
 export default function FeatureSection(props) {
   const { selectedServiceData } = props;
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const mainRef = useRef(null);
   const { setMenuBackgroundBlack } = useGlobalState();
+
+  if (!selectedServiceData) {
+    return <NotFound />;
+  }
 
   const [activeImage, setActiveImage] = useState(
     selectedServiceData
@@ -31,7 +36,7 @@ export default function FeatureSection(props) {
         if (sectionTop < window.innerHeight / 1.8) {
           currentSection = section;
           setActiveImage(
-            selectedServiceData.serviceDetail.sellingProposition[index].image
+            selectedServiceData?.serviceDetail.sellingProposition[index].image
           );
         } else {
           return null;
@@ -81,7 +86,7 @@ export default function FeatureSection(props) {
         <div className="flex flex-col md:gap-16 lg:gap-20 sm:flex-row container-margin-compact">
           <div className="relative mb-[10px] w-full sm:mb-[20px] md:mt-14 md:mb-[50px]">
             <div className="flex flex-col gap-16 max-w-[500px]  sm:gap-36 md:gap-44 lg:gap-44 ">
-              {selectedServiceData.serviceDetail.sellingProposition.map(
+              {selectedServiceData?.serviceDetail.sellingProposition.map(
                 (serviceDetail, index) => (
                   <m.div
                     initial="hidden"

@@ -165,7 +165,7 @@ export default function Work() {
                       transform: "translate(-50%, -50%)",
                     }}
                   >
-                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-20 sm:h-20 md:w-[7.5rem] md:h-[7.5rem] outline outline-2 outline-offset-0">
+                    <div className="flex items-center justify-center w-24 h-24 text-sm leading-snug text-white rounded-full sm:w-20 sm:h-20 md:w-[7.7rem] md:h-[7.7rem] outline outline-2 outline-offset-0">
                       <span className="w-24 text-xs text-center md:text-base">
                         View Case Study
                       </span>
