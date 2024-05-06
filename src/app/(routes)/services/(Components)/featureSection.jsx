@@ -8,21 +8,29 @@ import NotFound from "@/app/not-found";
 export default function FeatureSection(props) {
   const { selectedServiceData } = props;
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [activeImage, setActiveImage] = useState(null);
   const mainRef = useRef(null);
   const { setMenuBackgroundBlack } = useGlobalState();
 
-  if (!selectedServiceData) {
-    return <NotFound />;
-  }
-
-  const [activeImage, setActiveImage] = useState(null);
-  const fadeUp = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: 0 },
-  };
-
+  // First useEffect for handling scroll on mainRef
   useEffect(() => {
-    if (!selectedServiceData) return;
+    const handleScroll = () => {
+      if (!mainRef.current) return;
+
+      const topPos = mainRef.current.getBoundingClientRect().top;
+      const offset = window.innerHeight / 2;
+      const isInMiddle =
+        topPos <= offset && topPos >= offset - mainRef.current.offsetHeight;
+      setIsDarkTheme(isInMiddle);
+      setMenuBackgroundBlack(isInMiddle);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [setMenuBackgroundBlack]);
+
+  // Second useEffect for handling scroll on sections
+  useEffect(() => {
     const handleScroll = () => {
       const sections = document.querySelectorAll(".section-class");
       let currentSection = sections[0];
@@ -34,33 +42,21 @@ export default function FeatureSection(props) {
           setActiveImage(
             selectedServiceData?.serviceDetail.sellingProposition[index].image
           );
-        } else {
-          return null;
         }
       });
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, [selectedServiceData]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (!mainRef.current) return;
-
-      const topPos = mainRef.current.getBoundingClientRect().top;
-      const offset = window.innerHeight / 2;
-
-      const isInMiddle =
-        topPos <= offset && topPos >= offset - mainRef.current.offsetHeight;
-      setIsDarkTheme(isInMiddle);
-      setMenuBackgroundBlack(isInMiddle);
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [setMenuBackgroundBlack]);
+  if (!selectedServiceData) {
+    return <NotFound />;
+  }
+  const fadeUp = {
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0 },
+  };
 
   return (
     <LazyMotion features={domAnimation}>
