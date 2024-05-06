@@ -15,11 +15,6 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   // read route params
   const workSlug = params.workSlug;
-
-  if (!workSlug) {
-    return <NotFound />;
-  }
-
   const workItem = workData.find((item) => item.slug === workSlug);
   if (!workItem) {
     return <NotFound />;

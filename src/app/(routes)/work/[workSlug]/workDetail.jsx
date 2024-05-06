@@ -20,7 +20,7 @@ export default function WorkDetail() {
   const workItem = useWorkDetails(workSlug);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
-  const [isBelow540px, setIsBelow540px] = useState(window.innerWidth < 540);
+  const [isBelow540px, setIsBelow540px] = useState();
 
   useEffect(() => {
     const handleResize = () => {
