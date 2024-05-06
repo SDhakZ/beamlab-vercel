@@ -15,18 +15,14 @@ export default function FeatureSection(props) {
     return <NotFound />;
   }
 
-  const [activeImage, setActiveImage] = useState(
-    selectedServiceData
-      ? selectedServiceData.serviceDetail.sellingProposition[0].image
-      : null
-  );
-
+  const [activeImage, setActiveImage] = useState(null);
   const fadeUp = {
     hidden: { opacity: 0, y: 10 },
     visible: { opacity: 1, y: 0 },
   };
 
   useEffect(() => {
+    if (!selectedServiceData) return;
     const handleScroll = () => {
       const sections = document.querySelectorAll(".section-class");
       let currentSection = sections[0];
@@ -51,17 +47,15 @@ export default function FeatureSection(props) {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (mainRef.current) {
-        const topPos = mainRef.current.getBoundingClientRect().top;
-        const offset = window.innerHeight / 2;
+      if (!mainRef.current) return;
 
-        const isInMiddle =
-          topPos <= offset && topPos >= offset - mainRef.current.offsetHeight;
-        setIsDarkTheme(isInMiddle);
-        setMenuBackgroundBlack(isInMiddle);
-      } else {
-        return null;
-      }
+      const topPos = mainRef.current.getBoundingClientRect().top;
+      const offset = window.innerHeight / 2;
+
+      const isInMiddle =
+        topPos <= offset && topPos >= offset - mainRef.current.offsetHeight;
+      setIsDarkTheme(isInMiddle);
+      setMenuBackgroundBlack(isInMiddle);
     };
 
     window.addEventListener("scroll", handleScroll);
