@@ -63,7 +63,7 @@ export default function Carousel() {
             pauseOnMouseEnter: false,
             reverseDirection: false,
           }}
-          slidesPerView={3}
+          slidesPerView={2}
           speed={9000}
           breakpoints={{
             540: {

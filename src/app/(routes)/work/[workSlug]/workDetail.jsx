@@ -20,6 +20,21 @@ export default function WorkDetail() {
   const workItem = useWorkDetails(workSlug);
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
+  const [isBelow540px, setIsBelow540px] = useState(window.innerWidth < 540);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsBelow540px(window.innerWidth < 540);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    // Clean up the event listener when the component unmounts
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   const [activeImage, setActiveImage] = useState(
     workItem ? workItem.mainContent.processContainer[0].image : null
   );
@@ -218,7 +233,7 @@ export default function WorkDetail() {
                   <div
                     data-aos-once="true"
                     data-aos={index == 0 ? "" : "fade-in"}
-                    data-aos-anchor-placement="top-center"
+                    data-aos-anchor-placement={isBelow540px ? "" : "top-center"}
                   >
                     <h3
                       className={`${
