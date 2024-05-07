@@ -56,7 +56,7 @@ export const serviceData = [
   {
     id: 2,
     slug: "ai-implementation",
-    title: "Web Development",
+    title: "AI Implementation",
     brief: "Superb design, flawless website—setting the internet's benchmark.",
     images: {
       default: "/services/web-dev-logo.png",
@@ -103,9 +103,9 @@ export const serviceData = [
     },
   },
   {
-    id: 1,
+    id: 3,
     slug: "mobile-app-development",
-    title: "Web Development",
+    title: "Mobile App Development",
     brief: "Superb design, flawless website—setting the internet's benchmark.",
     images: {
       default: "/services/web-dev-logo.png",

@@ -1,6 +1,7 @@
 import { serviceData } from "@/app/data/service";
 import ServiceDetail from "./serviceDetail";
 import NotFound from "@/app/not-found";
+const websiteUrl = process.env.NEXT_PUBLIC_WEBSITE_URL;
 
 export function generateStaticParams() {
   const serviceSlugs = serviceData.map((service) => ({
@@ -35,6 +36,21 @@ export async function generateMetadata({ params }) {
     keywords: ["Beamlab", "Portfolio", title],
     alternates: {
       canonical: `/services/${serviceSlug}`,
+    },
+    openGraph: {
+      title: `${title}:${brief} - Beamlab.`,
+      description: `${optimizedDescription}`,
+      images: [
+        {
+          url: "/OpengraphAlt2.png",
+          width: 1800,
+          height: 1600,
+          alt: "Beamlab",
+        },
+        { url: "/Opengraph.png", width: 1200, height: 630, alt: "Beamlab" },
+        { url: "/OpengraphAlt.png", width: 800, height: 600, alt: "Beamlab" },
+      ],
+      url: `${websiteUrl}/services/${serviceSlug}`,
     },
   };
 }

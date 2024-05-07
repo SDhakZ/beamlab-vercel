@@ -1,13 +1,25 @@
 import React from "react";
 import ContactModule from "@/app/components/contactModule/ContactModule";
+const websiteUrl = process.env.NEXT_PUBLIC_WEBSITE_URL;
 
 export const metadata = {
   title: "Terms and Conditions",
   description:
-    "These terms of service and disclaimer govern your use of the TwelveLetter website and any content, features, or services made available through the website.",
+    "These terms of service and disclaimer govern your use of the Beamlab website and any content, features, or services made available through the website.",
   keywords: ["Beamlab", "terms and conditions", "policy"],
   alternates: {
     canonical: "/terms-and-conditions",
+  },
+  openGraph: {
+    title: "Terms and conditions | Beamlab",
+    description:
+      "These terms of service and disclaimer govern your use of the Beamlab website and any content, features, or services made available through the website.",
+    images: [
+      { url: "/OpengraphAlt2.png", width: 1800, height: 1600, alt: "Beamlab" },
+      { url: "/Opengraph.png", width: 1200, height: 630, alt: "Beamlab" },
+      { url: "/OpengraphAlt.png", width: 800, height: 600, alt: "Beamlab" },
+    ],
+    url: `${websiteUrl}/terms-and-conditions`,
   },
 };
 

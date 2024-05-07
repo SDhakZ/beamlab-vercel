@@ -66,7 +66,7 @@ export default function Contact(props) {
     try {
       setLoading(true);
       const res = await axios.post(
-        "http://localhost:3000/api/sed",
+        "http://localhost:3000/api/send",
         dataToSend,
         {
           headers: {

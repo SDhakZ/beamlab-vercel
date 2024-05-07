@@ -4,6 +4,7 @@ import {
   faFacebookF,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { serviceData } from "./service";
 
 import { faLocationDot, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 
@@ -20,11 +21,10 @@ export const menuData = [
   },
   {
     title: "Services",
-    items: [
-      { title: "App Development", link: "/services/app-development" },
-      { title: "Web development", link: "/services/web-development" },
-      { title: "AI Integrations", link: "/services/ai-integrations" },
-    ],
+    items: serviceData.map((service) => ({
+      title: service.title,
+      link: `/services/${service.slug}`,
+    })),
   },
   {
     title: "Others",

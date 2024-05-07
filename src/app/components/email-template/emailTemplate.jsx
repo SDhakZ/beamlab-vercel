@@ -7,17 +7,16 @@ export default function EmailTemplate({ formData }) {
   return (
     <>
       <Head>
-        <title>TwelveLetter Email Template</title>
+        <title>Beamlab Email Template</title>
       </Head>
       <div style={{ overflowX: "hidden", fontFamily: "Visby", width: "100%" }}>
         {/* Render email content */}
         <h1 style={{ color: "#FF867A" }}>
-          Twelve<span style={{ color: "#374852" }}>Letter</span>
+          Beamlab<span style={{ color: "#FE9600" }}>.</span>
         </h1>
         <h2>
           You received a message from{" "}
-          <span style={{ color: "#FF867A" }}>{name}</span> via TwelveLetter
-          website
+          <span style={{ color: "#FF867A" }}>{name}</span> via Beamlab website
         </h2>
         <div
           style={{
