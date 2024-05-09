@@ -22,13 +22,13 @@ module.exports = {
         "partner-carousel-background": "url('/partners/partnerBG.png')",
         "partner-carousel-background-dark":
           "url('/partners/partnerBGDark.png')",
-        "textured-white-background": "url('/portfolio/texturedWhiteBG.png')",
-        "textured-black-background": "url('/portfolio/texturedBlackBG.png')",
-        "textured-testimonial-background": "url('/assets/testimonialBG.png')",
+        "textured-white-background": "url('/portfolio/texturedWhiteBG.webp')",
+        "textured-black-background": "url('/portfolio/texturedBlackBG.webp')",
+        "textured-testimonial-background": "url('/assets/testimonialBG.webp')",
         "textured-testimonial-background-dark":
-          "url('/assets/testimonialBGDark.png')",
+          "url('/assets/testimonialBGDark.webp')",
         "contact-background": "url('/contact-bg.png')",
-        "techstack-background": "url('/techstack/bg2.png')",
+        "techstack-background": "url('/techstack/bg2.webp')",
       },
       colors: {
         "background-white": "#F5F5F7",

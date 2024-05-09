@@ -10,12 +10,12 @@ export const serviceData = [
     title: "Web Development",
     brief: "Superb design, flawless website—setting the internet's benchmark.",
     images: {
-      default: "/services/web-dev-logo.png",
-      hover: "/services/web-dev-logo-light.png",
+      default: "/services/web-dev-logo.webp",
+      hover: "/services/web-dev-logo-light.webp",
     },
     serviceDetail: {
       heroTitle: "Desktop to Mobile Ready Web Design",
-      heroImage: "/services/web-development/web-dev-hero3.png",
+      heroImage: "/services/web-development/web-dev-hero.webp",
       serviceBrief:
         "At Beamlab we specialize in delivering cutting-edge web development services tailored to meet the unique needs of businesses and organizations across various industries. Our team of experienced developers and designers is dedicated to crafting exceptional digital experiences that drive results. Explore our range of services below:",
       offerings: [
@@ -59,12 +59,12 @@ export const serviceData = [
     title: "AI Implementation",
     brief: "Superb design, flawless website—setting the internet's benchmark.",
     images: {
-      default: "/services/web-dev-logo.png",
-      hover: "/services/web-dev-logo-light.png",
+      default: "/services/ai-implementation.webp",
+      hover: "/services/ai-implementation-light.webp",
     },
     serviceDetail: {
       heroTitle: "Desktop to Mobile Ready Web Design",
-      heroImage: "/services/web-development/web-dev-hero.png",
+      heroImage: "/services/web-development/web-dev-hero.webp",
       serviceBrief:
         "At Beamlab we specialize in delivering cutting-edge web development services tailored to meet the unique needs of businesses and organizations across various industries. Our team of experienced developers and designers is dedicated to crafting exceptional digital experiences that drive results. Explore our range of services below:",
       offerings: [
@@ -108,12 +108,12 @@ export const serviceData = [
     title: "Mobile App Development",
     brief: "Superb design, flawless website—setting the internet's benchmark.",
     images: {
-      default: "/services/web-dev-logo.png",
-      hover: "/services/web-dev-logo-light.png",
+      default: "/services/mobile-app-dev.webp",
+      hover: "/services/mobile-app-dev-light.webp",
     },
     serviceDetail: {
       heroTitle: "Desktop to Mobile Ready Web Design",
-      heroImage: "/services/web-development/web-dev-hero2.png",
+      heroImage: "/services/web-development/web-dev-hero2.webp",
       serviceBrief:
         "At Beamlab we specialize in delivering cutting-edge web development services tailored to meet the unique needs of businesses and organizations across various industries. Our team of experienced developers and designers is dedicated to crafting exceptional digital experiences that drive results. Explore our range of services below:",
       offerings: [

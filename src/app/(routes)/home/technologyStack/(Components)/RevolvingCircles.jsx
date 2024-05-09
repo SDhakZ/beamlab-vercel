@@ -46,7 +46,7 @@ const RevolvingCircles = () => {
       <div className="solar-system-container">
         <div className="rounded-full w-[50px] sm:w-[80px] lg:w-[100px] central-sun">
           <img
-            src="/techstack/mainCircle.png"
+            src="/techstack/mainCircle.webp"
             title="beamlab"
             alt="Central Tech"
           />
