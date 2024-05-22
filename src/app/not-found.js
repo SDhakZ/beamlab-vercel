@@ -30,12 +30,12 @@ export default function NotFound() {
       <div className="relative flex flex-col items-center min-h-[90vh] justify-center item-center">
         <video
           muted
-          className="w-[550px] opacity-80"
+          className="w-[750px] opacity-80"
           loop
           autoPlay
           ref={videoRef}
         >
-          <source src="/not-found.webm" type="video/webm" />
+          <source src="/not-found-loop.webm" type="video/webm" />
           Your browser does not support the video tag.
         </video>
         <div className="absolute flex flex-col items-center top-[52%]">

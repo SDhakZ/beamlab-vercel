@@ -126,4 +126,17 @@
   .content {
     padding: 40px 20px;
   }
+
+  .square span:nth-child(1) {
+    border-radius: 40% 30% 35% 40% / 48% 32% 59% 55%;
+  }
+
+  .square span:nth-child(2) {
+    border: 2px solid rgb(97, 97, 97);
+    border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
+  }
+
+  .square span:nth-child(3) {
+    border-radius: 31% 35% 44% 55% / 38% 56% 51% 57%;
+  }
 }

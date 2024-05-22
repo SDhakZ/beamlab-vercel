@@ -8,8 +8,8 @@ export default function AppFooter() {
   return (
     <footer className=" bg-background-black" id="footer">
       <div className="pt-16 pb-20 space-y-8 tracking-wider lg:pt-20 container-margin">
-        <div className="flex flex-col gap-10">
-          <div className="flex flex-wrap justify-center gap-10 sm:gap-20 sm:flex-nowrap">
+        <div className="flex flex-col gap-14">
+          <div className="flex flex-wrap justify-center gap-14 sm:gap-20 sm:flex-nowrap">
             <div className="col-span-1 flex flex-col items-center sm:items-start  w-full max-w-[340px]">
               <a
                 href="/"
@@ -22,7 +22,7 @@ export default function AppFooter() {
                 <br /> All rights reserved
               </p>
             </div>
-            <div className="grid w-full gap-10 lg:gap-20 lg:grid-cols-3">
+            <div className="grid w-full gap-14 lg:gap-20 lg:grid-cols-3">
               {menuData.slice(0, 3).map((section, index) => (
                 <div
                   key={index}

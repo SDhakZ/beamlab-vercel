@@ -35,3 +35,10 @@
   /* Display & Box Model */
   transform: translateX(100%) rotate(45deg); /* Mod3: Can change the shining effect direction and angle */
 }
+
+@media (max-width: 768px) {
+  .shiny-contact {
+    /* Display & Box Model */
+    border: 3px solid #242424;
+  }
+}

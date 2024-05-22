@@ -194,7 +194,7 @@ export default function Contact(props) {
                   </Tippy>
                   <button
                     type="submit"
-                    className={`flex shiny-contact border-gradient border-2 bg-transparent hover:border-primary-orange-200 hover:bg-primary-orange-300 text-white-shade-200 bg-primary-orange-200 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[100%] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
+                    className={`flex text-black-shade-200 shiny-contact border-gradient border-2 bg-transparent hover:border-primary-orange-200 hover:bg-primary-orange-300 md:text-white-shade-200 bg-primary-orange-200 whitespace-nowrap transition-all h-fit duration-200  w-full items-center max-w-[100%] lg:max-w-[300px] justify-center p-3 text-lg font-medium tracking-wider rounded-full  ${
                       loading
                         ? "bg-gray-400"
                         : sentStatus === "success"

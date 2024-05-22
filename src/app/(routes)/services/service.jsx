@@ -23,15 +23,15 @@ export default function service() {
   return (
     <div className="relative">
       <section className="top-section-p container-margin">
-        <h1 className="text-2xl font-semibold text-black-shade-300 lg:leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
+        <h1 className="text-3xl font-semibold text-black-shade-300 lg:leading-tight sm:text-3xl md:text-4xl lg:text-5xl">
           From <span className="gradient">Imagination</span> to{" "}
           <span className="gradient">Implementation</span>: Full-spectrum
           services for dynamic outcomes
         </h1>
       </section>
-      <section className="mt-10 lg:mt-20 md:mt-16 sm:mt-12 container-margin ">
+      <section className="mt-14 lg:mt-20 md:mt-16 sm:mt-12 container-margin ">
         <motion.div
-          className="flex flex-wrap gap-x-6 gap-y-16 justify-evenly"
+          className="flex flex-wrap gap-x-6 gap-y-20 justify-evenly"
           initial="hidden"
           animate="show"
           variants={containerVariants}

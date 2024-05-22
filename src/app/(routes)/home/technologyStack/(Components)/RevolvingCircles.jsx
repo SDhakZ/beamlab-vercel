@@ -40,7 +40,7 @@ const RevolvingCircles = () => {
 
   return (
     <div className="bg-cover bg-techstack-background padding-y-lg">
-      <h3 className="relative z-10 self-start text-2xl font-semibold leading-snug text-center capitalize container-margin lg:text-4xl md:text-3xl xl:text-5xl text-white-shade-200">
+      <h3 className="relative z-10 self-start text-3xl font-semibold leading-snug text-center capitalize container-margin lg:text-4xl md:text-3xl xl:text-5xl text-white-shade-200">
         Technology we excel at
       </h3>
       <div className="solar-system-container">

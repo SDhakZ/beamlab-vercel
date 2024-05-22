@@ -53,11 +53,11 @@ export default function FullscreenMenu(props) {
 
   return (
     <div
-      className={`${FullMenuCSS.height} overflow-x-hidden absolute lg:fixed left-0 z-[998] flex flex-col items-center justify-center w-full pt-6 lg:pt-10 py-16 top-[4.9rem] bg-background-white overflow-y-auto`}
+      className={`${FullMenuCSS.height} h-full  sm:h-fit overflow-x-hidden absolute lg:fixed left-0 z-[998] flex flex-col items-center justify-center w-full pt-6 lg:pt-10 py-10 sm:py-16 top-[4.9rem] bg-background-white overflow-y-auto`}
     >
       <div className="flex flex-col px-[20px] sm:px-[35px] md:px-[50px] lg:px-[65px] justify-between max-w-[1300px] w-full h-full">
-        <div className="flex items-center justify-between w-full h-full gap-2 md:gap-36 max-w-[900px] ">
-          <ul className="flex-1 space-y-5 text-3xl font-semibold md:space-y-8 md:text-5xl max-w-fit font-poppins text-black-shade-300">
+        <div className="flex items-center justify-center sm:justify-between w-full h-full gap-2 md:gap-36 max-w-[900px]">
+          <ul className="flex-1 w-full text-5xl font-semibold text-center sm:text-left space-y-7 sm:text-5xl md:space-y-8 md:text-5xl max-w-fit font-poppins text-black-shade-300">
             {menuData[0].items.map((menuItem, index) => (
               <li key={index}>
                 <Link
@@ -80,9 +80,9 @@ export default function FullscreenMenu(props) {
               </li>
             ))}
           </ul>
-          <div className="relative mr-0 sm:mr-16 md:mr-10">
+          <div className="invisible hidden mr-0 sm:visible sm:block sm:relative sm:mr-16 md:mr-10">
             <div
-              className="absolute invisible sm:visible ease-in-out transition-opacity duration-100 text-[clamp(1.3em,9vw,10em)] whitespace-nowrap text-black-shade-300 font-bold transform -translate-x-1/2 -translate-y-1/2 font-poppins top-1/2 left-1/2"
+              className="absolute  ease-in-out transition-opacity duration-100 text-[clamp(1.3em,9vw,10em)] whitespace-nowrap text-black-shade-300 font-bold transform -translate-x-1/2 -translate-y-1/2 font-poppins top-1/2 left-1/2"
               style={{ opacity: opacity, filter: `blur(${blur})` }}
             >
               {displayTitle.toUpperCase()}
@@ -95,7 +95,7 @@ export default function FullscreenMenu(props) {
           </div>
         </div>
 
-        <div className="flex flex-col gap-5 md:items-center md:mt-12 md:justify-between w-full max-w-[1200px]">
+        <div className="flex self-end flex-col gap-5 md:items-center md:mt-12 md:justify-between w-full max-w-[1200px]">
           <div className="flex items-center flex-col-reverse md:flex-row gap-5 md:items-center mt-16 md:justify-between w-full max-w-[1200px]">
             <p className="text-center sm:text-left text-black-shade-300">
               Copyright © 2024 beamlab.co. All rights reserved{" "}
