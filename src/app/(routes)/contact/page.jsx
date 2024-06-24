@@ -16,7 +16,7 @@ export const metadata = {
     "AI integration",
   ],
   alternates: {
-    canonical: "/work",
+    canonical: "/contact",
   },
   openGraph: {
     title: "Contact Us | Beamlab",
