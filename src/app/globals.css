@@ -91,11 +91,11 @@ body {
   /* Display & Box Model */
   --bg-size: 300%;
   /* Other */
-  --color-one: #ff6600;
-  --color-two: #fe9600;
-  --color-three: #ff867a;
+  --color-one: #ff7c24;
+  --color-two: #fec300;
+  --color-three: #ffda33;
   background: linear-gradient(
-      0deg,
+      90deg,
       var(--color-one),
       var(--color-two),
       var(--color-three),

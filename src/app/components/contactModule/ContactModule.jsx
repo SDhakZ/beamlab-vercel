@@ -18,7 +18,7 @@ export default function ContactModule() {
           </span>
 
           <div className="mt-2 text-3xl font-medium font-poppins leading-12 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight text-white-shade-100">
-            <span className="mt-2 text-3xl font-semibold gradient font-visby leading-12 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight text-primary-orange-300">
+            <span className="mt-2 text-3xl font-medium gradient font-visby leading-12 md:text-4xl md:leading-tight lg:text-5xl lg:leading-tight text-primary-orange-300">
               Get In Touch:{" "}
             </span>
             Reach Out to Us for Inquiries, Assistance, or Collaborations
